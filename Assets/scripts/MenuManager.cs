@@ -4,33 +4,66 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menu;
     public GameObject controls;
+    public GameObject credits;
+    public GameObject quitter;
+
+    public GameObject[] hoverImages;
 
     void Start()
     {
         menu.SetActive(true);
         controls.SetActive(false);
+        credits.SetActive(false);
     }
 
     void Update()
     {
-        // Si on appuie sur Échap et que le menu contrôle est ouvert
         if (controls.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            RetourMenu();
+        }else if (credits.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             RetourMenu();
         }
     }
 
-    // Quand on clique sur le bouton "Contrôles"
     public void OpenControls()
     {
+        ResetHover(); 
+
         menu.SetActive(false);
         controls.SetActive(true);
     }
 
-    // Quand on clique sur "Retourner"
+    public void OpenCredits()
+    {
+        ResetHover(); 
+
+        menu.SetActive(false);
+        credits.SetActive(true);
+    }
+
+    public void OpenQuitter()
+    {
+        ResetHover();
+
+        menu.SetActive(false);
+        quitter.SetActive(true);
+    }
+
     public void RetourMenu()
     {
+        quitter.SetActive(false);
+        credits.SetActive(false);
         controls.SetActive(false);
         menu.SetActive(true);
+    }
+
+    void ResetHover()
+    {
+        foreach (GameObject img in hoverImages)
+        {
+            img.SetActive(false);
+        }
     }
 }

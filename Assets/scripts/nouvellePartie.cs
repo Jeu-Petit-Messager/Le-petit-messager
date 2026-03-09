@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class nouvellePartie : MonoBehaviour, IPointerClickHandler
+public class nouvellePartie : MonoBehaviour
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public void nouvellescene()
     {
         SceneManager.LoadScene("sceneJeu");
     }
