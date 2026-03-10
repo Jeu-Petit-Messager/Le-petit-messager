@@ -7,4 +7,9 @@ public class nouvellePartie : MonoBehaviour
     {
         SceneManager.LoadScene("sceneJeu");
     }
+    public void changerCamera()
+    {
+        DesactiveCameraIntro.instance.introCamera.gameObject.SetActive(false);
+        DesactiveCameraIntro.instance.jeuCamera.gameObject.SetActive(true);
+    }
 }
