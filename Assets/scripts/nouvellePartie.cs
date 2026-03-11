@@ -3,12 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class nouvellePartie : MonoBehaviour
 {
+    // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
     public void OnNouvellePartieClicked()
     {
         SceneManager.sceneLoaded += LoadedScene;
         SceneManager.LoadScene("sceneJeu");
     }
 
+    // Méthode appelée lorsque la scène est chargée
     private void LoadedScene(Scene scene, LoadSceneMode mode)
     {
         if (scene.name != "sceneJeu") return;
@@ -19,7 +21,7 @@ public class nouvellePartie : MonoBehaviour
         {
             camManager.ChangeACameraJeu();
         }
-
+        // Désabonner l'événement pour éviter les appels multiples
         SceneManager.sceneLoaded -= LoadedScene;
     }
 }
