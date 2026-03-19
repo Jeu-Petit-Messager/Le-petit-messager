@@ -6,6 +6,12 @@ public class nouvellePartie : MonoBehaviour
     // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
     public void OnNouvellePartieClicked()
     {
+        CancelInvoke(("LoadSceneJeu"));
+        Invoke(("LoadSceneJeu"), 4.5f);
+    }
+
+    private void LoadSceneJeu()
+    {
         SceneManager.sceneLoaded += LoadedScene;
         SceneManager.LoadScene("sceneJeu");
     }
