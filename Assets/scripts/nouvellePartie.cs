@@ -7,7 +7,7 @@ public class nouvellePartie : MonoBehaviour
     public void OnNouvellePartieClicked()
     {
         CancelInvoke(("LoadSceneJeu"));
-        Invoke(("LoadSceneJeu"), 4.5f);
+        Invoke(("LoadSceneJeu"), 15.5f);
     }
 
     private void LoadSceneJeu()
