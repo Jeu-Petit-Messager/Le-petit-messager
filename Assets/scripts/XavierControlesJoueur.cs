@@ -1,94 +1,114 @@
 using UnityEngine;
 
-/* Script controles joueuer */
+/* Script des controles du joueur */
 public class XavierControlesJoueur : MonoBehaviour
 {
-    [Header("Parametres de mouvement")]
+    [Header("Reglages du mouvement")]
     public float vitesseMouvement = 5f;
-    public float drag = 5f;
+    public float friction = 5f;
     public float forceSaut = 7f;
-    public float airMultiplier = 0.4f;
+    public float multiplicateurAir = 0.4f;
+    public float forceRotation;
+    public float vitesseTourne;
 
-    [Header("Parametres verifier si au sol")]
+    [Header("Detection du sol")]
     public float hauteurJoueur = 2f;
-    public LayerMask calqueSol;
+    public LayerMask coucheSol;
     bool auSol;
 
-    public Transform orientation; // An empty GameObject child that dictates "forward"
-
-    float horizontalInput;
-    float verticalInput;
-    Vector3 directionDeplacement;
+    float inputHorizontale;
+    float inputVerticale;
+    Vector3 directionMouvement;
     Rigidbody rigidbodyJoueur;
 
     void Start()
     {
-        /* Saisir le rigidbody */
         rigidbodyJoueur = GetComponent<Rigidbody>();
-        rigidbodyJoueur.freezeRotation = true;
     }
 
     void Update()
     {
-        // Raycast verification sol
-        auSol = Physics.Raycast(transform.position, Vector3.down, hauteurJoueur * 0.5f + 0.2f, calqueSol);
+        // 1. Verification du sol (Raycast vers le bas)
+        auSol = Physics.Raycast(transform.position, Vector3.down, hauteurJoueur * 0.5f + 0.2f, coucheSol);
 
-        InputsJoueur();
-        GestionVelocite();
+        GererInputs();
+        //ControlerVitesse();
 
-        // Configurer le drag en fonction de si le joueur est au sol ou non
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * vitesseTourne);
+
+        // Appliquer la friction (Drag) uniquement au sol
         if (auSol)
-            rigidbodyJoueur.linearDamping = drag;
+            rigidbodyJoueur.linearDamping = friction;
         else
             rigidbodyJoueur.linearDamping = 0;
     }
 
     void FixedUpdate()
     {
-        // Appeler la fonction configurant les forces de deplacement du joueur
-        DeplacementJoueur();
+        // Appeler la fonction de gestion du mouvement
+        BougerJoueur();
+
     }
 
-    void InputsJoueur()
+    void GererInputs()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        inputHorizontale = Input.GetAxisRaw("Horizontal");
+        inputVerticale = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButtonDown("Jump") && auSol)
+        // Logique du saut
+        if (Input.GetKeyDown(KeyCode.Space) && auSol)
         {
-            AppliquerForceSaut();
+            Sauter();
         }
     }
 
-    /* Fonction configurant les forces de deplacement du joueur */
-    void DeplacementJoueur()
+    void BougerJoueur()
     {
-        // Saisir la direction de deplacement en fonction de l'orientation du joueur
-        directionDeplacement = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        // 1. Calcul de la direction relative au monde (Z = devant, X = droite)
+        directionMouvement = new Vector3(inputHorizontale, 0f, inputVerticale);
 
+        //if (inputVerticale > 0)
+        //{
+        //    GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, vitesseMouvement);
+        //}
 
-        if (auSol)
-            rigidbodyJoueur.AddForce(directionDeplacement.normalized * vitesseMouvement * 10f, ForceMode.Force);
-        else
-            rigidbodyJoueur.AddForce(directionDeplacement.normalized * vitesseMouvement * 10f * airMultiplier, ForceMode.Force);
-    }
+        //else if (inputVerticale < 0)
+        //{
+        //    GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, -vitesseMouvement);
+        //}
 
-    void GestionVelocite()
-    {
-        Vector3 flatVel = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
-
-        // Limit velocity if it goes faster than vitesseMouvement
-        if (flatVel.magnitude > vitesseMouvement)
+        if (inputVerticale < 0 || inputVerticale > 0)
         {
-            Vector3 limitedVel = flatVel.normalized * vitesseMouvement;
-            rigidbodyJoueur.linearVelocity = new Vector3(limitedVel.x, rigidbodyJoueur.linearVelocity.y, limitedVel.z);
+            // 2. Rotation : Faire face à la direction du mouvement
+            // On calcule la rotation cible
+            Quaternion rotationCible = Quaternion.LookRotation(directionMouvement);
+
+            // On tourne progressivement vers cette cible (Slerp)
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotationCible, vitesseTourne * Time.fixedDeltaTime);
+
+            // 3. Déplacement : On avance toujours vers l'avant du transform actuel
+            rigidbodyJoueur.AddForce(directionMouvement * vitesseMouvement * 10f, ForceMode.Force);
         }
     }
 
-    void AppliquerForceSaut()
+    void ControlerVitesse()
     {
-        // Reset y velocity for consistent jump height
+        Vector3 vitesseHorizontale = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
+
+        // Limiter la vitesse si elle d�passe la vitesse maximum
+        if (vitesseHorizontale.magnitude > vitesseMouvement)
+        {
+            Vector3 vitesseLimitee = vitesseHorizontale.normalized * vitesseMouvement;
+            rigidbodyJoueur.linearVelocity = new Vector3(vitesseLimitee.x, rigidbodyJoueur.linearVelocity.y, vitesseLimitee.z);
+        }
+    }
+
+    void Sauter()
+    {
+        print("Sauter !");
+        // On reinitialise la vitesse Y pour que chaque saut ait la meme force
         rigidbodyJoueur.linearVelocity = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
+
         rigidbodyJoueur.AddForce(transform.up * forceSaut, ForceMode.Impulse);
     }
 }

@@ -83,6 +83,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2b8c344bb6f9141b806905828bd753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XavierControlesJoueur
+  vitesseMouvement: 5
+  friction: 5
+  forceSaut: 7
+  multiplicateurAir: 0.4
+  forceRotation: 0
+  vitesseTourne: 720
+  hauteurJoueur: 2
+  coucheSol:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!54 &-348085477047607631
 Rigidbody:
   m_ObjectHideFlags: 0
