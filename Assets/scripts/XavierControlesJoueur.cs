@@ -9,7 +9,6 @@ public class XavierControlesJoueur : MonoBehaviour
     public float forceAcceleration;
     public float vitesseRotation;
     public float forceRotation;
-
     Rigidbody rigidbodyJoueur;
 
     void Start()
@@ -19,21 +18,29 @@ public class XavierControlesJoueur : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.LeftShift)) statsCourse();
 
-        /* Gerer le d placement avant/arriere du joueur */
-        if (Input.GetKey(KeyCode.W) && vitesseAvant < vitesseAvantMax)
+        if (Input.GetKeyUp(KeyCode.LeftShift)) statsMarche();
+
+        /* Gerer le deplacement avant/arriere du joueur */
+        if ((Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.UpArrow)) && vitesseAvant < vitesseAvantMax))
         {
             
             vitesseAvant += forceAcceleration;
         }
-        if (Input.GetKey(KeyCode.S) && vitesseAvant > -vitesseAvantMax)
+        if ((Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.DownArrow)) && vitesseAvant > -vitesseAvantMax))
         {
             
             vitesseAvant -= forceAcceleration;
         }
 
+
         /* Gerer la rotation du joueur */
         vitesseRotation = Input.GetAxis("Horizontal") * forceRotation;
+        vitesseAvant = Input.GetAxis("Vertical") * forceAcceleration;
+
+        if (vitesseAvant > vitesseAvantMax) vitesseAvant = vitesseAvantMax;
+        if (vitesseAvant < -vitesseAvantMax) vitesseAvant = -vitesseAvantMax;
     }
 
     void FixedUpdate()
@@ -41,8 +48,8 @@ public class XavierControlesJoueur : MonoBehaviour
         // Appeler la fonction de gestion du mouvement
         //BougerJoueur();
 
-        // Avancer et reculer le tank
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        // Avancer et reculer le garcon
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
             GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, vitesseAvant);
 
@@ -54,11 +61,22 @@ public class XavierControlesJoueur : MonoBehaviour
         }
 
         // Tourner le joueur
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             GetComponent<Rigidbody>().AddRelativeTorque(0f, vitesseRotation, 0f);
         }
 
+    }
+
+    void statsCourse()
+    {
+        vitesseAvantMax *= 1.2f;
+    }
+
+    void statsMarche()
+    {
+        vitesseAvantMax /= 1.2f;
+        vitesseAvant = vitesseAvantMax;
     }
 
     void Sauter()
