@@ -29,15 +29,15 @@ public class FadeinJeu : MonoBehaviour
         // Cacher le menu
         menuCanvas.SetActive(false);
 
-        // Lancer la vidéo
-        videoCanvas.SetActive(true);
-        videoPlayer.Play();
+        // // Lancer la vidéo
+        // videoCanvas.SetActive(true);
+        // videoPlayer.Play();
 
-        // Attendre la fin de la vidéo
-        while (videoPlayer.isPlaying)
-        {
-            yield return null;
-        }
+        // // Attendre la fin de la vidéo
+        // while (videoPlayer.isPlaying)
+        // {
+        //     yield return null;
+        // }
 
         // FadeIn (montrer le jeu)
         fadeAnimator.SetTrigger("FadeIn");
