@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 231.28127
+      value: 244.84583
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.649
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 263.21616
+      value: 263.9768
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_Name
-      value: fbx-enfant
+      value: garcon_avantRig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85,12 +85,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XavierControlesJoueur
   vitesseAvant: 0
   vitesseAvantMax: 6.2
-  vitesseAvantMaxMarche: 0
   forceAcceleration: 10
   vitesseRotation: 0
   forceRotation: 0.15
   peutCourir: 0
   estAccroupi: 0
+  hauteurCollider: 1.58
+  centreYCollider: 0.8
+  hauteurColliderAccroupi: 1.15
+  centreYColliderAccroupi: 0.57
 --- !u!54 &-348085477047607631
 Rigidbody:
   m_ObjectHideFlags: 0

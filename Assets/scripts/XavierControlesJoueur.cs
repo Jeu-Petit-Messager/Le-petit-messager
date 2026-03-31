@@ -6,7 +6,7 @@ public class XavierControlesJoueur : MonoBehaviour
     [Header("Reglages du mouvement")]
     public float vitesseAvant;
     public float vitesseAvantMax;
-    public float vitesseAvantMaxMarche;
+    float vitesseAvantMaxMarche;
     public float forceAcceleration;
     public float vitesseRotation;
     public float forceRotation;
@@ -16,12 +16,22 @@ public class XavierControlesJoueur : MonoBehaviour
     public bool peutCourir;
     public bool estAccroupi;
 
+    [Header("Stats collider accroupi")]
+    public float hauteurCollider;
+    public float centreYCollider;
+    public float hauteurColliderAccroupi;
+    public float centreYColliderAccroupi;
+
     void Start()
     {
+        /* Enregistrer donnees initiales */
         vitesseAvantMaxMarche = vitesseAvantMax;
         rigidbodyJoueur = GetComponent<Rigidbody>();
         peutCourir = true;
         estAccroupi = false;
+        GetComponent<CapsuleCollider>().height = hauteurCollider;
+        GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYCollider, 0f);
+
     }
 
     void Update()
@@ -35,12 +45,15 @@ public class XavierControlesJoueur : MonoBehaviour
             if (!estAccroupi)
             {
                 estAccroupi = true;
-                
+                GetComponent<CapsuleCollider>().height = hauteurColliderAccroupi;
+                GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYColliderAccroupi, 0f);
+
             }
             else
             {
                 estAccroupi = false;
-
+                GetComponent<CapsuleCollider>().height = hauteurCollider;
+                GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYCollider, 0f);
             }
         }
 
