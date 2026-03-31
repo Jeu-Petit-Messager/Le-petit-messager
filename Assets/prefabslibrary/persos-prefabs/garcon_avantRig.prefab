@@ -90,6 +90,13 @@ MonoBehaviour:
   forceRotation: 0.15
   peutCourir: 0
   estAccroupi: 0
+  peutSauter: 0
+  forceSaut: 0
+  solCalque:
+    serializedVersion: 2
+    m_Bits: 8
+  auSol: 0
+  distanceAuSol: 0
   hauteurCollider: 1.58
   centreYCollider: 0.8
   hauteurColliderAccroupi: 1.15

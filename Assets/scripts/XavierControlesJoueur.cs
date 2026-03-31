@@ -3,7 +3,7 @@ using UnityEngine;
 /* Script des controles du joueur */
 public class XavierControlesJoueur : MonoBehaviour
 {
-    [Header("Reglages du mouvement")]
+    [Header("Reglages des deplacements")]
     public float vitesseAvant;
     public float vitesseAvantMax;
     float vitesseAvantMaxMarche;
@@ -15,6 +15,15 @@ public class XavierControlesJoueur : MonoBehaviour
     [Header("Status mvmts")]
     public bool peutCourir;
     public bool estAccroupi;
+    public bool peutSauter;
+
+    [Header("Reglages du saut")]
+    CapsuleCollider colliderJoueur;
+    public float forceSaut;
+    public LayerMask solCalque;
+    public bool auSol;
+    public float distanceAuSol;
+    private float margeDetectionAuSol = 0.1f;
 
     [Header("Stats collider accroupi")]
     public float hauteurCollider;
@@ -27,8 +36,11 @@ public class XavierControlesJoueur : MonoBehaviour
         /* Enregistrer donnees initiales */
         vitesseAvantMaxMarche = vitesseAvantMax;
         rigidbodyJoueur = GetComponent<Rigidbody>();
+        colliderJoueur = GetComponent<CapsuleCollider>();
         peutCourir = true;
         estAccroupi = false;
+        peutSauter = true;
+        
         GetComponent<CapsuleCollider>().height = hauteurCollider;
         GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYCollider, 0f);
 
@@ -38,6 +50,18 @@ public class XavierControlesJoueur : MonoBehaviour
     {
         if(estAccroupi) peutCourir = false;
         else peutCourir = true;
+
+        /* Detecter si le garcon est au sol */
+        // On calcule la distance du pivot jusqu'au bas du collider
+        // col.bounds.extents.y donne la moitié de la hauteur réelle du collider
+        // col.center.y prend en compte le décalage du centre s'il y en a un
+        //float distanceToGround = (col.height / 2) - col.center.y + margin;
+
+        // On lance le rayon depuis le centre du collider, pas depuis le pivot
+        Vector3 startPoint = transform.TransformPoint(colliderJoueur.center);
+        auSol = Physics.Raycast(startPoint, Vector3.down, (colliderJoueur.height / 2) + margeDetectionAuSol, solCalque);
+
+
 
         /* Le joueur s'accroupit lorsque CTRL est appuye */
         if (Input.GetKeyDown(KeyCode.LeftControl))
