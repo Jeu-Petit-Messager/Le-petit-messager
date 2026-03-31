@@ -6,26 +6,69 @@ public class XavierControlesJoueur : MonoBehaviour
     [Header("Reglages du mouvement")]
     public float vitesseAvant;
     public float vitesseAvantMax;
+    public float vitesseAvantMaxMarche;
     public float forceAcceleration;
     public float vitesseRotation;
     public float forceRotation;
     Rigidbody rigidbodyJoueur;
 
+    [Header("Status mvmts")]
+    public bool peutCourir;
+    public bool estAccroupi;
+
     void Start()
     {
+        vitesseAvantMaxMarche = vitesseAvantMax;
         rigidbodyJoueur = GetComponent<Rigidbody>();
+        peutCourir = true;
+        estAccroupi = false;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift)) statsCourse();
+        if(estAccroupi) peutCourir = false;
+        else peutCourir = true;
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) statsMarche();
+        /* Le joueur s'accroupit lorsque CTRL est appuye */
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if (!estAccroupi)
+            {
+                estAccroupi = true;
+                
+            }
+            else
+            {
+                estAccroupi = false;
+
+            }
+        }
+
+        /* Si le joueur n'est pas sous restriction de course */
+        if (peutCourir)
+        {
+            /* Maintenir SHIFT pour courir */
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                vitesseAvantMax = 1.2f * vitesseAvantMaxMarche;
+            }
+            /* Si le joueur courait, le faire marcher */
+            else
+            {
+                vitesseAvantMax = vitesseAvantMaxMarche;
+            }
+        }
+        /* Si le joueur courait, le faire marcher */
+        else
+        {
+            vitesseAvantMax = vitesseAvantMaxMarche;
+        }
+
 
         /* Gerer le deplacement avant/arriere du joueur */
         if ((Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.UpArrow)) && vitesseAvant < vitesseAvantMax))
         {
-            
+
             vitesseAvant += forceAcceleration;
         }
         if ((Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.DownArrow)) && vitesseAvant > -vitesseAvantMax))

@@ -84,11 +84,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XavierControlesJoueur
   vitesseAvant: 0
-  vitesseAvantMax: 7
-  forceAcceleration: 7
+  vitesseAvantMax: 6.2
+  vitesseAvantMaxMarche: 0
+  forceAcceleration: 10
   vitesseRotation: 0
   forceRotation: 0.15
-  modeCourir: 0
+  peutCourir: 0
+  estAccroupi: 0
 --- !u!54 &-348085477047607631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,7 +100,7 @@ Rigidbody:
   m_GameObject: {fileID: 1721133724109011670}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 0.4
   m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
