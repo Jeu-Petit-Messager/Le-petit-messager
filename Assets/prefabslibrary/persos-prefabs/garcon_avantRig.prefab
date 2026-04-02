@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 244.84583
+      value: 244.45515
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 263.9768
+      value: 263.96432
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -88,10 +88,12 @@ MonoBehaviour:
   forceAcceleration: 10
   vitesseRotation: 0
   forceRotation: 0.15
+  peutInteragir: 0
   peutCourir: 0
+  enCourant: 0
   estAccroupi: 0
   peutSauter: 0
-  forceSaut: 0
+  forceSaut: 4
   solCalque:
     serializedVersion: 2
     m_Bits: 8
