@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &9442955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
+  m_PrefabInstance: {fileID: 1459336658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &241817437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +179,7 @@ PrefabInstance:
     - target: {fileID: 7867808295276599229, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: positionJoueur
       value: 
-      objectReference: {fileID: 524301499}
+      objectReference: {fileID: 9442955}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -291,7 +296,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &524301498
+--- !u!1001 &1459336658
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -299,13 +304,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
+      propertyPath: forceSaut
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1721133724109011670, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_Name
       value: garcon_avantRig
       objectReference: {fileID: 0}
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 244.84583
+      value: 244.45515
       objectReference: {fileID: 0}
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -313,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 263.9768
+      value: 263.96432
       objectReference: {fileID: 0}
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -348,11 +357,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
---- !u!4 &524301499 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-  m_PrefabInstance: {fileID: 524301498}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809715559
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,4 +491,4 @@ SceneRoots:
   - {fileID: 241817437}
   - {fileID: 1809715561}
   - {fileID: 266298011}
-  - {fileID: 524301498}
+  - {fileID: 1459336658}

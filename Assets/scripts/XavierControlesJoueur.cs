@@ -48,8 +48,6 @@ public class XavierControlesJoueur : MonoBehaviour
 
     void Update()
     {
-        if(estAccroupi) peutCourir = false;
-        else peutCourir = true;
 
         /* Detecter si le garcon est au sol */
 
@@ -59,6 +57,20 @@ public class XavierControlesJoueur : MonoBehaviour
         // On lance un spherecast vers le bas pour detecter le sol, en partant du centre du collider, avec un rayon legerement plus petit que le radius du collider pour eviter les faux positifs
         auSol = Physics.SphereCast(centreCollider, colliderJoueur.radius * 0.9f, Vector3.down, out _, (colliderJoueur.height / 2) - (colliderJoueur.radius * 0.9f) + margeDetectionAuSol, solCalque);
 
+        if (estAccroupi)
+        {
+            peutCourir = false;
+            peutSauter = false;
+        }
+        else
+        {
+            peutCourir = true;
+
+            /* le joueur peut seulement sauter lorsqu'il est au sol */
+            if (auSol) peutSauter = true;
+            else peutSauter = false;
+
+        }
 
         /// Gerer le saut du joueur
         if (peutSauter)
