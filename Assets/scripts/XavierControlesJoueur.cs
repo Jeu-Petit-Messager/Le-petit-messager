@@ -40,7 +40,6 @@ public class XavierControlesJoueur : MonoBehaviour
         vitesseAvantMaxMarche = vitesseAvantMax;
         rigidbodyJoueur = GetComponent<Rigidbody>();
         colliderJoueur = GetComponent<CapsuleCollider>();
-        peutInteragir = true;
         peutCourir = true;
         enCourant = false;
         estAccroupi = false;
@@ -162,8 +161,6 @@ public class XavierControlesJoueur : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Appeler la fonction de gestion du mouvement
-        //BougerJoueur();
 
         // Avancer et reculer le garcon
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
