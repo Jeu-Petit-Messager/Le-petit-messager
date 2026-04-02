@@ -52,15 +52,22 @@ public class XavierControlesJoueur : MonoBehaviour
         else peutCourir = true;
 
         /* Detecter si le garcon est au sol */
-        // On calcule la distance du pivot jusqu'au bas du collider
-        // col.bounds.extents.y donne la moitié de la hauteur réelle du collider
-        // col.center.y prend en compte le décalage du centre s'il y en a un
-        //float distanceToGround = (col.height / 2) - col.center.y + margin;
 
         // On lance le rayon depuis le centre du collider, pas depuis le pivot
-        Vector3 startPoint = transform.TransformPoint(colliderJoueur.center);
-        auSol = Physics.Raycast(startPoint, Vector3.down, (colliderJoueur.height / 2) + margeDetectionAuSol, solCalque);
+        Vector3 centreCollider = transform.TransformPoint(colliderJoueur.center);
 
+        // On lance un spherecast vers le bas pour detecter le sol, en partant du centre du collider, avec un rayon legerement plus petit que le radius du collider pour eviter les faux positifs
+        auSol = Physics.SphereCast(centreCollider, colliderJoueur.radius * 0.9f, Vector3.down, out _, (colliderJoueur.height / 2) - (colliderJoueur.radius * 0.9f) + margeDetectionAuSol, solCalque);
+
+
+        /// Gerer le saut du joueur
+        if (peutSauter)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && auSol)
+            {
+                SautJoueur();
+            }
+        }
 
 
         /* Le joueur s'accroupit lorsque CTRL est appuye */
@@ -148,20 +155,12 @@ public class XavierControlesJoueur : MonoBehaviour
 
     }
 
-    void statsCourse()
+    void SautJoueur()
     {
-        vitesseAvantMax *= 1.2f;
+        // Réinitialise la vitesse verticale avant de sauter (optionnel, pour des sauts constants)
+        rigidbodyJoueur.linearVelocity = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
+
+        rigidbodyJoueur.AddForce(Vector3.up * forceSaut, ForceMode.Impulse);
     }
 
-    void statsMarche()
-    {
-        vitesseAvantMax /= 1.2f;
-        vitesseAvant = vitesseAvantMax;
-    }
-
-    void Sauter()
-    {
-        print("Sauter !");
-
-    }
 }
