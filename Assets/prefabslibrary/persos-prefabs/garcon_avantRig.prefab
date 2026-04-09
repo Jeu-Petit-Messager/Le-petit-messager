@@ -9,20 +9,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 244.45515
+      value: 285.293
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: 100.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 263.96432
+      value: 104.34364
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,11 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_Name
@@ -87,10 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XavierControlesJoueur
   vitesseAvant: 0
-  vitesseAvantMax: 6.2
+  vitesseAvantMax: 6.5
   forceAcceleration: 10
   vitesseRotation: 0
-  forceRotation: 0.15
+  forceRotation: 0.2
   peutCourir: 0
   enCourant: 0
   estAccroupi: 0
@@ -101,6 +117,7 @@ MonoBehaviour:
     m_Bits: 8
   auSol: 0
   distanceAuSol: 0
+  margeDetectionAuSol: 0.5
   hauteurCollider: 1.58
   centreYCollider: 0.8
   hauteurColliderAccroupi: 1.15
