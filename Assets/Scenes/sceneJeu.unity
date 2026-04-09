@@ -5283,45 +5283,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: enCourant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: forceSaut
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: forceRotation
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: vitesseAvantMax
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: forceAcceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -3848246288617760867, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: margeDetectionAuSol
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1721133724109011670, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_Name
       value: garcon_avantRig
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5362,10 +5326,6 @@ PrefabInstance:
     - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065290396455805036, guid: 95ba655fb44af9845bb5253ad051417d, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
