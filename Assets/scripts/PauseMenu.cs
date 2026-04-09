@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -8,14 +9,18 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1f; // sécurité
+        Time.timeScale = 1f;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Empêche le menu pause dans SceneIntro
+        if (SceneManager.GetActiveScene().name != "sceneJeu")
+            return;
+
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (isPaused)
+            if (isPaused && pauseMenuUI.activeSelf)
                 Resume();
             else
                 Pause();
@@ -27,6 +32,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        // Désélectionne tout élément sélectionné pour éviter les problèmes de navigation
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void Pause()
@@ -34,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        // Désélectionne tout élément sélectionné pour éviter les problèmes de navigation
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void QuitGame()
