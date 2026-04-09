@@ -100,17 +100,12 @@ public class XavierControlesJoueur : MonoBehaviour
                 GetComponent<CapsuleCollider>().height = hauteurColliderAccroupi;
                 GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYColliderAccroupi, 0f);
 
-                /* la vitesse du joueur est reduite lorsqu'il est accroupi */
-                //vitesseAvantMax = 0;
-                //print(vitesseAvantMax);
-
             }
             else
             {
                 estAccroupi = false;
                 GetComponent<CapsuleCollider>().height = hauteurCollider;
                 GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYCollider, 0f);
-                //print(vitesseAvantMax);
             }
         }
 
@@ -151,7 +146,11 @@ public class XavierControlesJoueur : MonoBehaviour
         }
 
         /* Gerer la rotation du joueur */
-        vitesseRotation = Input.GetAxis("Horizontal") * forceRotation;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            vitesseRotation = Input.GetAxis("Horizontal") * forceRotation;
+        }
+
         vitesseAvant = Input.GetAxis("Vertical") * forceAcceleration;
 
         if (vitesseAvant > vitesseAvantMax) vitesseAvant = vitesseAvantMax;
@@ -187,11 +186,18 @@ public class XavierControlesJoueur : MonoBehaviour
             GetComponent<Rigidbody>().AddRelativeTorque(0f, vitesseRotation, 0f);
         }
 
+        // Lorsque le joueur ne tourne pas, nulllifier la vitesse de rotation
+        else
+        { 
+            if (vitesseRotation != 0) vitesseRotation = 0f;
+            rigidbodyJoueur.angularVelocity = Vector3.zero;
+        }
+
     }
 
     void SautJoueur()
     {
-        // R�initialise la vitesse verticale avant de sauter (optionnel, pour des sauts constants)
+        // Reinitialise la vitesse verticale avant de sauter (pour des sauts constants)
         rigidbodyJoueur.linearVelocity = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
 
         rigidbodyJoueur.AddForce(Vector3.up * forceSaut, ForceMode.Impulse);
