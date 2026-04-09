@@ -3,7 +3,10 @@ using UnityEngine;
 /* Script placee sur le garcon pour interagir avec des objets */
 public class XavierScriptInteraction : MonoBehaviour
 {
-    public float distanceScanee = 2.0f;
+    public Transform leGarcon; // Objet de reference pour determiner la position du scan
+    public float offsetPosition; // Distance devant le garcon
+    public float distanceScanee; // Portee de la zone d'interaction
+    public Vector3 positionScan;
     public LayerMask interactif;
 
     /* Le bouton pour interagir est E */
@@ -11,8 +14,12 @@ public class XavierScriptInteraction : MonoBehaviour
 
     void Update()
     {
+
+        
+        positionScan = leGarcon.position + (leGarcon.forward * offsetPosition);
+
         // Trouver tous les colliders de choses interactives
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, distanceScanee, interactif);
+        Collider[] hitColliders = Physics.OverlapSphere(positionScan, distanceScanee, interactif);
 
         // Lorsqu'un objet est detecte
         if (hitColliders.Length > 0)
@@ -35,6 +42,6 @@ public class XavierScriptInteraction : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, distanceScanee);
+        Gizmos.DrawWireSphere(positionScan, distanceScanee);
     }
 }

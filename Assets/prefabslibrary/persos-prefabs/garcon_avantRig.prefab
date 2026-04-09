@@ -134,7 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c31c71604aaaf46bf3469449fa4d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XavierScriptInteraction
+  leGarcon: {fileID: 2065290396455805036}
+  offsetPosition: 4
   distanceScanee: 2
+  positionScan: {x: 0, y: 0, z: 0}
   interactif:
     serializedVersion: 2
     m_Bits: 64
@@ -189,3 +192,8 @@ CapsuleCollider:
   m_Height: 1.58
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!4 &2065290396455805036 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+  m_PrefabInstance: {fileID: 1955648354582742919}
+  m_PrefabAsset: {fileID: 0}
