@@ -26,7 +26,7 @@ public class XavierControlesJoueur : MonoBehaviour
     public LayerMask solCalque;
     public bool auSol;
     public float distanceAuSol;
-    private float margeDetectionAuSol = 0.1f;
+    public float margeDetectionAuSol;
 
     [Header("Stats collider accroupi")]
     public float hauteurCollider;
@@ -191,7 +191,7 @@ public class XavierControlesJoueur : MonoBehaviour
 
     void SautJoueur()
     {
-        // Réinitialise la vitesse verticale avant de sauter (optionnel, pour des sauts constants)
+        // Rï¿½initialise la vitesse verticale avant de sauter (optionnel, pour des sauts constants)
         rigidbodyJoueur.linearVelocity = new Vector3(rigidbodyJoueur.linearVelocity.x, 0f, rigidbodyJoueur.linearVelocity.z);
 
         rigidbodyJoueur.AddForce(Vector3.up * forceSaut, ForceMode.Impulse);
