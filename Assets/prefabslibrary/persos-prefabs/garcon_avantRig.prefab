@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 244.84583
+      value: 244.45515
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 263.9768
+      value: 263.96432
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -61,6 +61,9 @@ PrefabInstance:
       addedObject: {fileID: -3848246288617760867}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 441030555984331669}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
+      insertIndex: -1
       addedObject: {fileID: -348085477047607631}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b63eedbc964ef45b422378b7c1d5b2, type: 3}
       insertIndex: -1
@@ -89,9 +92,10 @@ MonoBehaviour:
   vitesseRotation: 0
   forceRotation: 0.15
   peutCourir: 0
+  enCourant: 0
   estAccroupi: 0
   peutSauter: 0
-  forceSaut: 0
+  forceSaut: 4
   solCalque:
     serializedVersion: 2
     m_Bits: 8
@@ -101,6 +105,23 @@ MonoBehaviour:
   centreYCollider: 0.8
   hauteurColliderAccroupi: 1.15
   centreYColliderAccroupi: 0.57
+--- !u!114 &441030555984331669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721133724109011670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c31c71604aaaf46bf3469449fa4d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XavierScriptInteraction
+  distanceScanee: 2
+  interactif:
+    serializedVersion: 2
+    m_Bits: 64
+  interactKey: 101
 --- !u!54 &-348085477047607631
 Rigidbody:
   m_ObjectHideFlags: 0

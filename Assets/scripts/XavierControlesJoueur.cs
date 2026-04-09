@@ -12,10 +12,13 @@ public class XavierControlesJoueur : MonoBehaviour
     public float forceRotation;
     Rigidbody rigidbodyJoueur;
 
-    [Header("Status mvmts")]
+    [Header("Status du garcon")]
     public bool peutCourir;
+    // devient true lorsque le joueur court
+    public bool enCourant;
     public bool estAccroupi;
     public bool peutSauter;
+
 
     [Header("Reglages du saut")]
     CapsuleCollider colliderJoueur;
@@ -38,6 +41,7 @@ public class XavierControlesJoueur : MonoBehaviour
         rigidbodyJoueur = GetComponent<Rigidbody>();
         colliderJoueur = GetComponent<CapsuleCollider>();
         peutCourir = true;
+        enCourant = false;
         estAccroupi = false;
         peutSauter = true;
         
@@ -48,17 +52,35 @@ public class XavierControlesJoueur : MonoBehaviour
 
     void Update()
     {
-        if(estAccroupi) peutCourir = false;
-        else peutCourir = true;
 
         /* Detecter si le garcon est au sol */
-
         // On lance le rayon depuis le centre du collider, pas depuis le pivot
         Vector3 centreCollider = transform.TransformPoint(colliderJoueur.center);
 
         // On lance un spherecast vers le bas pour detecter le sol, en partant du centre du collider, avec un rayon legerement plus petit que le radius du collider pour eviter les faux positifs
         auSol = Physics.SphereCast(centreCollider, colliderJoueur.radius * 0.9f, Vector3.down, out _, (colliderJoueur.height / 2) - (colliderJoueur.radius * 0.9f) + margeDetectionAuSol, solCalque);
 
+
+        /* le joueur est moins aerodynamique dans les airs */
+        if(auSol) GetComponent<Rigidbody>().linearDamping = 0.4f;
+        else GetComponent<Rigidbody>().linearDamping = 2f;
+
+        /* Etre accroupi limite les mouvements du garcon*/
+        if (estAccroupi)
+        {
+            peutCourir = false;
+            peutSauter = false;
+
+        }
+        else
+        {
+            peutCourir = true;
+
+            /* le joueur peut seulement sauter lorsqu'il est au sol */
+            if (auSol) peutSauter = true;
+            else peutSauter = false;
+
+        }
 
         /// Gerer le saut du joueur
         if (peutSauter)
@@ -69,9 +91,8 @@ public class XavierControlesJoueur : MonoBehaviour
             }
         }
 
-
-        /* Le joueur s'accroupit lorsque CTRL est appuye */
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        /* Le joueur s'accroupit lorsque CTRL est appuye, au sol sans courir */
+        if (Input.GetKeyDown(KeyCode.LeftControl) && auSol && !enCourant)
         {
             if (!estAccroupi)
             {
@@ -79,12 +100,17 @@ public class XavierControlesJoueur : MonoBehaviour
                 GetComponent<CapsuleCollider>().height = hauteurColliderAccroupi;
                 GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYColliderAccroupi, 0f);
 
+                /* la vitesse du joueur est reduite lorsqu'il est accroupi */
+                //vitesseAvantMax = 0;
+                //print(vitesseAvantMax);
+
             }
             else
             {
                 estAccroupi = false;
                 GetComponent<CapsuleCollider>().height = hauteurCollider;
                 GetComponent<CapsuleCollider>().center = new Vector3(0f, centreYCollider, 0f);
+                //print(vitesseAvantMax);
             }
         }
 
@@ -95,19 +121,22 @@ public class XavierControlesJoueur : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 vitesseAvantMax = 1.2f * vitesseAvantMaxMarche;
+                enCourant = true;
+
             }
             /* Si le joueur courait, le faire marcher */
             else
             {
                 vitesseAvantMax = vitesseAvantMaxMarche;
+                enCourant = false;
             }
         }
         /* Si le joueur courait, le faire marcher */
         else
         {
             vitesseAvantMax = vitesseAvantMaxMarche;
+            enCourant = false;
         }
-
 
         /* Gerer le deplacement avant/arriere du joueur */
         if ((Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.UpArrow)) && vitesseAvant < vitesseAvantMax))
@@ -121,24 +150,29 @@ public class XavierControlesJoueur : MonoBehaviour
             vitesseAvant -= forceAcceleration;
         }
 
-
         /* Gerer la rotation du joueur */
         vitesseRotation = Input.GetAxis("Horizontal") * forceRotation;
         vitesseAvant = Input.GetAxis("Vertical") * forceAcceleration;
 
         if (vitesseAvant > vitesseAvantMax) vitesseAvant = vitesseAvantMax;
         if (vitesseAvant < -vitesseAvantMax) vitesseAvant = -vitesseAvantMax;
+
     }
 
     void FixedUpdate()
     {
-        // Appeler la fonction de gestion du mouvement
-        //BougerJoueur();
 
         // Avancer et reculer le garcon
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
-            GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, vitesseAvant);
+            if (!estAccroupi)
+            {
+                GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, vitesseAvant);
+            }
+            else
+            {
+                GetComponent<Rigidbody>().AddRelativeForce(0f, 0f, 0.98f*vitesseAvant);
+            }
 
         }
         // Aucun input = vitesseAvant est reinitialise
