@@ -8,16 +8,16 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log($"Ceci est un test {itemName}!");
-        SaveInteraction();
+        Debug.Log($"Tu viens d'obtenir un {itemName}!");
+        SauvegarderInteraction();
         //Destroy(gameObject); // Or disable it
     }
 
-    void SaveInteraction()
+    void SauvegarderInteraction()
     {
         // Sauvegarder l'objet
-        int currentCount = PlayerPrefs.GetInt("ItemsCollected", 0);
-        PlayerPrefs.SetInt("ItemsCollected", currentCount + 1);
+        int compteObjets = PlayerPrefs.GetInt("ItemsCollectes", 0);
+        PlayerPrefs.SetInt("ItemsCollectes", compteObjets + 1);
         PlayerPrefs.Save();
     }
 }
