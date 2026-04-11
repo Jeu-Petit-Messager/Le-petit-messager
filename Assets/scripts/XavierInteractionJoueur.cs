@@ -12,6 +12,12 @@ public class XavierScriptInteraction : MonoBehaviour
     /* Le bouton pour interagir est E */
     public KeyCode interactKey = KeyCode.E;
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoad()
+    {
+        PlayerPrefs.SetInt("ItemsCollectes", 0);
+    }
+
     void Update()
     {
 

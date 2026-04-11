@@ -19,5 +19,6 @@ public class ItemObject : MonoBehaviour, IInteractable
         int compteObjets = PlayerPrefs.GetInt("ItemsCollectes", 0);
         PlayerPrefs.SetInt("ItemsCollectes", compteObjets + 1);
         PlayerPrefs.Save();
+        print(PlayerPrefs.GetInt("ItemsCollectes"));
     }
 }

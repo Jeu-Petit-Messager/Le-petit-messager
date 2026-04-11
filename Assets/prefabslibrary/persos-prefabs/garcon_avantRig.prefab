@@ -106,7 +106,7 @@ MonoBehaviour:
   vitesseAvantMax: 6.5
   forceAcceleration: 10
   vitesseRotation: 0
-  forceRotation: 0.2
+  forceRotation: 0.5
   peutCourir: 0
   enCourant: 0
   estAccroupi: 0
