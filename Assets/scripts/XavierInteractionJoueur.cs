@@ -28,9 +28,7 @@ public class XavierScriptInteraction : MonoBehaviour
 
     public void Start()
     {
-        //print(imageUIObjet);
         imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
-        print(imageUIObjet);
 
         /* le garcon ne possede aucun objet au depart*/
         peutPrendre = true;
@@ -80,8 +78,6 @@ public class XavierScriptInteraction : MonoBehaviour
                     }
                     else if (objetInteractif.CompareTag("ZoneCanette"))
                     {
-                        print("Tu es dans la zone de depot de canette");
-
                         if (possedeCanette)
                         {
                             // Enlever l'image de la canette de l'inventaire
