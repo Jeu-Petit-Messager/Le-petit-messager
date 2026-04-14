@@ -142,6 +142,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   interactKey: 101
+  objetInteractif: {fileID: 0}
+  imageUIObjet: {fileID: 0}
+  sourceImageCanette: {fileID: 21300000, guid: 191f9ae53a368b34586ce1c1457feef9, type: 3}
+  peutPrendre: 1
+  possedeCanette: 0
 --- !u!54 &-348085477047607631
 Rigidbody:
   m_ObjectHideFlags: 0

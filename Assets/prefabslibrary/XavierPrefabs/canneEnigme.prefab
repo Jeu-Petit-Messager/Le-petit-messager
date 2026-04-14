@@ -10,23 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 285.145
+      value: 290.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100.211
+      value: 100.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68,8 +68,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: canneEnigme
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_TagString
+      value: Canette
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5432654349865270568}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7244314310635823121}
   m_SourcePrefab: {fileID: 100100000, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+--- !u!1 &7372210590042736255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 7678131216474962734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5432654349865270568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372210590042736255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc70b8f986cde049a8c5f812e992fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemObject
+  itemName: canette de nourriture
+  objetInteractif: {fileID: 0}
+--- !u!65 &7244314310635823121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372210590042736255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.14746511, y: 0.1711444, z: 0.14872253}
+  m_Center: {x: 0.012729876, y: 0.03593027, z: 0.00032140416}

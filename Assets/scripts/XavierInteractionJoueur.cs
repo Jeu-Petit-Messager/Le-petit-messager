@@ -13,6 +13,30 @@ public class XavierScriptInteraction : MonoBehaviour
     /* Le bouton pour interagir est E */
     public KeyCode interactKey = KeyCode.E;
 
+    public GameObject objetInteractif; // Objet interactif detecte
+
+
+    public GameObject imageUIObjet; // Image UI pour afficher l'objet dans l'inventaire
+
+    public Sprite sourceImageCanette;
+
+    /* Bool qui determine lorsque le garcon peut prendre un objet */
+    public bool peutPrendre;
+
+    /* lorsque le joueur possede une canette */
+    public bool possedeCanette;
+
+    public void Start()
+    {
+        //print(imageUIObjet);
+        imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
+        print(imageUIObjet);
+
+        /* le garcon ne possede aucun objet au depart*/
+        peutPrendre = true;
+        possedeCanette = false;
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoad()
     {
@@ -22,7 +46,6 @@ public class XavierScriptInteraction : MonoBehaviour
     void Update()
     {
 
-        
         positionScan = leGarcon.position + (leGarcon.forward * offsetPosition);
 
         // Trouver tous les colliders de choses interactives
@@ -40,6 +63,36 @@ public class XavierScriptInteraction : MonoBehaviour
                 if (Input.GetKeyDown(interactKey))
                 {
                     interactable.Interact();
+
+                    objetInteractif = hitColliders[0].gameObject;
+
+                    if (objetInteractif.CompareTag("Canette"))
+                    {
+                        if (peutPrendre)
+                        {
+                            peutPrendre = false;
+                            objetInteractif.GetComponent<ItemObject>().CompteurCanettes();
+                            possedeCanette = true;
+                            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+                            imageUIObjet.GetComponent<Image>().sprite = sourceImageCanette;
+                        }
+
+                    }
+                    else if (objetInteractif.CompareTag("ZoneCanette"))
+                    {
+                        print("Tu es dans la zone de depot de canette");
+
+                        if (possedeCanette)
+                        {
+                            // Enlever l'image de la canette de l'inventaire
+                            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+                            imageUIObjet.GetComponent<Image>().sprite = null;
+
+                            /* le joueur depose la canette */
+                            possedeCanette = false;
+                            peutPrendre = true;
+                        }
+                    }
                 }
             }
         }
