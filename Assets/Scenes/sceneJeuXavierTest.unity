@@ -2919,7 +2919,7 @@ GameObject:
   - component: {fileID: 499199274}
   - component: {fileID: 499199273}
   m_Layer: 5
-  m_Name: itemCan
+  m_Name: itemInventaire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2964,7 +2964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 191f9ae53a368b34586ce1c1457feef9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6352,7 +6352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 305.53, y: 101.15}
+  m_AnchoredPosition: {x: 298.28183, y: 101.15}
   m_SizeDelta: {x: 1556, y: 875.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370748106
@@ -6574,9 +6574,10 @@ GameObject:
   - component: {fileID: 1451446025}
   - component: {fileID: 1451446024}
   - component: {fileID: 1451446023}
+  - component: {fileID: 1451446027}
   m_Layer: 6
   m_Name: zoneCanette
-  m_TagString: Untagged
+  m_TagString: ZoneCanette
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6667,12 +6668,30 @@ Transform:
   m_GameObject: {fileID: 1451446022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.56818, y: 100.06, z: 104.68}
+  m_LocalPosition: {x: 298.32, y: 100.06, z: 104.68}
   m_LocalScale: {x: 0.1684972, y: 0.1684972, z: 0.1684972}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451446027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451446022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc70b8f986cde049a8c5f812e992fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemObject
+  itemName: "zone d\xE9pot canettes"
+  imageUIObjet: {fileID: 499199271}
+  sourceImageCanette: {fileID: 21300000, guid: 191f9ae53a368b34586ce1c1457feef9, type: 3}
+  peutPrendre: 0
+  possedeCanette: 0
+  objetInteractif: {fileID: 0}
 --- !u!1 &1506971692
 GameObject:
   m_ObjectHideFlags: 0
@@ -10547,6 +10566,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
+  imageUIObjet: {fileID: 499199271}
+  sourceImageCanette: {fileID: 21300000, guid: 191f9ae53a368b34586ce1c1457feef9, type: 3}
+  peutPrendre: 0
+  possedeCanette: 0
+  objetInteractif: {fileID: 0}
 --- !u!65 &4313261722517321382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10568,67 +10592,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14746511, y: 0.1711444, z: 0.14872253}
   m_Center: {x: 0.012729876, y: 0.03593027, z: 0.00032140416}
---- !u!1001 &7181495925866719124
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 286.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 99.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 107.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450726053675431811, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 939735381193403705, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: m_Name
-      value: poubelleRouge
-      objectReference: {fileID: 0}
-    - target: {fileID: 6266166610805637858, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
-      propertyPath: itemName
-      value: pblA
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fa4bc7dafd4b0654ca7ac616b3368689, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10644,8 +10607,7 @@ SceneRoots:
   - {fileID: 1777984392}
   - {fileID: 1167083865}
   - {fileID: 946870870}
-  - {fileID: 7181495925866719124}
   - {fileID: 4313261722517321378}
   - {fileID: 1451446026}
-  - {fileID: 144606746}
   - {fileID: 1370748105}
+  - {fileID: 144606746}

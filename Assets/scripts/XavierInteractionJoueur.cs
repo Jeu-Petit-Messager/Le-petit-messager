@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /* Script placee sur le garcon pour interagir avec des objets */
 public class XavierScriptInteraction : MonoBehaviour
@@ -15,7 +16,7 @@ public class XavierScriptInteraction : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoad()
     {
-        PlayerPrefs.SetInt("ItemsCollectes", 0);
+        PlayerPrefs.SetInt("CanetteCollectes", 0);
     }
 
     void Update()
