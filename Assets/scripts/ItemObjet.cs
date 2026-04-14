@@ -6,8 +6,17 @@ public class ItemObject : MonoBehaviour, IInteractable
     public string itemName;
     public string InteractionPrompt => $"X {itemName}";
 
+    GameObject objetInteractif;
+
+    public void Start()
+    {
+        objetInteractif = gameObject;
+    }
+
     public void Interact()
     {
+        //if()
+
         Debug.Log($"Tu viens d'obtenir un {itemName}!");
         SauvegarderInteraction();
         //Destroy(gameObject); // Or disable it
