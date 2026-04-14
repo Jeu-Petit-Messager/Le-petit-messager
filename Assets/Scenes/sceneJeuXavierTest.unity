@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -195,6 +199,11 @@ PrefabInstance:
 --- !u!4 &16542646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 16542645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &16542647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 16542645}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &33331551
@@ -1961,6 +1970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1969,6 +1982,11 @@ PrefabInstance:
 --- !u!4 &305138539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 305138538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &305138540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 305138538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &309785340
@@ -2178,6 +2196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2186,6 +2208,11 @@ PrefabInstance:
 --- !u!4 &310725077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 310725076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &310725078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 310725076}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &322126692
@@ -3237,6 +3264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3245,6 +3276,11 @@ PrefabInstance:
 --- !u!4 &492737981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 492737980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &492737982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 492737980}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &499199271
@@ -4279,6 +4315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4287,6 +4327,11 @@ PrefabInstance:
 --- !u!4 &738976056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 738976055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &738976057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 738976055}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &820772315
@@ -4830,6 +4875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenuUI: {fileID: 1623469364}
+  chrono: {fileID: 0}
 --- !u!114 &903097430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6997,6 +7043,7 @@ GameObject:
   - component: {fileID: 1451446024}
   - component: {fileID: 1451446023}
   - component: {fileID: 1451446027}
+  - component: {fileID: 1451446028}
   m_Layer: 6
   m_Name: zoneCanette
   m_TagString: ZoneCanette
@@ -7116,6 +7163,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: "zone d\xE9pot canettes"
   objetInteractif: {fileID: 0}
+--- !u!114 &1451446028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451446022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8cd0a474024fc40a6a63f0aa18632b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XavierZoneCanetteProg
+  canette1: {fileID: 16542647}
+  canette2: {fileID: 310725078}
+  canette3: {fileID: 2074067056}
+  canette4: {fileID: 738976057}
+  canette5: {fileID: 305138540}
+  canette6: {fileID: 492737982}
 --- !u!1 &1506971692
 GameObject:
   m_ObjectHideFlags: 0
@@ -9140,6 +9205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenuUI: {fileID: 1623469364}
+  chrono: {fileID: 0}
 --- !u!114 &1778686678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10541,6 +10607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenuUI: {fileID: 1623469364}
+  chrono: {fileID: 0}
 --- !u!4 &2040048936
 Transform:
   m_ObjectHideFlags: 0
@@ -10846,6 +10913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: canne3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10854,6 +10925,11 @@ PrefabInstance:
 --- !u!4 &2074067055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
+  m_PrefabInstance: {fileID: 2074067054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2074067056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf27ff33ccb0d245b6d49e8407689c5, type: 3}
   m_PrefabInstance: {fileID: 2074067054}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2107445442

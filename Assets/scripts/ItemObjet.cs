@@ -9,9 +9,15 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public GameObject objetInteractif;
 
-    public void Interact()
+    public void Start()
     {
         objetInteractif = gameObject; // L'objet interactif est celui sur lequel on a clique
+
+
+    }
+
+    public void Interact()
+    {
 
         //Debug.Log($"Tu viens d'obtenir un {itemName}!");
     }
@@ -22,6 +28,7 @@ public class ItemObject : MonoBehaviour, IInteractable
         int compteObjets = PlayerPrefs.GetInt("CanetteCollectes", 0);
         PlayerPrefs.SetInt("CanetteCollectes", compteObjets + 1);
         PlayerPrefs.Save();
+
         print(PlayerPrefs.GetInt("CanetteCollectes"));
     }
 }
