@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public chronometre chrono; 
     private bool isPaused = false;
 
     void Start()
@@ -32,6 +33,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        // Reprendre le chronomètre
+        if (chrono != null)
+            chrono.Reprendre();
         // Désélectionne tout élément sélectionné pour éviter les problèmes de navigation
         EventSystem.current.SetSelectedGameObject(null);
     }
@@ -41,6 +45,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        // Mettre en pause le chronomètre
+        if (chrono != null)
+            chrono.MettreEnPause();
         // Désélectionne tout élément sélectionné pour éviter les problèmes de navigation
         EventSystem.current.SetSelectedGameObject(null);
     }
