@@ -15,19 +15,21 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        //if()
+        if (objetInteractif.CompareTag("Canette"))
+        {
+            CompteurCanettes();
+        }
 
         Debug.Log($"Tu viens d'obtenir un {itemName}!");
-        SauvegarderInteraction();
-        //Destroy(gameObject); // Or disable it
+        
     }
 
-    void SauvegarderInteraction()
+    void CompteurCanettes()
     {
-        // Sauvegarder l'objet
-        int compteObjets = PlayerPrefs.GetInt("ItemsCollectes", 0);
-        PlayerPrefs.SetInt("ItemsCollectes", compteObjets + 1);
+        // Sauvegarder le nouveau nombre de canettes collectees
+        int compteObjets = PlayerPrefs.GetInt("CanetteCollectes", 0);
+        PlayerPrefs.SetInt("CanetteCollectes", compteObjets + 1);
         PlayerPrefs.Save();
-        print(PlayerPrefs.GetInt("ItemsCollectes"));
+        print(PlayerPrefs.GetInt("CanetteCollectes"));
     }
 }
