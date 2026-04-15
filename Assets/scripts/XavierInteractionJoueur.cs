@@ -28,6 +28,9 @@ public class XavierScriptInteraction : MonoBehaviour
 
     public void Start()
     {
+        // Le nombre de canettes collectees est remis a 0 au debut de la scene
+        XavierZoneCanetteProg.canetteCollectees = 0;
+
         imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
 
         /* le garcon ne possede aucun objet au depart*/
@@ -80,6 +83,8 @@ public class XavierScriptInteraction : MonoBehaviour
                     {
                         if (possedeCanette)
                         {
+                            XavierZoneCanetteProg.canetteCollectees++;
+
                             // Enlever l'image de la canette de l'inventaire
                             imageUIObjet.SetActive(!imageUIObjet.activeSelf);
                             imageUIObjet.GetComponent<Image>().sprite = null;
