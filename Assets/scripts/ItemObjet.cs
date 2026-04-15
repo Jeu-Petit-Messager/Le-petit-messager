@@ -30,5 +30,7 @@ public class ItemObject : MonoBehaviour, IInteractable
         PlayerPrefs.Save();
 
         print(PlayerPrefs.GetInt("CanetteCollectes"));
+
+        Destroy(objetInteractif);
     }
 }
