@@ -1,15 +1,33 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class nouvellePartie : MonoBehaviour
 {
-    public void nouvellescene()
+    // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
+    public void OnNouvellePartieClicked()
     {
+        CancelInvoke(("LoadSceneJeu"));
+        Invoke(("LoadSceneJeu"), 4f);
+    }
+
+    private void LoadSceneJeu()
+    {
+        SceneManager.sceneLoaded += LoadedScene;
         SceneManager.LoadScene("sceneJeu");
     }
-    public void changerCamera()
+
+    // Méthode appelée lorsque la scène est chargée
+    private void LoadedScene(Scene scene, LoadSceneMode mode)
     {
-        DesactiveCameraIntro.instance.introCamera.gameObject.SetActive(false);
-        DesactiveCameraIntro.instance.jeuCamera.gameObject.SetActive(true);
+        if (scene.name != "sceneJeu") return;
+
+        // Trouver et désactiver la caméra d'intro, puis activer la caméra de jeu
+        DesactiveCameraIntro camManager = FindObjectOfType<DesactiveCameraIntro>();
+        if (camManager != null)
+        {
+            camManager.ChangeACameraJeu();
+        }
+        // Désabonner l'événement pour éviter les appels multiples
+        SceneManager.sceneLoaded -= LoadedScene;
     }
 }

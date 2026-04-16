@@ -14,19 +14,27 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(true);
         controls.SetActive(false);
         credits.SetActive(false);
+        quitter.SetActive(false);
     }
 
     void Update()
     {
+        // Permet de revenir au menu principal en appuyant sur la touche "Echap" depuis les sous-menus
         if (controls.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             RetourMenu();
-        }else if (credits.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        }
+        else if (credits.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            RetourMenu();
+        }
+        else if (quitter.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             RetourMenu();
         }
     }
-
+       
+    // Méthodes pour ouvrir l'interface des contrôles
     public void OpenControls()
     {
         ResetHover(); 
@@ -34,7 +42,7 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(false);
         controls.SetActive(true);
     }
-
+    // Méthodes pour ouvrir l'interface des crédits
     public void OpenCredits()
     {
         ResetHover(); 
@@ -42,7 +50,7 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(false);
         credits.SetActive(true);
     }
-
+    // Méthodes pour ouvrir l'interface de quitter le jeu
     public void OpenQuitter()
     {
         ResetHover();
@@ -50,7 +58,7 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(false);
         quitter.SetActive(true);
     }
-
+    // Méthode pour revenir au menu principal depuis les sous-menus
     public void RetourMenu()
     {
         quitter.SetActive(false);
@@ -58,7 +66,7 @@ public class MenuManager : MonoBehaviour
         controls.SetActive(false);
         menu.SetActive(true);
     }
-
+    // Méthode pour réinitialiser les images de survol (hover) en les désactivant
     void ResetHover()
     {
         foreach (GameObject img in hoverImages)
