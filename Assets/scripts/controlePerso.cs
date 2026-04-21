@@ -21,7 +21,6 @@ public class controlePerso : MonoBehaviour
 
     void Update()
     {
-        // INPUTS
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
@@ -33,15 +32,13 @@ public class controlePerso : MonoBehaviour
 
         bool courir = Input.GetKey(KeyCode.LeftShift);
 
-        // 🔥 DETECTION SOL
+        // DETECTION SOL
         auSol = Physics.Raycast(transform.position, Vector3.down, distanceSol, masqueSol);
 
-        // 🎮 SAUT (TOUJOURS POSSIBLE)
+        // SAUT (fix)
         if (Input.GetKeyDown(KeyCode.Space) && auSol && !accroupi)
         {
-            // reset vitesse verticale pour saut propre
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-
             rb.AddForce(Vector3.up * forceSaut, ForceMode.Impulse);
 
             animator.SetTrigger("Sauter");
@@ -64,12 +61,25 @@ public class controlePerso : MonoBehaviour
         // ROTATION
         transform.Rotate(0, h * vitesseRotation * Time.deltaTime, 0);
 
-        // 🎬 ANIMATIONS (TOUJOURS ACTIVES)
+        // ANIMATIONS
         bool enMouvement = Mathf.Abs(v) > 0.1f;
 
         animator.SetBool("Accroupir", accroupi);
         animator.SetBool("Courir", enMouvement && courir && !accroupi);
         animator.SetBool("Marcher", enMouvement && !courir && !accroupi);
+    }
+
+    void FixedUpdate()
+    {
+        // LIMITE SIMPLE (version propre avec Rigidbody)
+        Vector3 pos = rb.position;
+
+        // pos.x = Mathf.Clamp(pos.x, 176f, 342f);
+        pos.x = Mathf.Clamp(pos.x, 275f, 342f);
+        pos.y = Mathf.Clamp(pos.y, 90f, 110f);
+        pos.z = Mathf.Clamp(pos.z, 62f, 267f);
+
+        rb.position = pos;
     }
 
     void OnDrawGizmos()
