@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public abstract class XXPNJ : MonoBehaviour, IInteractable
 {
@@ -11,13 +12,29 @@ public abstract class XXPNJ : MonoBehaviour, IInteractable
 
     const float distanceInteraction = 5f;
 
-    private void Start()
+    private void Update()
     {
-        
+        if(Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            Interact();
+        }
+
+        if(spriteIndicPNJ && !isWithinInteractDistance())
+        {
+            // Visuel UI se cache lorsque le gars sort
+            spriteIndicPNJ.gameObject.SetActive(false);
+        }
+        else if(!spriteIndicPNJ && isWithinInteractDistance())
+        {
+            // Visuel UI se montre lorsque le gars rentre a bonne distance
+            spriteIndicPNJ.gameObject.SetActive(true);
+
+        }
     }
 
     public abstract void Interact();
 
+    // Une fonction retournant le bool
     private bool isWithinInteractDistance()
     {
         if (Vector3.Distance(detectTransformGars.position, transform.position) < distanceInteraction)
