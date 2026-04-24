@@ -4,7 +4,7 @@ public class DesactiveCameraIntro : MonoBehaviour
 {
     public Camera introCamera;
     public Camera jeuCamera;
-
+    
     // Méthode pour désactiver la caméra d'intro et activer la caméra de jeu
     public void ChangeACameraJeu()
     {
