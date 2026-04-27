@@ -118,6 +118,7 @@ public class controlePerso : MonoBehaviour
     [Header("Saut")]
     public float forceSaut = 2f;
     public float gravite = -9.81f;
+    public bool boolSaut;
 
     public Animator animator;
 
@@ -125,11 +126,12 @@ public class controlePerso : MonoBehaviour
 
     private float vitesseY;
     private bool accroupi;
-    private bool auSol;
+    public bool auSol;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        boolSaut = false;
     }
 
     void Update()
@@ -152,6 +154,8 @@ public class controlePerso : MonoBehaviour
         // SAUT
         if (Input.GetKeyDown(KeyCode.Space) && auSol && !accroupi)
         {
+            boolSaut = true;
+            Invoke("FinSaut", 1.0f);
             vitesseY = Mathf.Sqrt(forceSaut * -2f * gravite);
             animator.SetTrigger("Sauter");
         }
@@ -197,4 +201,8 @@ public class controlePerso : MonoBehaviour
         animator.SetBool("Idle", !enMouvement && !accroupi);
     }
 
+    public void FinSaut()
+    {
+        boolSaut = false;
+    }
 }

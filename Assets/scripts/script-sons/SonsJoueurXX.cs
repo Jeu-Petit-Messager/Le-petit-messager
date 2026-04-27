@@ -21,16 +21,17 @@ public class SonsJoueurXX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameObjectJoueur.GetComponent<controlePerso>().auSol)
+        if (!gameObjectJoueur.GetComponent<controlePerso>().boolSaut)
+            //<controlePerso>().GetBool("Accroupir", true))
         {
-            
             // Joueur avance et recule
             if ((Input.GetKey(KeyCode.W))
-                || (Input.GetKey(KeyCode.S)))
+                    || (Input.GetKey(KeyCode.S)))
             {
-                if(!sonMarcheEnCours)
+                if (!sonMarcheEnCours)
                 {
-                    sonMarcheBoucle.gameObject.SetActive(true);
+                    //sonMarcheBoucle.gameObject.SetActive(true);
+                    sonMarcheEnCours = true;
                     sonMarcheBoucle.loop = true; // On active la boucle
                     sonMarcheBoucle.Play();      // On lance la lecture
 
@@ -41,7 +42,7 @@ public class SonsJoueurXX : MonoBehaviour
                 sonMarcheEnCours = false;
                 sonMarcheBoucle.Stop(); // On arrête le son
                 sonMarcheBoucle.loop = false; // Par sécurité, on coupe la boucle
-                sonMarcheBoucle.gameObject.SetActive(false);
+                                              //sonMarcheBoucle.gameObject.SetActive(false);
             }
         }
         else
@@ -49,7 +50,7 @@ public class SonsJoueurXX : MonoBehaviour
             sonMarcheEnCours = false;
             sonMarcheBoucle.Stop(); // On arrête le son
             sonMarcheBoucle.loop = false; // Par sécurité, on coupe la boucle
-            sonMarcheBoucle.gameObject.SetActive(false);
+                                          //sonMarcheBoucle.gameObject.SetActive(false);
         }
 
     }
