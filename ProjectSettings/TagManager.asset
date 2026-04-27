@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Canette
   - ZoneCanette
+  - Sol
   layers:
   - Default
   - TransparentFX
