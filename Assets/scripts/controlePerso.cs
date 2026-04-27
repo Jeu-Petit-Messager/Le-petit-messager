@@ -125,7 +125,7 @@ public class controlePerso : MonoBehaviour
 
     private float vitesseY;
     private bool accroupi;
-    private bool auSol;
+    public bool auSol;
 
     void Start()
     {
