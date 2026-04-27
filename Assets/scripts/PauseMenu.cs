@@ -15,11 +15,10 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        // Empêche le menu pause dans SceneIntro
         if (SceneManager.GetActiveScene().name != "sceneJeu")
             return;
 
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused && pauseMenuUI.activeSelf)
                 Resume();

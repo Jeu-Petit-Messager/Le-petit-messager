@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class chronometre : MonoBehaviour
 {
-    public float tempsRestant = 600f;// 10 minutes
+    public float tempsRestant = 300f;// 10 minutes
     public Text texteChrono;
     public GameObject canvasChrono;
 
