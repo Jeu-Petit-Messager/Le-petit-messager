@@ -13,11 +13,11 @@ public class controlePerso : MonoBehaviour
     public Rigidbody rb;
     public Animator animator;
 
-    public float distanceSol = 1.2f;
+    public float distanceSol;
     public LayerMask masqueSol;
 
     private bool accroupi = false;
-    private bool auSol;
+    public bool auSol;
 
     void Update()
     {
