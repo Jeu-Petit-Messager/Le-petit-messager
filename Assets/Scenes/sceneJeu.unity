@@ -1857,6 +1857,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3253968856893493947, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
   m_PrefabInstance: {fileID: 58846086}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &58846088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922430543091984670, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+  m_PrefabInstance: {fileID: 58846086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &60834843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13632,6 +13637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 480464052}
+  - component: {fileID: 480464053}
   - component: {fileID: 480464051}
   m_Layer: 0
   m_Name: AmbianceQuartierCut
@@ -13652,8 +13658,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c49df4e3037d57246aeab2038038fc3a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.591
+  m_PlayOnAwake: 0
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13752,6 +13758,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480464053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480464050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc3daff132868543937d160cdd09f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestionAudio
+  musiqueFond: {fileID: 480464051}
 --- !u!1 &480855372
 GameObject:
   m_ObjectHideFlags: 0
@@ -41177,7 +41196,7 @@ PrefabInstance:
     - target: {fileID: 4987099141598505511, guid: 6a38a5499f7e1cd49b2b795df35cae6d, type: 3}
       propertyPath: cible
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 58846088}
     - target: {fileID: 6236920431770928750, guid: 6a38a5499f7e1cd49b2b795df35cae6d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -48040,30 +48059,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_Size.x
-      value: 11.524564
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_Size.z
-      value: 11.138675
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_Center.x
-      value: -0.18750899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_Center.y
-      value: 3.4630706
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_Center.z
-      value: -0.07651682
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303847374400150619, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5386178850903658664, guid: 7f9541ece0f62784b96255002145da34, type: 3}
       propertyPath: flecheBlanche
       value: 
@@ -48071,22 +48066,6 @@ PrefabInstance:
     - target: {fileID: 6152421154381451855, guid: 7f9541ece0f62784b96255002145da34, type: 3}
       propertyPath: m_Name
       value: zoneCanette
-      objectReference: {fileID: 0}
-    - target: {fileID: 6152421154381451855, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837359383375128088, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.13964206
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837359383375128088, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.13964206
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837359383375128088, guid: 7f9541ece0f62784b96255002145da34, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.13964206
       objectReference: {fileID: 0}
     - target: {fileID: 7837359383375128088, guid: 7f9541ece0f62784b96255002145da34, type: 3}
       propertyPath: m_LocalPosition.x
