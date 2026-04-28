@@ -11,18 +11,35 @@ public class SonsJoueurXX : MonoBehaviour
     public AudioSource sonMarcheBoucle;
     public bool sonMarcheEnCours;
 
-    public AudioClip audioTest;
+    public AudioClip sonMarche;
+    public AudioClip sonCourse;
 
     private void Start()
     {
         sonMarcheEnCours = false;
+        sonMarcheBoucle.clip = sonMarche; // On assigne le clip de marche à l'AudioSource
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            sonMarcheBoucle.clip = sonCourse; // On assigne le clip de course à l'AudioSource
+            sonMarcheBoucle.Stop(); // On arrete le son
+            sonMarcheBoucle.Play(); // On lance le son de course
+        }
+
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sonMarcheBoucle.clip = sonMarche; // On assigne le clip de marche à l'AudioSource
+            sonMarcheBoucle.Stop(); // On arrete le son
+            sonMarcheBoucle.Play(); // On lance le son de marche
+
+        }
+
         if (!gameObjectJoueur.GetComponent<controlePerso>().boolSaut)
-            //<controlePerso>().GetBool("Accroupir", true))
+           
         {
             // Joueur avance et recule
             if ((Input.GetKey(KeyCode.W))
@@ -42,7 +59,6 @@ public class SonsJoueurXX : MonoBehaviour
                 sonMarcheEnCours = false;
                 sonMarcheBoucle.Stop(); // On arrête le son
                 sonMarcheBoucle.loop = false; // Par sécurité, on coupe la boucle
-                                              //sonMarcheBoucle.gameObject.SetActive(false);
             }
         }
         else
@@ -50,7 +66,6 @@ public class SonsJoueurXX : MonoBehaviour
             sonMarcheEnCours = false;
             sonMarcheBoucle.Stop(); // On arrête le son
             sonMarcheBoucle.loop = false; // Par sécurité, on coupe la boucle
-                                          //sonMarcheBoucle.gameObject.SetActive(false);
         }
 
     }
