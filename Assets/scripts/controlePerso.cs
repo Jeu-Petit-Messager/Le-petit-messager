@@ -106,6 +106,7 @@
 // }
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class controlePerso : MonoBehaviour
 {
@@ -119,6 +120,7 @@ public class controlePerso : MonoBehaviour
     public float forceSaut = 2f;
     public float gravite = -9.81f;
     public bool boolSaut;
+    public AudioSource sonSaut;
 
     public Animator animator;
 
@@ -203,6 +205,8 @@ public class controlePerso : MonoBehaviour
 
     public void FinSaut()
     {
+        // Jouer le son du saut
+        sonSaut.Play();
         boolSaut = false;
     }
 }
