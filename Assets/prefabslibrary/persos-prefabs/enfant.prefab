@@ -270,15 +270,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 285.72
+      value: 57.261276
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 99.988
+      value: -0.3121338
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 103.86
+      value: -130.1824
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -332,7 +332,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2955567815768523797}
+      addedObject: {fileID: 59725787971540480}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6060288922913635460}
@@ -348,7 +348,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
   m_PrefabInstance: {fileID: 3072248871107130704}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2955567815768523797
+--- !u!114 &59725787971540480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,8 +362,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SonsJoueurXX
   gameObjectJoueur: {fileID: 2766261046554544129}
   sonMarcheBoucle: {fileID: 6881267721336369343}
-  sonMarcheEnCours: 0
-  audioTest: {fileID: 0}
+  sonMarcheEnCours: 1
+  sonMarche: {fileID: 8300000, guid: 2d30b82ed5f378d4d8ab4305768f60e5, type: 3}
+  sonCourse: {fileID: 8300000, guid: c4f150f2e8a0ca849be2f87e446f8b34, type: 3}
 --- !u!114 &6060288922913635460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +408,7 @@ MonoBehaviour:
   vitesseRotation: 37
   forceSaut: 1
   gravite: -9.81
+  boolSaut: 0
   animator: {fileID: 8919457934320060609}
   auSol: 0
 --- !u!143 &7891244165495943594
