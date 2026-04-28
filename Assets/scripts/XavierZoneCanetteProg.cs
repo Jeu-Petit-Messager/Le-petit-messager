@@ -12,6 +12,8 @@ public class XavierZoneCanetteProg : MonoBehaviour
     public GameObject canette5;
     public GameObject canette6;
 
+    public AudioSource sonRamassage;
+
     public GameObject flecheBlanche;
 
     public void Update()
@@ -21,6 +23,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 1)
             {
                 canette1.SetActive(true);
+                sonRamassage.Play();
             }
         }
         if (!canette2.activeSelf)
@@ -28,6 +31,8 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 2)
             {
                 canette2.SetActive(true);
+                sonRamassage.Play();
+
             }
         }
         if (!canette3.activeSelf)
@@ -35,6 +40,8 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 3)
             {
                 canette3.SetActive(true);
+                sonRamassage.Play();
+
             }
         }
         if (!canette4.activeSelf)
@@ -42,6 +49,8 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 4)
             {
                 canette4.SetActive(true);
+                sonRamassage.Play();
+
             }
         }
         if (!canette5.activeSelf)
@@ -49,12 +58,15 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 5)
             {
                 canette5.SetActive(true);
+                sonRamassage.Play();
+
             }
         }
         if (!canette6.activeSelf)
         {
             if (canetteCollectees == 6)
             {
+                sonRamassage.Play();
                 canette6.SetActive(true);
                 flecheBlanche.SetActive(false);
             }
