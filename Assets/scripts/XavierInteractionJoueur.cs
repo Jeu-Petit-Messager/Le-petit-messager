@@ -17,6 +17,7 @@ public class XavierScriptInteraction : MonoBehaviour
 
 
     public GameObject imageUIObjet; // Image UI pour afficher l'objet dans l'inventaire
+    public GameObject imageUIInterne; // Game object avec la source a changer
 
     public Sprite sourceImageCanette;
 
@@ -75,7 +76,7 @@ public class XavierScriptInteraction : MonoBehaviour
                             objetInteractif.GetComponent<ItemObject>().CompteurCanettes();
                             possedeCanette = true;
                             imageUIObjet.SetActive(!imageUIObjet.activeSelf);
-                            imageUIObjet.GetComponent<Image>().sprite = sourceImageCanette;
+                            imageUIInterne.GetComponent<Image>().sprite = sourceImageCanette;
                         }
 
                     }
@@ -87,7 +88,7 @@ public class XavierScriptInteraction : MonoBehaviour
 
                             // Enlever l'image de la canette de l'inventaire
                             imageUIObjet.SetActive(!imageUIObjet.activeSelf);
-                            imageUIObjet.GetComponent<Image>().sprite = null;
+                            imageUIInterne.GetComponent<Image>().sprite = null;
 
                             /* le joueur depose la canette */
                             possedeCanette = false;
