@@ -14,6 +14,21 @@ public class XavierZoneCanetteProg : MonoBehaviour
 
     public GameObject flecheBlanche;
 
+    public AudioSource sonCanette;
+
+    private void Start()
+    {
+        canetteCollectees = 0;
+        canette1.SetActive(false);
+        canette2.SetActive(false);
+        canette3.SetActive(false);
+        canette4.SetActive(false);
+        canette5.SetActive(false);
+        canette6.SetActive(false);
+
+        sonCanette = GetComponent<AudioSource>();
+    }
+
     public void Update()
     {
         if(!canette1.activeSelf)
@@ -21,6 +36,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 1)
             {
                 canette1.SetActive(true);
+                sonCanette.Play();
             }
         }
         if (!canette2.activeSelf)
@@ -28,6 +44,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 2)
             {
                 canette2.SetActive(true);
+                sonCanette.Play();
             }
         }
         if (!canette3.activeSelf)
@@ -35,6 +52,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 3)
             {
                 canette3.SetActive(true);
+                sonCanette.Play();
             }
         }
         if (!canette4.activeSelf)
@@ -42,6 +60,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 4)
             {
                 canette4.SetActive(true);
+                sonCanette.Play();
             }
         }
         if (!canette5.activeSelf)
@@ -49,12 +68,15 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 5)
             {
                 canette5.SetActive(true);
+                sonCanette.Play();
+
             }
         }
         if (!canette6.activeSelf)
         {
             if (canetteCollectees == 6)
             {
+                sonCanette.Play();
                 canette6.SetActive(true);
                 flecheBlanche.SetActive(false);
             }
