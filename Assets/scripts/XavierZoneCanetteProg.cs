@@ -16,6 +16,21 @@ public class XavierZoneCanetteProg : MonoBehaviour
 
     public GameObject flecheBlanche;
 
+    public AudioSource sonCanette;
+
+    private void Start()
+    {
+        canetteCollectees = 0;
+        canette1.SetActive(false);
+        canette2.SetActive(false);
+        canette3.SetActive(false);
+        canette4.SetActive(false);
+        canette5.SetActive(false);
+        canette6.SetActive(false);
+
+        sonCanette = GetComponent<AudioSource>();
+    }
+
     public void Update()
     {
         if(!canette1.activeSelf)
