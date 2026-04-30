@@ -14,7 +14,9 @@ public class chronometre : MonoBehaviour
     void Start()
     {
        // Vérifie si on est dans SceneJeu
-        if (SceneManager.GetActiveScene().name == "sceneJeu")
+        if (SceneManager.GetActiveScene().name == "sceneJeu"
+            || SceneManager.GetActiveScene().name == "sceneJeuCopy"
+            || SceneManager.GetActiveScene().name == "sceneXavierTuto")
         {
             ActiverChrono();
         }
