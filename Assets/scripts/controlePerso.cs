@@ -114,11 +114,11 @@ public class controlePerso : MonoBehaviour
     public float vitesseMarche = 3f;
     public float vitesseCourse = 9f;
     public float vitesseAccroupi = 1f;
-    public float vitesseRotation = 37f;
+    public float vitesseRotation = 75f;
 
     [Header("Saut")]
-    public float forceSaut = 2f;
-    public float gravite = -9.81f;
+    public float forceSaut = 1f;
+    public float gravite = -9f;
     public bool boolSaut;
     public AudioSource sonSaut;
 
@@ -184,9 +184,8 @@ public class controlePerso : MonoBehaviour
         Vector3 futurePos = transform.position + move * Time.deltaTime;
 
         // CLAMP POSITION
-        // pos.x = Mathf.Clamp(pos.x, 176f, 342f);
-        futurePos.x = Mathf.Clamp(futurePos.x, 275f, 342f);
-        futurePos.z = Mathf.Clamp(futurePos.z, 62f, 267f);
+        futurePos.x = Mathf.Clamp(futurePos.x, 176f, 342f);
+        futurePos.z = Mathf.Clamp(futurePos.z, 64f, 267f);
 
         Vector3 finalMove = futurePos - transform.position;
         controller.Move(finalMove);
