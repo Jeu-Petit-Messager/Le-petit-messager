@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
-  m_FogColor: {r: 0.23137257, g: 0.2627451, b: 0.29803923, a: 1}
-  m_FogMode: 2
-  m_FogDensity: 0.026
+  m_Fog: 0
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.025
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.52
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e391f00234292cc4f935308c11cf0e54, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1689102}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689100}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -2856,7 +2856,7 @@ GameObject:
   - component: {fileID: 94378286}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2912,7 +2912,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94378284}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -2983,7 +2983,7 @@ GameObject:
   - component: {fileID: 94923542}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3039,7 +3039,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94923540}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -3364,7 +3364,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 300
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -3618,7 +3618,7 @@ GameObject:
   - component: {fileID: 117247563}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3674,7 +3674,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117247561}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -11402,7 +11402,7 @@ GameObject:
   - component: {fileID: 400058528}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11458,7 +11458,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400058526}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -11698,7 +11698,7 @@ GameObject:
   - component: {fileID: 406174566}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11754,7 +11754,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406174564}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -15939,7 +15939,7 @@ GameObject:
   - component: {fileID: 551801816}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15995,7 +15995,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551801814}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -16450,7 +16450,7 @@ GameObject:
   - component: {fileID: 569475140}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16506,7 +16506,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569475138}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -16694,7 +16694,7 @@ GameObject:
   - component: {fileID: 574206026}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16750,7 +16750,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574206024}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -18691,7 +18691,7 @@ GameObject:
   - component: {fileID: 667022246}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18747,7 +18747,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667022244}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -19334,7 +19334,7 @@ GameObject:
   - component: {fileID: 695862211}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19390,7 +19390,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695862209}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -19517,7 +19517,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696613634}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -19913,7 +19913,7 @@ GameObject:
   - component: {fileID: 710391866}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19969,7 +19969,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710391864}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -23212,7 +23212,7 @@ GameObject:
   - component: {fileID: 824594493}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23268,7 +23268,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824594491}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -28308,7 +28308,7 @@ GameObject:
   - component: {fileID: 935092341}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28364,7 +28364,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935092339}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -31013,7 +31013,7 @@ GameObject:
   - component: {fileID: 1046343101}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31069,7 +31069,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046343099}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -33038,7 +33038,7 @@ GameObject:
   - component: {fileID: 1105268129}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33094,7 +33094,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105268127}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -33861,7 +33861,7 @@ GameObject:
   - component: {fileID: 1140453852}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33917,7 +33917,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140453850}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -34621,6 +34621,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152620080}
   m_Mesh: {fileID: 7637004816912865990, guid: d585357255ea0ed4c8ada83e68d0919c, type: 3}
+--- !u!1 &1153017146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153017148}
+  - component: {fileID: 1153017147}
+  m_Layer: 0
+  m_Name: Global Volume (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1153017147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153017146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 998c9685790f30f47bd94df63eb34071, type: 2}
+--- !u!4 &1153017148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153017146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 77.61563, y: -66.49874, z: 211.70149}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153060212
 GameObject:
   m_ObjectHideFlags: 0
@@ -34754,7 +34803,7 @@ GameObject:
   - component: {fileID: 1158056465}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34810,7 +34859,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158056463}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -38149,7 +38198,7 @@ GameObject:
   - component: {fileID: 1268369870}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38205,7 +38254,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268369868}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -42088,7 +42137,7 @@ GameObject:
   - component: {fileID: 1445228791}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42144,12 +42193,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445228789}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8862745, g: 0.80234754, b: 0.5921569, a: 1}
+  m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
   m_Intensity: 100
-  m_Range: 30
+  m_Range: 4000
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -43955,7 +44004,7 @@ GameObject:
   - component: {fileID: 1563041728}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44011,7 +44060,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563041726}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -44197,7 +44246,7 @@ GameObject:
   - component: {fileID: 1565616232}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44253,7 +44302,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565616230}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -44673,7 +44722,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572508907}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -47286,7 +47335,7 @@ GameObject:
   - component: {fileID: 1639430296}
   m_Layer: 0
   m_Name: lamp (7)
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51858,7 +51907,7 @@ GameObject:
   - component: {fileID: 1791086873}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51914,7 +51963,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791086871}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -52042,7 +52091,7 @@ GameObject:
   - component: {fileID: 1798310563}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52098,7 +52147,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798310561}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -52872,11 +52921,11 @@ GameObject:
   - component: {fileID: 1837525140}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1837525139
 Transform:
   m_ObjectHideFlags: 0
@@ -54187,7 +54236,7 @@ GameObject:
   - component: {fileID: 1870086423}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54243,7 +54292,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870086421}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -54403,7 +54452,7 @@ GameObject:
   - component: {fileID: 1873918626}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54459,7 +54508,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873918624}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -56364,7 +56413,7 @@ GameObject:
   - component: {fileID: 1929059943}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56420,7 +56469,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929059941}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -58038,7 +58087,7 @@ GameObject:
   - component: {fileID: 2004519860}
   m_Layer: 0
   m_Name: lightLamp
-  m_TagString: nuit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58094,7 +58143,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004519858}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9517623, g: 0.9528302, b: 0.5258544, a: 1}
@@ -61669,6 +61718,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 976700796}
   - {fileID: 2021939742}
+  - {fileID: 1153017148}
   - {fileID: 33331553}
   - {fileID: 117849360}
   - {fileID: 100478109}
