@@ -40438,7 +40438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383054605}
-  - component: {fileID: 1383054604}
+  - component: {fileID: 1383054606}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -40446,32 +40446,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1383054604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383054603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c402b9439ce6446bb5313a47746722, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
-  dialogueBox: {fileID: 486169503}
-  dialogueText: {fileID: 398342013}
-  animator: {fileID: 486169507}
-  messageCamera: Vous pouvez cliquer la souris pour voir autour !
-  messageCanInit: "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
-  listeDiag:
-  - Vous pouvez cliquer la souris pour voir autour !
-  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
-  indexListeDiag: 0
-  delayAvantAffichage: 5
-  vitesseEcriture: 0.05
-  messageAutoDisparition: 0
-  deuxiemeMessage: 0
-  troisiemeMessage: 0
 --- !u!4 &1383054605
 Transform:
   m_ObjectHideFlags: 0
@@ -40487,6 +40461,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383054606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383054603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c970eca1100515944b40add4de4a8f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
+  dialogueBox: {fileID: 486169503}
+  dialogueText: {fileID: 398342013}
+  animator: {fileID: 486169507}
+  listeDiag:
+  - Vous pouvez cliquer la souris pour regarder autour !
+  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  - Ceci est GetComponent()
+  indexListeDiag: 0
+  delayAvantAffichage: 0
+  vitesseEcriture: 0.05
+  messageAutoDisparition: 0
 --- !u!1 &1391523385
 GameObject:
   m_ObjectHideFlags: 0

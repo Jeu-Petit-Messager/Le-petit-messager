@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /* Script se chargeant du nouveau message de tutoriel */
-public class gestionPopups : MonoBehaviour
+public class DialogueIntro : MonoBehaviour
 {
 
     public GameObject dialogueBox;

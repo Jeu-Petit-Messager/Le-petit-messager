@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /* Script se chargeant du nouveau message de tutoriel */
-public class DialogueIntro : MonoBehaviour
+public class gestionPopups : MonoBehaviour
 {
 
     public GameObject dialogueBox;
@@ -21,18 +21,13 @@ public class DialogueIntro : MonoBehaviour
 
     private bool estEnTrainDEcrire = false;
 
-    public bool messageAutoDisparition;
-
-    public bool deuxiemeMessage = false;
-    public bool troisiemeMessage;
+    //public bool messageAutoDisparition;
 
     void Start()
     {
         indexListeDiag = 0;
 
-        messageAutoDisparition = false;
-
-        troisiemeMessage = false;
+        //messageAutoDisparition = false;
 
         dialogueBox.SetActive(false);
         dialogueText.text = "";
@@ -50,11 +45,13 @@ public class DialogueIntro : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(EcrireTexte(messageCamera));
+        StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
     }
     // Coroutine pour écrire le texte lettre par lettre
     IEnumerator EcrireTexte(string msg)
     {
+        print(indexListeDiag);
+
         estEnTrainDEcrire = true;
         dialogueText.text = "";
 
@@ -65,36 +62,19 @@ public class DialogueIntro : MonoBehaviour
         }
 
         estEnTrainDEcrire = false;
-
-        // MESSAGES AUTO → fade direct apres 5 sec
-        if (messageAutoDisparition)
-        {
-            messageAutoDisparition = false;
-
-            yield return new WaitForSeconds(3f);
-
-            animator.SetTrigger("FadeOut");
-
-            yield return new WaitForSeconds(1.0f);
-
-            dialogueBox.SetActive(false);
-            dialogueText.text = "";
-            StartCoroutine(FermerEtLancerMessageAuto());
-        }
+        //StartCoroutine(FermerEtLancerMessageAuto());
 
     }
 
     void Update()
     {
-        if (troisiemeMessage) return;
-        if (deuxiemeMessage) return;
 
         if (dialogueBox.activeSelf && Input.GetMouseButtonDown(0))
         {
             if (estEnTrainDEcrire)
             {
                 StopAllCoroutines();
-                dialogueText.text = messageCamera;
+                dialogueText.text = listeDiag[indexListeDiag];
                 estEnTrainDEcrire = false;
             }
             else
@@ -107,51 +87,19 @@ public class DialogueIntro : MonoBehaviour
     // Coroutine pour fermer le dialogue et lancer l'autre message
     IEnumerator FermerEtLancerMessageAuto()
     {
+
         animator.SetTrigger("FadeOut");
 
         // Vitesse effacer texte
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
-        // Lancer le deuxieme message après un delai
-        if (!deuxiemeMessage)
-        {
-            deuxiemeMessage = true;
+        indexListeDiag++;
+        print(indexListeDiag);
 
-            messageAutoDisparition = true;
-
-            yield return new WaitForSeconds(2f);
-
-            dialogueBox.SetActive(true);
-
-            animator.SetTrigger("FadeIn");
-
-            yield return new WaitForSeconds(1.0f);
-
-            StartCoroutine(EcrireTexte(messageCanInit));
-
-            yield break;
-
-        } else if(!troisiemeMessage)
-        {
-            troisiemeMessage = true;
-
-            messageAutoDisparition = true;
-
-            yield return new WaitForSeconds(2f);
-
-            dialogueBox.SetActive(true);
-
-            animator.SetTrigger("FadeIn");
-
-            yield return new WaitForSeconds(1f);
-
-            StartCoroutine(EcrireTexte(messageCanInit));
-
-            yield break;
-        }
-
+        if (indexListeDiag < listeDiag.Count)
+            StartCoroutine(LancerDialogue());
     }
 }
