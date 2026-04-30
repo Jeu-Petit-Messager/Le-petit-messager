@@ -40461,9 +40461,12 @@ MonoBehaviour:
   dialogueBox: {fileID: 486169503}
   dialogueText: {fileID: 398342013}
   animator: {fileID: 486169507}
-  message: Vous pouvez cliquer la souris pour voir autour !
-  message2: "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
-  message3: Est-ce que ce message s'affiche?
+  messageCamera: Vous pouvez cliquer la souris pour voir autour !
+  messageCanInit: "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  listeDiag:
+  - Vous pouvez cliquer la souris pour voir autour !
+  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  indexListeDiag: 0
   delayAvantAffichage: 5
   vitesseEcriture: 0.05
   messageAutoDisparition: 0

@@ -4,18 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 /* Script se chargeant du nouveau message de tutoriel */
-public class gestionPopups : MonoBehaviour
+public class DialogueIntro : MonoBehaviour
 {
 
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
-
-    [TextArea]
-    public string messageCamera = "Vous pouvez cliquer la souris pour voir autour !";
-
-    [TextArea]
-    public string messageCanInit = "Veuillez placer les 6 canettes de nourriture dans la zone indiquée";
 
     // Liste dynamique de textes
     public List<string> listeDiag = new List<string>();
