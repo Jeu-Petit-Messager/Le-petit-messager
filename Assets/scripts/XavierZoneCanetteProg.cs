@@ -23,7 +23,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 1)
             {
                 canette1.SetActive(true);
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
             }
         }
         if (!canette2.activeSelf)
@@ -31,7 +31,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 2)
             {
                 canette2.SetActive(true);
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
 
             }
         }
@@ -40,7 +40,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 3)
             {
                 canette3.SetActive(true);
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
 
             }
         }
@@ -49,7 +49,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 4)
             {
                 canette4.SetActive(true);
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
 
             }
         }
@@ -58,7 +58,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 5)
             {
                 canette5.SetActive(true);
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
 
             }
         }
@@ -66,7 +66,7 @@ public class XavierZoneCanetteProg : MonoBehaviour
         {
             if (canetteCollectees == 6)
             {
-                sonRamassage.Play();
+                sonRamassage.PlayOneShot(sonRamassage.clip);
                 canette6.SetActive(true);
                 flecheBlanche.SetActive(false);
             }

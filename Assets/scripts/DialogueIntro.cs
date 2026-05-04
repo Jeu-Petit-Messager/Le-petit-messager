@@ -71,7 +71,6 @@ public class DialogueIntro : MonoBehaviour
     void Update()
     {
         if (deuxiemeMessage) return;
-
         if (dialogueBox.activeSelf && Input.GetMouseButtonDown(1))
         {
             if (estEnTrainDEcrire)
@@ -80,7 +79,7 @@ public class DialogueIntro : MonoBehaviour
                 dialogueText.text = message;
                 estEnTrainDEcrire = false;
             }
-            else
+            else if (!estEnTrainDEcrire)
             {
                 StartCoroutine(FermerEtLancerMessage2());
             }
