@@ -11238,7 +11238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &398342012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40483,9 +40483,12 @@ MonoBehaviour:
     debout
   - Ceci est GetComponent()
   - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  - autre test
   indexListeDiag: 0
   delayAvantAffichage: 0
   vitesseEcriture: 0.05
+  estEnTrainDEcrire: 0
+  compteAccroupi: 0
 --- !u!1 &1391523385
 GameObject:
   m_ObjectHideFlags: 0

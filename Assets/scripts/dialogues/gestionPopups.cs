@@ -23,13 +23,14 @@ public class gestionPopups : MonoBehaviour
 
     // Variables de conditions
     Vector3 sourisPos;
+    Vector3 maintientPos;
     public float compteAccroupi;
 
     void Start()
     {
+        dialogueText.gameObject.SetActive(true);
         indexListeDiag = 0;
 
-        //messageAutoDisparition = false;
 
         dialogueBox.SetActive(false);
         dialogueText.text = "";
@@ -101,7 +102,7 @@ public class gestionPopups : MonoBehaviour
                     // 0 correspond au clic gauche
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Vector3 maintientPos = Input.mousePosition;
+                        maintientPos = Input.mousePosition;
                         if(maintientPos != sourisPos)
                         {
                             StartCoroutine(FermerEtLancerMessageAuto());
@@ -132,9 +133,10 @@ public class gestionPopups : MonoBehaviour
                 }
                 else
                 {
-                    if(!estEnTrainDEcrire)
+                    if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
                     {
                         StartCoroutine(FermerEtLancerMessageAuto());
+                        if(indexListeDiag < listeDiag.Count) indexListeDiag++;
                     }
                 }
 
