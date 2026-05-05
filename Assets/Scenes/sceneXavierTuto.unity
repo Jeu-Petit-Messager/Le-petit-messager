@@ -40479,11 +40479,10 @@ MonoBehaviour:
   animator: {fileID: 486169507}
   listeDiag:
   - "Pour regarder autour, maintenez et d\xE9placez le clic gauche de la souris"
-  - Appuyez sur CTRL pour vous accroupir, et appuyez de nouveau pour vous remettre
-    debout
-  - Ceci est GetComponent()
-  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
-  - autre test
+  - Appuyez sur CTRL pour vous accroupir, et appuyez de nouveau pour vous redresser
+  - Enfoncez la barre d'espace pour sauter par dessus des obstacles
+  - Test auto
+  - Maintenez le bouton SHIFT pour courir
   indexListeDiag: 0
   delayAvantAffichage: 0
   vitesseEcriture: 0.05
