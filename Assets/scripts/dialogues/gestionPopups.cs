@@ -19,24 +19,32 @@ public class gestionPopups : MonoBehaviour
     public float delayAvantAffichage = 0f;
     public float vitesseEcriture = 0.05f;
 
-    private bool estEnTrainDEcrire = false;
+    public bool estEnTrainDEcrire;
 
-    //public bool messageAutoDisparition;
+    // Variables de conditions
+    Vector3 sourisPos;
+    Vector3 maintientPos;
+    public float compteAccroupi;
 
     void Start()
     {
+        dialogueText.gameObject.SetActive(true);
         indexListeDiag = 0;
 
-        //messageAutoDisparition = false;
 
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
         StartCoroutine(LancerDialogue());
+        estEnTrainDEcrire=true;
+
+        compteAccroupi = 0f;
     }
     // Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre
     IEnumerator LancerDialogue()
     {
+        estEnTrainDEcrire = true;
+
         yield return new WaitForSeconds(delayAvantAffichage);
 
         dialogueBox.SetActive(true);
@@ -50,9 +58,6 @@ public class gestionPopups : MonoBehaviour
     // Coroutine pour écrire le texte lettre par lettre
     IEnumerator EcrireTexte(string msg)
     {
-        print(indexListeDiag);
-
-        estEnTrainDEcrire = true;
         dialogueText.text = "";
 
         foreach (char lettre in msg)
@@ -61,28 +66,81 @@ public class gestionPopups : MonoBehaviour
             yield return new WaitForSeconds(vitesseEcriture);
         }
 
-        estEnTrainDEcrire = false;
-        //StartCoroutine(FermerEtLancerMessageAuto());
-
     }
 
     void Update()
     {
 
-        if (dialogueBox.activeSelf && Input.GetMouseButtonDown(0))
-        {
             if (estEnTrainDEcrire)
             {
-                StopAllCoroutines();
-                dialogueText.text = listeDiag[indexListeDiag];
-                estEnTrainDEcrire = false;
+                if(indexListeDiag == 1)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftControl))
+                    {
+                        compteAccroupi++;
+                        ChargerTexteEntierEarly();
+
+                    } 
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    ChargerTexteEntierEarly();
+                }
+
+                if(dialogueText.text == listeDiag[indexListeDiag]) estEnTrainDEcrire = false;
+
             }
+            
+            /* Lorsque le texte a fini d'ecrire, voici des conditions de texte de tuto */
             else
             {
-                StartCoroutine(FermerEtLancerMessageAuto());
-            }
+                // Au debut, faire la verif deplacement cam
+                if(indexListeDiag == 0)
+                {
 
-        }
+                    // 0 correspond au clic gauche
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        maintientPos = Input.mousePosition;
+                        if(maintientPos != sourisPos)
+                        {
+                            StartCoroutine(FermerEtLancerMessageAuto());
+                            indexListeDiag++;
+                        }
+
+                    }
+                    else
+                    {
+                        sourisPos = Input.mousePosition;
+                    }
+
+                }
+
+                else if (indexListeDiag == 1)
+                {
+
+                    if (Input.GetKeyDown(KeyCode.LeftControl))
+                    {
+                        if (compteAccroupi < 2f) compteAccroupi++;
+                    }
+
+                    if (compteAccroupi == 2f)
+                    {
+                        StartCoroutine(FermerEtLancerMessageAuto());
+                        indexListeDiag++;
+                    }
+                }
+                else
+                {
+                    if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
+                    {
+                        StartCoroutine(FermerEtLancerMessageAuto());
+                        if(indexListeDiag < listeDiag.Count) indexListeDiag++;
+                    }
+                }
+
+            }
     }
     // Coroutine pour fermer le dialogue et lancer l'autre message
     IEnumerator FermerEtLancerMessageAuto()
@@ -96,10 +154,16 @@ public class gestionPopups : MonoBehaviour
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
-        indexListeDiag++;
-        print(indexListeDiag);
-
         if (indexListeDiag < listeDiag.Count)
+        {
             StartCoroutine(LancerDialogue());
+        }
+    }
+
+    void ChargerTexteEntierEarly()
+    {
+        StopAllCoroutines();
+        dialogueText.text = listeDiag[indexListeDiag];
+        estEnTrainDEcrire = false;
     }
 }

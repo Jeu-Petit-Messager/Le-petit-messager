@@ -11238,7 +11238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &398342012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40458,7 +40458,8 @@ Transform:
   m_LocalPosition: {x: 339.9854, y: 106.35966, z: 134.03262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2040048936}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1383054606
@@ -40477,13 +40478,17 @@ MonoBehaviour:
   dialogueText: {fileID: 398342013}
   animator: {fileID: 486169507}
   listeDiag:
-  - Vous pouvez cliquer la souris pour regarder autour !
-  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  - "Pour regarder autour, maintenez et d\xE9placez le clic gauche de la souris"
+  - Appuyez sur CTRL pour vous accroupir, et appuyez de nouveau pour vous remettre
+    debout
   - Ceci est GetComponent()
+  - "Veuillez placer les 6 canettes de nourriture dans la zone indiqu\xE9e"
+  - autre test
   indexListeDiag: 0
   delayAvantAffichage: 0
   vitesseEcriture: 0.05
-  messageAutoDisparition: 0
+  estEnTrainDEcrire: 0
+  compteAccroupi: 0
 --- !u!1 &1391523385
 GameObject:
   m_ObjectHideFlags: 0
@@ -59258,12 +59263,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040048934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 281.50238, y: 100.43616, z: 109.80217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -58.483032, y: -5.9235, z: -24.230453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1383054605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040180597
 GameObject:
@@ -61803,7 +61808,6 @@ SceneRoots:
   - {fileID: 1060779818}
   - {fileID: 954638533}
   - {fileID: 2124900964}
-  - {fileID: 2040048936}
   - {fileID: 1383054605}
   - {fileID: 923513402}
   - {fileID: 480464052}
