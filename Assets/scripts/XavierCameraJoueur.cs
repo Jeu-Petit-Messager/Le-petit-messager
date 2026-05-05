@@ -46,13 +46,13 @@ public class XavierCameraJoueur : MonoBehaviour
             rotX = Mathf.Lerp(rotX, rotXInitial, Time.deltaTime * amortissement);
         }
 
-        // 🔥 rotation caméra
+        // rotation caméra
         Quaternion rotation = Quaternion.Euler(rotX, rotY, 0f);
 
-        // 🔥 direction stable (distance FIXE)
+        // direction stable (distance FIXE)
         Vector3 direction = rotation * Vector3.back;
 
-        // 🔥 position FIXE = joueur + direction * distance
+        // position FIXE = joueur + direction * distance
         Vector3 desiredPosition = target.position + new Vector3(0f, offset.y, 0f) + direction * Mathf.Abs(offset.z);
 
         transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * amortissement);
