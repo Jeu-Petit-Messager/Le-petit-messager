@@ -9,7 +9,7 @@ public class DialogueIntro : MonoBehaviour
     public Animator animator;
 
     [TextArea]
-    public string message = "Vous pouvez cliquer la souris pour voir autour !";
+    public string message = "Vous pouvez cliquer droit la souris pour voir autour !";
 
     [TextArea]
     public string message2 = "Veuillez placer les 6 canettes de nourriture dans la zone indiquée";
@@ -71,8 +71,7 @@ public class DialogueIntro : MonoBehaviour
     void Update()
     {
         if (deuxiemeMessage) return;
-
-        if (dialogueBox.activeSelf && Input.GetMouseButtonDown(0))
+        if (dialogueBox.activeSelf && Input.GetMouseButtonDown(1))
         {
             if (estEnTrainDEcrire)
             {
@@ -80,7 +79,7 @@ public class DialogueIntro : MonoBehaviour
                 dialogueText.text = message;
                 estEnTrainDEcrire = false;
             }
-            else
+            else if (!estEnTrainDEcrire)
             {
                 StartCoroutine(FermerEtLancerMessage2());
             }
