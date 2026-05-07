@@ -25,10 +25,15 @@ public class XavierAffichageTextes : MonoBehaviour
     /* Variables de conditions du tutoriel*/
     // Enregistrer positions souris
     [Header("Variables du tutoriel")]
-    public bool affichageTextesTuto;
+
+    // Variable indiquant la fin de cette partie
+    public static bool affichageTextesTuto;
+
+    // Retire temporairement la possibilite d'interagir
+    public static bool retireInteractionJoueur;
     Vector3 sourisPos;
     Vector3 maintientPos;
-    public float compteAccroupi;
+    float compteAccroupi;
 
     void Start()
     {
@@ -39,7 +44,9 @@ public class XavierAffichageTextes : MonoBehaviour
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
+        // Le joueur inititie le tutoriel des le debut
         affichageTextesTuto = true;
+        retireInteractionJoueur = true;
 
         StartCoroutine(LancerDialogue());
         estEnTrainDEcrire = true;
@@ -124,7 +131,9 @@ public class XavierAffichageTextes : MonoBehaviour
                             ChargerTexteEntierEarly();
                             StartCoroutine(FermerEtLancerMessageAuto());
                             indexListeDiag++;
-                        }
+                            // Le joueur peut interagir pour le prochain test
+                            retireInteractionJoueur = false;
+                    }
                     }
 
                     // 4. Test interact
@@ -139,7 +148,10 @@ public class XavierAffichageTextes : MonoBehaviour
                         {
                             StartCoroutine(FermerEtLancerMessageAuto());
                             indexListeDiag++;
-                        }
+
+                            // Le joueur peut plus interagir pour le prochain test
+                            retireInteractionJoueur = true;
+                    }
 
                     }
 
@@ -235,6 +247,8 @@ public class XavierAffichageTextes : MonoBehaviour
                         {
                             StartCoroutine(FermerEtLancerMessageAuto());
                             indexListeDiag++;
+                            // Le joueur peut interagir pour le prochain test
+                            retireInteractionJoueur = false;
                         }
                     }
 
@@ -245,6 +259,9 @@ public class XavierAffichageTextes : MonoBehaviour
                         {
                             StartCoroutine(FermerEtLancerMessageAuto());
                             indexListeDiag++;
+
+                            // Le joueur peut plus interagir pour le prochain test
+                            retireInteractionJoueur = true;
                         }
                     }
 
@@ -256,7 +273,10 @@ public class XavierAffichageTextes : MonoBehaviour
                         {
                             StartCoroutine(FermerEtLancerMessageAuto());
                             indexListeDiag++;
-                        }
+
+                            // Le joueur peut interagir
+                            retireInteractionJoueur = false;
+                    }
                     }
 
                     else if(indexListeDiag == 5 || indexListeDiag == 6)
@@ -317,6 +337,12 @@ public class XavierAffichageTextes : MonoBehaviour
         if (indexListeDiag < listeDiag.Count)
         {
             StartCoroutine(LancerDialogue());
+        }
+        // Lorsque l'affichage atteint sa fin, le statut de tuto prend fin
+        else if(affichageTextesTuto == true)
+        {
+            affichageTextesTuto = false;
+            indexListeDiag = 0;
         }
     }
 
