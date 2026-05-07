@@ -40429,69 +40429,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382239362}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1383054603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1383054605}
-  - component: {fileID: 1383054606}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1383054605
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383054603}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 339.9854, y: 106.35966, z: 134.03262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2040048936}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1383054606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383054603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c970eca1100515944b40add4de4a8f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
-  dialogueBox: {fileID: 486169503}
-  dialogueText: {fileID: 398342013}
-  animator: {fileID: 486169507}
-  listeDiag:
-  - "Pour regarder autour, maintenez et d\xE9placez le clic gauche de la souris"
-  - Appuyez sur CTRL pour vous accroupir, et appuyez de nouveau pour vous redresser
-  - Enfoncez la barre d'espace pour sauter par dessus des obstacles
-  - Appuyez sur E pour interagir avec des objets et des personnes. Essayez de prendre
-    une cannette pour voir
-  - Maintenez le bouton SHIFT pour courir
-  - Maintenant, essayez de placez votre cannette devant votre maison
-  - Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!
-  indexListeDiag: 0
-  delayAvantAffichage: 0
-  vitesseEcriture: 0.05
-  estEnTrainDEcrire: 0
-  affichageTextesTuto: 0
-  compteAccroupi: 0
 --- !u!1 &1391523385
 GameObject:
   m_ObjectHideFlags: 0
@@ -59227,52 +59164,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037069989}
   m_Mesh: {fileID: -1226817584057097758, guid: 5bd07afa2334f87468f4dd0232c18a1c, type: 3}
---- !u!1 &2040048934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2040048936}
-  - component: {fileID: 2040048935}
-  m_Layer: 0
-  m_Name: PauseManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2040048935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040048934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a7c7e081b36b2468f4e6b9dcddfe7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
-  pauseMenuUI: {fileID: 1623469364}
-  chrono: {fileID: 954638532}
---- !u!4 &2040048936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040048934}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.483032, y: -5.9235, z: -24.230453}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1383054605}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040180597
 GameObject:
   m_ObjectHideFlags: 0
@@ -61726,6 +61617,83 @@ Transform:
   - {fileID: 770286827}
   m_Father: {fileID: 1745413497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7820700388332427599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3283057345357807617, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: chrono
+      value: 
+      objectReference: {fileID: 954638532}
+    - target: {fileID: 3283057345357807617, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 1623469364}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 339.9854
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 106.35966
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 134.03262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804149034838030124, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159033159958053087, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 486169507}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 486169503}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 398342013}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
 --- !u!1001 &8990569413336630007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61811,6 +61779,6 @@ SceneRoots:
   - {fileID: 1060779818}
   - {fileID: 954638533}
   - {fileID: 2124900964}
-  - {fileID: 1383054605}
+  - {fileID: 7820700388332427599}
   - {fileID: 923513402}
   - {fileID: 480464052}
