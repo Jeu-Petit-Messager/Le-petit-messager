@@ -9,6 +9,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     public GameObject dialogueBox;
     public Text dialogueText;
+    public Text dialogueLabel;
     public Animator animator;
 
     // Liste dynamique de textes
@@ -23,20 +24,33 @@ public class XavierAffichageTextes : MonoBehaviour
     public bool estEnTrainDEcrire;
 
     /* Variables de conditions du tutoriel*/
-    // Enregistrer positions souris
-    [Header("Variables du tutoriel")]
+    Vector3 sourisPos;
+    Vector3 maintientPos;
+    float compteAccroupi;
 
+    // "Appuyez sur E pour interagir avec des objets et des personnes. Essayez de prendre une cannette pour voir",
+    // Liste 2
+    //List<string> diagProf1 = new List<string> {
+    //    "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide ?",
+    //    "Je suis à la recherche d'un monsieur...mais ma maman m’a dit de ne pas parler aux monsieurs bizarres.",
+    //    "Attends, je suis qu’un gentil homme je t’assure ! Tu sais, je suis, ou du moins j’étais,\r\nun grand professeur avant et je passais mes journées à aider des petits garçons tout\r\ncomme toi, alors n’hésite pas à tout me dire.\r\n",
+    //    "Nouveau4"
+    //};
+
+    /* Les differentes listes */
     // Variable indiquant la fin de cette partie
     public static bool affichageTextesTuto;
 
     // Retire temporairement la possibilite d'interagir
     public static bool retireInteractionJoueur;
-    Vector3 sourisPos;
-    Vector3 maintientPos;
-    float compteAccroupi;
+
+    // Statut configuration perso
+    public bool typePerso;
 
     void Start()
     {
+        typePerso = false;
+
         dialogueText.gameObject.SetActive(true);
         dialogueBox.SetActive(false);
         dialogueText.text = "";
@@ -52,6 +66,9 @@ public class XavierAffichageTextes : MonoBehaviour
         estEnTrainDEcrire = true;
 
         compteAccroupi = 0f;
+
+        //listeDiag.Clear();
+        //listeDiag.AddRange(diagProf1);
     }
 
     /* Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre */

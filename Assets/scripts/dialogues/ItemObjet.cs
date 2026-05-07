@@ -22,15 +22,6 @@ public class ItemObject : MonoBehaviour, IInteractable
         // Aucun objet est interactif au debut
         gameObject.layer = layerDefaut;
 
-        // Seul les canettes peuvent etre touchees au debut
-        //if(objetInteractif.tag == "Canette")
-        //{
-        //    gameObject.layer = layerInteractif;
-        //}
-        //else
-        //{
-        //    gameObject.layer = layerDefaut;
-        //}
     }
 
     public void Update()
