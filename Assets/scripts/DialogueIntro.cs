@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
+/* Script se chargeant du nouveau message de tutoriel */
 public class DialogueIntro : MonoBehaviour
 {
+
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
@@ -12,22 +15,37 @@ public class DialogueIntro : MonoBehaviour
     public string message = "Vous pouvez cliquer droit la souris pour voir autour !";
 
     [TextArea]
-    public string message2 = "Veuillez placer les 6 canettes de nourriture dans la zone indiquée";
+    public string messageCanInit = "Veuillez placer les 6 canettes de nourriture dans la zone indiquée";
 
-    public float delayAvantAffichage = 5f;
+    // Liste dynamique de textes
+    public List<string> listeDiag = new List<string>();
+    public int indexListeDiag;
+
+
+    public float delayAvantAffichage = 0f;
     public float vitesseEcriture = 0.05f;
 
     private bool estEnTrainDEcrire = false;
-    private bool deuxiemeMessage = false;
+
+    public bool messageAutoDisparition;
+
+    public bool deuxiemeMessage = false;
+    public bool troisiemeMessage;
 
     void Start()
     {
+        indexListeDiag = 0;
+
+        messageAutoDisparition = false;
+
+        troisiemeMessage = false;
+
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
         StartCoroutine(LancerDialogue());
     }
-    // Coroutine pour lancer le dialogue après un délai, puis écrire le texte lettre par lettre
+    // Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre
     IEnumerator LancerDialogue()
     {
         yield return new WaitForSeconds(delayAvantAffichage);
@@ -38,7 +56,7 @@ public class DialogueIntro : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(EcrireTexte(message));
+        StartCoroutine(EcrireTexte(messageCamera));
     }
     // Coroutine pour écrire le texte lettre par lettre
     IEnumerator EcrireTexte(string msg)
@@ -54,51 +72,78 @@ public class DialogueIntro : MonoBehaviour
 
         estEnTrainDEcrire = false;
 
-        // MESSAGE 2 → fade direct après 5 sec
-        if (deuxiemeMessage)
+        // MESSAGES AUTO → fade direct apres 5 sec
+        if (messageAutoDisparition)
         {
-            yield return new WaitForSeconds(5f);
+            messageAutoDisparition = false;
+
+            yield return new WaitForSeconds(3f);
 
             animator.SetTrigger("FadeOut");
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.0f);
 
             dialogueBox.SetActive(false);
             dialogueText.text = "";
+            StartCoroutine(FermerEtLancerMessageAuto());
         }
+
     }
 
     void Update()
     {
+        if (troisiemeMessage) return;
         if (deuxiemeMessage) return;
         if (dialogueBox.activeSelf && Input.GetMouseButtonDown(1))
         {
             if (estEnTrainDEcrire)
             {
                 StopAllCoroutines();
-                dialogueText.text = message;
+                dialogueText.text = messageCamera;
                 estEnTrainDEcrire = false;
             }
             else if (!estEnTrainDEcrire)
             {
-                StartCoroutine(FermerEtLancerMessage2());
+                StartCoroutine(FermerEtLancerMessageAuto());
             }
+
         }
     }
-    // Coroutine pour fermer le dialogue et lancer le deuxième message
-    IEnumerator FermerEtLancerMessage2()
+    // Coroutine pour fermer le dialogue et lancer l'autre message
+    IEnumerator FermerEtLancerMessageAuto()
     {
         animator.SetTrigger("FadeOut");
 
-        yield return new WaitForSeconds(0.5f);
+        // Vitesse effacer texte
+        yield return new WaitForSeconds(1.0f);
 
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
-        // Lancer le deuxième message après un délai
+        // Lancer le deuxieme message après un delai
         if (!deuxiemeMessage)
         {
             deuxiemeMessage = true;
+
+            messageAutoDisparition = true;
+
+            yield return new WaitForSeconds(2f);
+
+            dialogueBox.SetActive(true);
+
+            animator.SetTrigger("FadeIn");
+
+            yield return new WaitForSeconds(1.0f);
+
+            StartCoroutine(EcrireTexte(messageCanInit));
+
+            yield break;
+
+        } else if(!troisiemeMessage)
+        {
+            troisiemeMessage = true;
+
+            messageAutoDisparition = true;
 
             yield return new WaitForSeconds(2f);
 
@@ -108,7 +153,10 @@ public class DialogueIntro : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
 
-            StartCoroutine(EcrireTexte(message2));
+            StartCoroutine(EcrireTexte(messageCanInit));
+
+            yield break;
         }
+
     }
 }
