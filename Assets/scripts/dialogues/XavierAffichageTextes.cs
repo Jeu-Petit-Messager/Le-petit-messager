@@ -29,13 +29,25 @@ public class XavierAffichageTextes : MonoBehaviour
     float compteAccroupi;
 
     // "Appuyez sur E pour interagir avec des objets et des personnes. Essayez de prendre une cannette pour voir",
+
+    /* Stockage de listes : */
+    // Liste du tutoriel
+    List<string> consignesTuto = new List<string> {
+        "Appuyez sur CTRL pour vous accroupir,\net appuyez de nouveau pour vous redresser",
+        "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
+        "Appuyez sur E pour interagir avec des objets ou des personnes!",
+        "Maintenez le bouton SHIFT pour courir",
+        "Maintenant, essayez de placez votre cannette devant votre maison",
+        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!"
+    };
+
     // Liste 2
-    //List<string> diagProf1 = new List<string> {
-    //    "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide ?",
-    //    "Je suis à la recherche d'un monsieur...mais ma maman m’a dit de ne pas parler aux monsieurs bizarres.",
-    //    "Attends, je suis qu’un gentil homme je t’assure ! Tu sais, je suis, ou du moins j’étais,\r\nun grand professeur avant et je passais mes journées à aider des petits garçons tout\r\ncomme toi, alors n’hésite pas à tout me dire.\r\n",
-    //    "Nouveau4"
-    //};
+    List<string> diagProf1 = new List<string> {
+        "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide ?",
+        "Je suis à la recherche d'un monsieur...mais ma maman m’a dit de ne pas parler aux monsieurs bizarres.",
+        "Attends, je suis qu’un gentil homme je t’assure ! Tu sais, je suis, ou du moins j’étais,\r\nun grand professeur avant et je passais mes journées à aider des petits garçons tout\r\ncomme toi, alors n’hésite pas à tout me dire.\r\n",
+        "Nouveau4"
+    };
 
     /* Les differentes listes */
     // Variable indiquant la fin de cette partie
@@ -67,8 +79,8 @@ public class XavierAffichageTextes : MonoBehaviour
 
         compteAccroupi = 0f;
 
-        //listeDiag.Clear();
-        //listeDiag.AddRange(diagProf1);
+        listeDiag.Clear();
+        listeDiag.AddRange(consignesTuto);
     }
 
     /* Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre */
@@ -110,27 +122,27 @@ public class XavierAffichageTextes : MonoBehaviour
                 /* Conditions speciales du tuto */
                 if(affichageTextesTuto)
                 {
-                    // 1. Test camera
+                    // 0. Test camera
+                    //if (indexListeDiag == 0)
+                    //{
+                    //    if (Input.GetMouseButtonDown(0))
+                    //    {
+                    //        maintientPos = Input.mousePosition;
+
+                    //        if (maintientPos != sourisPos)
+                    //        {
+                    //            ChargerTexteEntierEarly();
+                    //            StartCoroutine(FermerEtLancerMessageAuto());
+                    //            indexListeDiag++;
+                    //        }
+
+                    //    }
+                    //    else sourisPos = Input.mousePosition;
+
+                    //}
+
+                    // 1. Test accroupissement
                     if (indexListeDiag == 0)
-                    {
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            maintientPos = Input.mousePosition;
-
-                            if (maintientPos != sourisPos)
-                            {
-                                ChargerTexteEntierEarly();
-                                StartCoroutine(FermerEtLancerMessageAuto());
-                                indexListeDiag++;
-                            }
-
-                        }
-                        else sourisPos = Input.mousePosition;
-
-                    }
-
-                    // 2. Test accroupissement
-                    else if (indexListeDiag == 1)
                     {
                         if (Input.GetKeyDown(KeyCode.LeftControl))
                         {
@@ -140,8 +152,8 @@ public class XavierAffichageTextes : MonoBehaviour
                         }
                     }
 
-                    // 3. Test saut
-                    else if (indexListeDiag == 2)
+                    // 2. Test saut
+                    else if (indexListeDiag == 1)
                     {
                         if (Input.GetKeyDown(KeyCode.Space))
                         {
@@ -153,8 +165,8 @@ public class XavierAffichageTextes : MonoBehaviour
                     }
                     }
 
-                    // 4. Test interact
-                    else if (indexListeDiag == 3)
+                    // 3. Test interact
+                    else if (indexListeDiag == 2)
                     {
                         if (Input.GetKeyDown(KeyCode.E))
                         {
@@ -172,8 +184,8 @@ public class XavierAffichageTextes : MonoBehaviour
 
                     }
 
-                    // 5. Test course
-                    else if (indexListeDiag == 4)
+                    // 4. Test course
+                    else if (indexListeDiag == 3)
                     {
                             if (Input.GetKeyDown(KeyCode.LeftShift))
                             {
@@ -181,7 +193,7 @@ public class XavierAffichageTextes : MonoBehaviour
                             }
                     }
 
-                    if (indexListeDiag != 5 && indexListeDiag != 6)
+                    if (indexListeDiag != 4 && indexListeDiag != 5)
                     {
                         /* Condition generale, juste clicker */
                         if (Input.GetMouseButtonDown(0))
@@ -213,34 +225,9 @@ public class XavierAffichageTextes : MonoBehaviour
                 // Pour le texte du tutoriel
                 if(affichageTextesTuto)
                 {
-                    // 1. faire la verif deplacement cam
+
+                    // 1. verif de l'accroupissement
                     if (indexListeDiag == 0)
-                    {
-
-                        // 0 correspond au clic gauche
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            // Le maintient est seulement calcule au hold
-                            maintientPos = Input.mousePosition;
-
-                            // Lorsque la valeur de maintient change de la derniere enregistree, passe au suivant
-                            if (maintientPos != sourisPos)
-                            {
-                                StartCoroutine(FermerEtLancerMessageAuto());
-                                indexListeDiag++;
-                            }
-
-                        }
-                        else
-                        {
-
-                            sourisPos = Input.mousePosition;
-                        }
-
-                    }
-
-                    // 2. verif de l'accroupissement
-                    else if (indexListeDiag == 1)
                     {
                         // On veut que le joueur s'accroupit et se redresse
                         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -256,8 +243,8 @@ public class XavierAffichageTextes : MonoBehaviour
                         }
                     }
 
-                    // 3. verif du saut
-                    else if (indexListeDiag == 2)
+                    // 2. verif du saut
+                    else if (indexListeDiag == 1)
                     {
                         // Le joueur doit appuyez ESPACE
                         if (Input.GetKeyDown(KeyCode.Space))
@@ -269,8 +256,8 @@ public class XavierAffichageTextes : MonoBehaviour
                         }
                     }
 
-                    // 4. Test interact
-                    else if (indexListeDiag == 3)
+                    // 3. Test interact
+                    else if (indexListeDiag == 2)
                     {
                         if (XavierScriptInteraction.interactionFonctionnelle)
                         {
@@ -282,8 +269,8 @@ public class XavierAffichageTextes : MonoBehaviour
                         }
                     }
 
-                    // 5. verif du sprint
-                    else if (indexListeDiag == 4)
+                    // 4. verif du sprint
+                    else if (indexListeDiag == 3)
                     {
                         // Le joueur doit appuyez sur SHIFT
                         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -296,7 +283,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     }
                     }
 
-                    else if(indexListeDiag == 5 || indexListeDiag == 6)
+                    else if(indexListeDiag == 4 || indexListeDiag == 5)
                     {
                         if (dialogueText.text == listeDiag[indexListeDiag])
                         {

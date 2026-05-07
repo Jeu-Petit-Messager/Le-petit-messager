@@ -93,17 +93,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
   dialogueBox: {fileID: 0}
   dialogueText: {fileID: 0}
+  dialogueLabel: {fileID: 0}
   animator: {fileID: 0}
   listeDiag:
-  - "Pour regarder autour, maintenez et d\xE9placez le clic gauche de la souris"
-  - Appuyez sur CTRL pour vous accroupir, et appuyez de nouveau pour vous redresser
-  - Enfoncez la barre d'espace pour sauter par dessus des obstacles
-  - Appuyez sur E pour interagir avec des objets et des personnes. Essayez de prendre
-    une cannette pour voir
-  - Maintenez le bouton SHIFT pour courir
-  - Maintenant, essayez de placez votre cannette devant votre maison
-  - Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!
+  - 
+  - 
   indexListeDiag: 0
   delayAvantAffichage: 0
   vitesseEcriture: 0.05
   estEnTrainDEcrire: 0
+  typePerso: 0
