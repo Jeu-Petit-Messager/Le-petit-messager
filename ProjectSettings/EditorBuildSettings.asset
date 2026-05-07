@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/sceneIntro.unity
     guid: be70ac56f04dcc9438c79af6c108af43
   - enabled: 1
-    path: Assets/Scenes/sceneJeu.unity
+    path: Assets/Scenes/sceneJeuJour.unity
     guid: ecaf21cb2a1e7ff448180116ca2f0b21
+  - enabled: 1
+    path: Assets/Scenes/sceneJeuNuit.unity
+    guid: 54038b336204004448e80dfe17e148a3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
