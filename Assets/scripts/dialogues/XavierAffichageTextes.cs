@@ -9,7 +9,6 @@ public class XavierAffichageTextes : MonoBehaviour
 
     public GameObject dialogueBox;
     public Text dialogueText;
-    public Text dialogueLabel;
     public Animator animator;
 
     // Liste dynamique de textes
@@ -56,6 +55,8 @@ public class XavierAffichageTextes : MonoBehaviour
     // Retire temporairement la possibilite d'interagir
     public static bool retireInteractionJoueur;
 
+    // 
+
     // Statut configuration perso
     public bool typePerso;
 
@@ -71,8 +72,8 @@ public class XavierAffichageTextes : MonoBehaviour
         indexListeDiag = 0;
 
         // Le joueur inititie le tutoriel des le debut
-        affichageTextesTuto = true;
-        retireInteractionJoueur = true;
+        affichageTextesTuto = false;
+        retireInteractionJoueur = false;
 
         StartCoroutine(LancerDialogue());
         estEnTrainDEcrire = true;
@@ -80,7 +81,9 @@ public class XavierAffichageTextes : MonoBehaviour
         compteAccroupi = 0f;
 
         listeDiag.Clear();
-        listeDiag.AddRange(consignesTuto);
+        listeDiag.AddRange(diagProf1);
+
+        dialogueText.alignment = TextAnchor.MiddleLeft;
     }
 
     /* Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre */
