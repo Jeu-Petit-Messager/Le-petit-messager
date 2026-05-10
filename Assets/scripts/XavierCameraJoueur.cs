@@ -26,6 +26,12 @@ public class XavierCameraJoueur : MonoBehaviour
     {
         if (Input.GetMouseButton(1)) // clic droit pour rotation libre
         {
+            // cacher souris
+            Cursor.visible = false;
+
+            // verrouiller souris au centre
+            Cursor.lockState = CursorLockMode.Locked;
+
             // rotation libre souris
             float sourisX = Input.GetAxis("Mouse X");
             float sourisY = Input.GetAxis("Mouse Y");
@@ -38,6 +44,12 @@ public class XavierCameraJoueur : MonoBehaviour
         }
         else
         {
+            // montrer souris
+            Cursor.visible = true;
+
+            // débloquer souris
+            Cursor.lockState = CursorLockMode.None;
+
             // retour automatique à position initiale
             rotX = Mathf.Lerp(rotX, rotXInitial, Time.deltaTime * amortissement);
             rotY = Mathf.LerpAngle(rotY, rotYInitial, Time.deltaTime * amortissement);
