@@ -25,7 +25,10 @@ public class XavierScriptInteraction : MonoBehaviour
     /* Bool qui determine lorsque le garcon peut prendre un objet */
     public bool peutPrendre;
 
+    /* Bool reconnaissant une interaction de l'exterieur */
     public static bool interactionFonctionnelle;
+
+
 
     /* lorsque le joueur possede une canette */
     public bool possedeCanette;

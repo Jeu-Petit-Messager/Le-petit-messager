@@ -6,7 +6,6 @@ using System.Collections.Generic;
 /* Script se chargeant du nouveau message de tutoriel */
 public class XavierAffichageTextes : MonoBehaviour
 {
-
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
@@ -27,8 +26,6 @@ public class XavierAffichageTextes : MonoBehaviour
     Vector3 maintientPos;
     float compteAccroupi;
 
-    // "Appuyez sur E pour interagir avec des objets et des personnes. Essayez de prendre une cannette pour voir",
-
     /* Stockage de listes : */
     // Liste du tutoriel
     List<string> consignesTuto = new List<string> {
@@ -40,7 +37,7 @@ public class XavierAffichageTextes : MonoBehaviour
         "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!"
     };
 
-    // Liste 2
+    // Interaction 1 Prof
     List<string> diagProf1 = new List<string> {
         "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
         "Je suis à la recherche d'un monsieur...\nmais ma maman m’a dit de ne pas parler aux monsieurs bizarres...",
@@ -80,7 +77,7 @@ public class XavierAffichageTextes : MonoBehaviour
         indexListeDiag = 0;
 
         // Le joueur inititie le tutoriel des le debut
-        affichageTextesTuto = false;
+        affichageTextesTuto = true;
         retireInteractionJoueur = false;
 
         StartCoroutine(LancerDialogue());
@@ -89,7 +86,7 @@ public class XavierAffichageTextes : MonoBehaviour
         compteAccroupi = 0f;
 
         listeDiag.Clear();
-        listeDiag.AddRange(diagProf1);
+        listeDiag.AddRange(consignesTuto);
 
         dialogueText.alignment = TextAnchor.MiddleLeft;
     }
@@ -125,6 +122,19 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Update()
     {
+        /* Lorsque le dialogue represente des persos */
+        if(typePerso)
+        {
+            // Aligner le texte gauche
+            if(dialogueText.alignment != TextAnchor.MiddleLeft)
+                dialogueText.alignment = TextAnchor.MiddleLeft;
+        }
+        // Pour toute autre situation, le texte est centre
+        else
+        {
+            if (dialogueText.alignment != TextAnchor.MiddleCenter)
+                dialogueText.alignment = TextAnchor.MiddleCenter;
+        }
 
             /* Determiner conditions pour skip dialogue */
             if (estEnTrainDEcrire)
