@@ -42,10 +42,13 @@ public class XavierAffichageTextes : MonoBehaviour
 
     // Liste 2
     List<string> diagProf1 = new List<string> {
-        "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide ?",
-        "Je suis à la recherche d'un monsieur...mais ma maman m’a dit de ne pas parler aux monsieurs bizarres.",
-        "Attends, je suis qu’un gentil homme je t’assure ! Tu sais, je suis, ou du moins j’étais,\r\nun grand professeur avant et je passais mes journées à aider des petits garçons tout\r\ncomme toi, alors n’hésite pas à tout me dire.\r\n",
-        "Nouveau4"
+        "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
+        "Je suis à la recherche d'un monsieur...\nmais ma maman m’a dit de ne pas parler aux monsieurs bizarres...",
+        "Attends...je suis qu’un gentil homme je t’assure..! Tu sais je suis...ou du moins j’étais...un grand professeur avant, et je passais mes journées à aider des petits garçons tout comme toi, alors...n’hésite pas à tout me dire.",
+        "... Bon d’accord. Ma mère vit toute seule et elle m’a demandé d’aller donner ce bout de papier vite vite à un grand monsieur tout blanc avant la nuit...mais le problème est que je ne me rappelle plus de lui... ",
+        "Mhmmm...je pense bien voir de qui tu parles, et je vais de ce pas te le révéler mais à une seule petite condition...",
+        "Je suis très malchanceux en ce moment...et à force d’aider les gens partout je me retrouve sans endroit pour dormir ce soir. Et toi et ta mère...vous dormez bien chaque soir...non ? Vous pourriez surement accueillir un pauvre professeur sans emploi comme moi, non ?",
+        "Pour te prouver ma bienveillance voici un petit indice sur son identité : Il possède un magasin important et tu le trouveras probablement derrière son comptoir."
     };
 
     /* Les differentes listes */
