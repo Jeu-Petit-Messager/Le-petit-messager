@@ -48,7 +48,12 @@ public class XavierAffichageTextes : MonoBehaviour
         "... Bon d’accord. Ma mère vit toute seule et elle m’a demandé d’aller donner ce bout de papier vite vite à un grand monsieur tout blanc avant la nuit...mais le problème est que je ne me rappelle plus de lui... ",
         "Mhmmm...je pense bien voir de qui tu parles, et je vais de ce pas te le révéler mais à une seule petite condition...",
         "Je suis très malchanceux en ce moment...et à force d’aider les gens partout je me retrouve sans endroit pour dormir ce soir. Et toi et ta mère...vous dormez bien chaque soir...non ? Vous pourriez surement accueillir un pauvre professeur sans emploi comme moi, non ?",
-        "Pour te prouver ma bienveillance voici un petit indice sur son identité : Il possède un magasin important et tu le trouveras probablement derrière son comptoir."
+        "Pour te prouver ma bienveillance voici un petit indice sur son identité : Il possède un magasin important et tu le trouveras probablement derrière son comptoir.",
+        "D’accord...je vais demander à ma maman après. Mais dites-moi en premier parce que je dois aller vite.",
+        "Ha ha ha ! Je comprends totalement ce que tu veux dire, mais si tu pars aussi vite que tu es arrivé qu’est ce qui ne m’assure pas que je te manquerai ? Allez, passons rapidement vers chez toi et ce sera vite fait!",
+        "Monsieur vous êtes très bizarre et je dois m’en aller... je vais venir vous voir après. ",
+        "Allons, viens-ici... Ça ne sera pas long...rapproche-toi un peu que je te puisse t’accompagner...",
+        "...Allez-vous-en !"
     };
 
     /* Les differentes listes */
