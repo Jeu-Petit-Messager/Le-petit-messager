@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class DialogueIntro : MonoBehaviour
@@ -25,7 +26,10 @@ public class DialogueIntro : MonoBehaviour
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
-        StartCoroutine(LancerDialogue());
+         if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneJeuNuit")
+        {
+            StartCoroutine(LancerDialogue());
+        }
     }
     // Coroutine pour lancer le dialogue après un délai, puis écrire le texte lettre par lettre
     IEnumerator LancerDialogue()

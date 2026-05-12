@@ -14,7 +14,7 @@ public class GestionAudio: MonoBehaviour
     {
         sceneActuel = SceneManager.GetActiveScene().name;
 
-        if (sceneActuel == "sceneJeu")
+        if (sceneActuel == "sceneJeuJour" || sceneActuel == "sceneJeuNuit")
         {  
             musiqueFond.Play();
             sonvent.Play();

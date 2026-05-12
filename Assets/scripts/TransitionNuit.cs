@@ -8,7 +8,7 @@ public class TransitionNuit : MonoBehaviour
     // toutes les lumières des lampadaires
     public Light[] lampadaires;
 
-    public float tempsAvantNuit = 180f; // 3 minutes
+    public float tempsAvantNuit = 120f; // 2 minutes
     public float dureeTransition = 120f; // 2 minutes transition
 
     private float temps = 0f;
@@ -29,7 +29,7 @@ public class TransitionNuit : MonoBehaviour
     {
         temps += Time.deltaTime;
 
-        // commencer après 3 min
+        // commencer après 2 min
         if (temps >= tempsAvantNuit)
         {
             transitionCommence = true;
