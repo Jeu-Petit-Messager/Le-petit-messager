@@ -136,6 +136,13 @@ public class XavierAffichageTextes : MonoBehaviour
                 animator.SetTrigger("FadeIn");
                 yield return new WaitForSeconds(1f);
             }
+
+            /* Changements de style adaptes aux lignes de dialogue */
+            // Dialogue prof 1
+            if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
+            {
+                StylesDiagProf1();
+            }
         }
 
         // Ecrire le texte
@@ -413,9 +420,6 @@ public class XavierAffichageTextes : MonoBehaviour
                     retireInteractionJoueur = true;
                     StartCoroutine(LancerDialogue());
                     compteurInteracProf++;
-
-                    if(dialogueText.color != couleurProf) dialogueText.color = couleurProf;
-                    if (dialogueText.font != fontProf) dialogueText.font = fontProf;
                 }
             }
 
@@ -455,7 +459,6 @@ public class XavierAffichageTextes : MonoBehaviour
             dialogueText.text = "";
 
             affichageTextesTuto = false;
-            print(affichageTextesTuto);
             indexListeDiag = 0;
             listeDiag.Clear();
         }
@@ -479,5 +482,33 @@ public class XavierAffichageTextes : MonoBehaviour
     {
         StopAllCoroutines();
         dialogueText.text = listeDiag[indexListeDiag];
+    }
+
+    /* Fonction d'alternance de styles des repliques DiagProf1 */
+    void StylesDiagProf1()
+    {
+        // couleur prof
+        if(indexListeDiag == 0 ||
+            indexListeDiag == 2 ||
+            indexListeDiag == 4 ||
+            indexListeDiag == 5 ||
+            indexListeDiag == 6 ||
+            indexListeDiag == 8 ||
+            indexListeDiag == 10)
+        {
+            if (dialogueText.color != couleurProf) dialogueText.color = couleurProf;
+            if (dialogueText.font != fontProf) dialogueText.font = fontProf;
+        }
+        // couleur garcon
+        else 
+        if (indexListeDiag == 1 ||
+            indexListeDiag == 3 ||
+            indexListeDiag == 7 ||
+            indexListeDiag == 9 ||
+            indexListeDiag == 11)
+        {
+             if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+             if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
     }
 }

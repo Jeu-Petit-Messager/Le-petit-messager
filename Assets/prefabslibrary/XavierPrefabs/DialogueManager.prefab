@@ -99,8 +99,12 @@ MonoBehaviour:
   delayAvantAffichage: 0
   vitesseEcriture: 0
   estEnTrainDEcrire: 1
-  couleurPNJ: {r: 0.64705884, g: 0.7019608, b: 0.9647059, a: 1}
+  couleurPNJ: {r: 1, g: 1, b: 1, a: 1}
+  fontPNJ: {fileID: 12800000, guid: dc81e82d0928cc64cbbbb68e5222de74, type: 3}
   couleurGarcon: {r: 1, g: 0.96448004, b: 0.827044, a: 1}
+  fontGarcon: {fileID: 12800000, guid: 9ccbcb90b8385324f90a5fff8aa6d208, type: 3}
   couleurProf: {r: 0.64453536, g: 0.70044166, b: 0.9622642, a: 1}
+  fontProf: {fileID: 12800000, guid: 986335f4d10879a408309a8a956c90f0, type: 3}
   couleurPharma: {r: 0.8798435, g: 0.99371064, b: 0.65309906, a: 1}
+  fontPharma: {fileID: 12800000, guid: 67531a174835cbb43b14d9074e7eb3e0, type: 3}
   typePerso: 0
