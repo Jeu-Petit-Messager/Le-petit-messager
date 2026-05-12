@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 /* Script se chargeant du nouveau message de tutoriel */
 public class XavierAffichageTextes : MonoBehaviour
@@ -60,7 +61,7 @@ public class XavierAffichageTextes : MonoBehaviour
     // Retire temporairement la possibilite d'interagir
     public static bool retireInteractionJoueur;
 
-    // 
+    public static int compteurInteracProf = 0;
 
     // Statut configuration perso
     public bool typePerso;
@@ -68,27 +69,25 @@ public class XavierAffichageTextes : MonoBehaviour
     void Start()
     {
         typePerso = false;
-
-        dialogueText.gameObject.SetActive(true);
-        dialogueBox.SetActive(false);
         dialogueText.text = "";
+        listeDiag.Clear();
 
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
-        // Le joueur inititie le tutoriel des le debut
-        affichageTextesTuto = true;
-        retireInteractionJoueur = false;
+        if (SceneManager.GetActiveScene().name == "sceneXavierTuto")
+        {
 
-        StartCoroutine(LancerDialogue());
-        estEnTrainDEcrire = true;
+            // Le joueur inititie le tutoriel des le debut
+            affichageTextesTuto = true;
+            retireInteractionJoueur = true;
 
-        compteAccroupi = 0f;
+            StartCoroutine(LancerDialogue());
 
-        listeDiag.Clear();
-        listeDiag.AddRange(consignesTuto);
+            compteAccroupi = 0f;
 
-        dialogueText.alignment = TextAnchor.MiddleLeft;
+            listeDiag.AddRange(consignesTuto);
+        }
     }
 
     /* Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre */
@@ -97,11 +96,36 @@ public class XavierAffichageTextes : MonoBehaviour
         // le texte charge
         estEnTrainDEcrire = true;
 
-        // Animation apparition textbox
-        yield return new WaitForSeconds(delayAvantAffichage);
-        dialogueBox.SetActive(true);
-        animator.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1f);
+        /* Pour les consignes, le chargement se fait a chaque instruction */
+        if(!typePerso)
+        {
+            // Animation apparition textbox
+            yield return new WaitForSeconds(delayAvantAffichage);
+
+            if (!dialogueText.gameObject.activeSelf)
+                dialogueText.gameObject.SetActive(true);
+
+            dialogueBox.SetActive(true);
+            animator.SetTrigger("FadeIn");
+            yield return new WaitForSeconds(1f);
+        }
+
+        /* Dans une sequence de dialogue, le chargement de la boite ne se fait qu'au debut */
+        else
+        {
+            if(indexListeDiag == 0)
+            {
+                // Animation apparition textbox
+                yield return new WaitForSeconds(delayAvantAffichage);
+
+                if (!dialogueText.gameObject.activeSelf)
+                    dialogueText.gameObject.SetActive(true);
+
+                dialogueBox.SetActive(true);
+                animator.SetTrigger("FadeIn");
+                yield return new WaitForSeconds(1f);
+            }
+        }
 
         // Ecrire le texte
         StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
@@ -128,114 +152,129 @@ public class XavierAffichageTextes : MonoBehaviour
             // Aligner le texte gauche
             if(dialogueText.alignment != TextAnchor.MiddleLeft)
                 dialogueText.alignment = TextAnchor.MiddleLeft;
+
+            if (vitesseEcriture != 0.03f) vitesseEcriture = 0.03f;
         }
         // Pour toute autre situation, le texte est centre
         else
         {
             if (dialogueText.alignment != TextAnchor.MiddleCenter)
                 dialogueText.alignment = TextAnchor.MiddleCenter;
+
+            // Le texte centre se lit plus lentement
+            if (vitesseEcriture != 0.05f) vitesseEcriture = 0.05f;
         }
 
             /* Determiner conditions pour skip dialogue */
             if (estEnTrainDEcrire)
             {
 
-                /* Conditions speciales du tuto */
-                if(affichageTextesTuto)
+                if (listeDiag != null && listeDiag.Count != 0)
                 {
-                    // 0. Test camera
-                    //if (indexListeDiag == 0)
-                    //{
-                    //    if (Input.GetMouseButtonDown(0))
-                    //    {
-                    //        maintientPos = Input.mousePosition;
+                    // Le texte finit d'ecrire lorsqu'il devient pareil a la valeur de la liste
+                    if (dialogueText.text == listeDiag[indexListeDiag]) estEnTrainDEcrire = false;
+                }
 
-                    //        if (maintientPos != sourisPos)
-                    //        {
-                    //            ChargerTexteEntierEarly();
-                    //            StartCoroutine(FermerEtLancerMessageAuto());
-                    //            indexListeDiag++;
-                    //        }
+                /* Conditions speciales du tuto */
+                if (affichageTextesTuto)
+                {
+                        // 0. Test camera
+                        //if (indexListeDiag == 0)
+                        //{
+                        //    if (Input.GetMouseButtonDown(0))
+                        //    {
+                        //        maintientPos = Input.mousePosition;
 
-                    //    }
-                    //    else sourisPos = Input.mousePosition;
+                        //        if (maintientPos != sourisPos)
+                        //        {
+                        //            ChargerTexteEntierEarly();
+                        //            StartCoroutine(FermerEtLancerMessageAuto());
+                        //            indexListeDiag++;
+                        //        }
 
-                    //}
+                        //    }
+                        //    else sourisPos = Input.mousePosition;
 
-                    // 1. Test accroupissement
-                    if (indexListeDiag == 0)
-                    {
-                        if (Input.GetKeyDown(KeyCode.LeftControl))
+                        //}
+
+                        // 1. Test accroupissement
+                        if (indexListeDiag == 0)
                         {
-                            compteAccroupi++;
-                            ChargerTexteEntierEarly();
+                            if (Input.GetKeyDown(KeyCode.LeftControl))
+                            {
+                                compteAccroupi++;
+                                ChargerTexteEntierEarly();
+                                estEnTrainDEcrire = false;
 
                         }
-                    }
-
-                    // 2. Test saut
-                    else if (indexListeDiag == 1)
-                    {
-                        if (Input.GetKeyDown(KeyCode.Space))
-                        {
-                            ChargerTexteEntierEarly();
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-                            // Le joueur peut interagir pour le prochain test
-                            retireInteractionJoueur = false;
-                    }
-                    }
-
-                    // 3. Test interact
-                    else if (indexListeDiag == 2)
-                    {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            ChargerTexteEntierEarly();
                         }
 
-                        if(XavierScriptInteraction.interactionFonctionnelle)
+                        // 2. Test saut
+                        else if (indexListeDiag == 1)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-
-                            // Le joueur peut plus interagir pour le prochain test
-                            retireInteractionJoueur = true;
-                    }
-
-                    }
-
-                    // 4. Test course
-                    else if (indexListeDiag == 3)
-                    {
-                            if (Input.GetKeyDown(KeyCode.LeftShift))
+                            if (Input.GetKeyDown(KeyCode.Space))
                             {
                                 ChargerTexteEntierEarly();
-                            }
-                    }
-
-                    if (indexListeDiag != 4 && indexListeDiag != 5)
-                    {
-                        /* Condition generale, juste clicker */
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            ChargerTexteEntierEarly();
+                                estEnTrainDEcrire = false;
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+                                // Le joueur peut interagir pour le prochain test
+                                retireInteractionJoueur = false;
                         }
-                    }
+                        }
+
+                        // 3. Test interact
+                        else if (indexListeDiag == 2)
+                        {
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                ChargerTexteEntierEarly();
+                                estEnTrainDEcrire= false;
+                            }
+
+                            if(XavierScriptInteraction.interactionFonctionnelle)
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                estEnTrainDEcrire = false;
+                                indexListeDiag++;
+
+                                // Le joueur peut plus interagir pour le prochain test
+                                retireInteractionJoueur = true;
+                        }
+
+                        }
+
+                        // 4. Test course
+                        else if (indexListeDiag == 3)
+                        {
+                                if (Input.GetKeyDown(KeyCode.LeftShift))
+                                {
+                                    ChargerTexteEntierEarly();
+                                    estEnTrainDEcrire = false;
+                                }
+                        }
+
+                        if (indexListeDiag != 4 && indexListeDiag != 5)
+                        {
+                            /* Condition generale, juste clicker */
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                ChargerTexteEntierEarly();
+                                estEnTrainDEcrire = false;
+                            }
+                        }
 
                 }
 
                 else
                 {
-                    /* Condition generale, juste clicker */
-                    if (Input.GetMouseButtonDown(0))
-                    {
+                     /* Condition generale, juste clicker */
+                     if (Input.GetMouseButtonDown(0))
+                     {
                         ChargerTexteEntierEarly();
-                    }
+                        estEnTrainDEcrire = false;
+                     }
                 }
-
-                // Le texte finit d'ecrire lorsqu'il devient pareil a la valeur de la liste
-                if(dialogueText.text == listeDiag[indexListeDiag]) estEnTrainDEcrire = false;
 
             }
             
@@ -244,7 +283,7 @@ public class XavierAffichageTextes : MonoBehaviour
             {
 
                 // Pour le texte du tutoriel
-                if(affichageTextesTuto)
+                if (affichageTextesTuto)
                 {
 
                     // 1. verif de l'accroupissement
@@ -330,12 +369,14 @@ public class XavierAffichageTextes : MonoBehaviour
                 /* Sinon, le clic est suffisant pour passer du texte de dialogue */
                 else
                 {
+                    
+                    
                     // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
+                    if (Input.GetMouseButtonDown(0))
                     {
                         // Le message se ferme, et l'index augmente s'il y a un autre texte
-                        StartCoroutine(FermerEtLancerMessageAuto());
                         if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                        StartCoroutine(FermerEtLancerMessageAuto());
                     }
                 }
 
@@ -345,29 +386,72 @@ public class XavierAffichageTextes : MonoBehaviour
         if (XavierScriptInteraction.interactionFonctionnelle)
         {
             XavierScriptInteraction.interactionFonctionnelle = false;
+
+            /* Activer dialogues specifiques selon l'interaction */
+            if(XavierScriptInteraction.nomObjetInteract == "prof")
+            {
+                if(compteurInteracProf == 0)
+                {
+                    listeDiag.AddRange(diagProf1);
+                    typePerso = true;
+                    retireInteractionJoueur = true;
+                    StartCoroutine(LancerDialogue());
+                    compteurInteracProf++;
+                }
+            }
+
+            // Apres verification, reinitialiser la valeur de l'interaction
+            XavierScriptInteraction.nomObjetInteract = "";
         }
     }
     // Coroutine pour fermer le dialogue et lancer l'autre message
     IEnumerator FermerEtLancerMessageAuto()
     {
+        if(!typePerso)
+        {
+            animator.SetTrigger("FadeOut");
+            // Vitesse effacer texte
+            yield return new WaitForSeconds(1f);
 
-        animator.SetTrigger("FadeOut");
-
-        // Vitesse effacer texte
-        yield return new WaitForSeconds(1f);
-
-        dialogueBox.SetActive(false);
-        dialogueText.text = "";
+            dialogueBox.SetActive(false);
+            dialogueText.text = "";
+        }
+        else
+        {
+            dialogueText.text = "";
+        }
 
         if (indexListeDiag < listeDiag.Count)
         {
             StartCoroutine(LancerDialogue());
         }
         // Lorsque l'affichage atteint sa fin, le statut de tuto prend fin
-        else if(affichageTextesTuto == true)
+        else if (affichageTextesTuto == true)
         {
+            animator.SetTrigger("FadeOut");
+            // Vitesse effacer texte
+            yield return new WaitForSeconds(1f);
+
+            dialogueBox.SetActive(false);
+            dialogueText.text = "";
+
             affichageTextesTuto = false;
+            print(affichageTextesTuto);
             indexListeDiag = 0;
+            listeDiag.Clear();
+        }
+        else
+        {
+            animator.SetTrigger("FadeOut");
+            // Vitesse effacer texte
+            yield return new WaitForSeconds(1f);
+
+            dialogueBox.SetActive(false);
+            dialogueText.text = "";
+
+            indexListeDiag = 0;
+            retireInteractionJoueur = false;
+            listeDiag.Clear();
         }
     }
 
@@ -376,6 +460,5 @@ public class XavierAffichageTextes : MonoBehaviour
     {
         StopAllCoroutines();
         dialogueText.text = listeDiag[indexListeDiag];
-        estEnTrainDEcrire = false;
     }
 }

@@ -11255,7 +11255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 4.1, y: 24.34}
+  m_AnchoredPosition: {x: 4.1, y: 24.340027}
   m_SizeDelta: {x: 136.4, y: 17.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398342013
@@ -61694,32 +61694,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 398342013}
     - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: dialogueLabel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: listeDiag.Array.size
+      propertyPath: vitesseEcriture
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: 'listeDiag.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: 'listeDiag.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: 'listeDiag.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: 'listeDiag.Array.data[3]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: 'listeDiag.Array.data[4]'
-      value: Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!
+      propertyPath: estEnTrainDEcrire
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

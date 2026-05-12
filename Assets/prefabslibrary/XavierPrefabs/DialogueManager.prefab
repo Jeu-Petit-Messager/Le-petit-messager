@@ -93,11 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
   dialogueBox: {fileID: 0}
   dialogueText: {fileID: 0}
-  dialogueLabel: {fileID: 0}
   animator: {fileID: 0}
-  listeDiag:
-  - 
-  - 
+  listeDiag: []
   indexListeDiag: 0
   delayAvantAffichage: 0
   vitesseEcriture: 0.05
