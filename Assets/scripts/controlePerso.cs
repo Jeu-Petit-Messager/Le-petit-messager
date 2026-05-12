@@ -86,13 +86,33 @@ public class controlePerso : MonoBehaviour
         // ROTATION
         transform.Rotate(0, h * vitesseRotation * Time.deltaTime, 0);
 
-        // ANIMATIONS
+       // ANIMATIONS
         bool enMouvement = Mathf.Abs(v) > 0.1f;
 
-        animator.SetBool("Accroupir", accroupi);
-        animator.SetBool("Courir", enMouvement && courir && !accroupi);
-        animator.SetBool("Marcher", enMouvement && !courir && !accroupi);
-        animator.SetBool("Idle", !enMouvement && !accroupi);
+        // MODE ACCROUPI
+        if (accroupi)
+        {
+            animator.SetBool("IdleAccroupi", !enMouvement);
+            animator.SetBool("Accroupir", enMouvement);
+
+            // désactiver animations normales
+            animator.SetBool("Idle", false);
+            animator.SetBool("Marcher", false);
+            animator.SetBool("Courir", false);
+        }
+        else
+        {
+            // animations normales
+            animator.SetBool("Idle", !enMouvement);
+
+            animator.SetBool("Marcher", enMouvement && !courir);
+
+            animator.SetBool("Courir", enMouvement && courir);
+
+            // désactiver accroupi
+            animator.SetBool("IdleAccroupi", false);
+            animator.SetBool("Accroupir", false);
+        }
     }
 
     public void FinSaut()
