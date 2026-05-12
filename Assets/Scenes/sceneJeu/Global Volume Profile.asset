@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9054793899979962529
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a074ec59f6e910b4e8c49f57e56cf95a, type: 3}
+  m_Name: VolumetricFogVolumeComponent
+  m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricFogVolumeComponent
+  active: 1
+  distance:
+    m_OverrideState: 0
+    m_Value: 64
+  baseHeight:
+    m_OverrideState: 1
+    m_Value: 0
+  maximumHeight:
+    m_OverrideState: 1
+    m_Value: 158.1
+  enableGround:
+    m_OverrideState: 1
+    m_Value: 0
+  groundHeight:
+    m_OverrideState: 0
+    m_Value: 0
+  density:
+    m_OverrideState: 1
+    m_Value: 0.19
+  attenuationDistance:
+    m_OverrideState: 0
+    m_Value: 128
+  enableAPVContribution:
+    m_OverrideState: 1
+    m_Value: 0
+  APVContributionWeight:
+    m_OverrideState: 0
+    m_Value: 1
+  enableMainLightContribution:
+    m_OverrideState: 1
+    m_Value: 1
+  anisotropy:
+    m_OverrideState: 0
+    m_Value: 0.4
+  scattering:
+    m_OverrideState: 0
+    m_Value: 0.15
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  enableAdditionalLightsContribution:
+    m_OverrideState: 1
+    m_Value: 1
+  maxSteps:
+    m_OverrideState: 0
+    m_Value: 128
+  blurIterations:
+    m_OverrideState: 0
+    m_Value: 2
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  renderPassEvent:
+    m_OverrideState: 0
+    m_Value: 550
 --- !u!114 &-8389321545826258804
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -87,10 +154,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.5
   intensity:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 0.3
   scatter:
     m_OverrideState: 1
     m_Value: 1
@@ -140,6 +207,7 @@ MonoBehaviour:
   - {fileID: 8405526435138348024}
   - {fileID: -7091163191232145622}
   - {fileID: -183708465844214293}
+  - {fileID: -9054793899979962529}
 --- !u!114 &128094829728013533
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -158,7 +226,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0.026631156}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.83783597, y: 0.8863771, z: 1, w: -0.06566493}
+    m_Value: {x: 0.83783597, y: 0.8863771, z: 1, w: -0.27372736}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: -0.1487293}
@@ -310,7 +378,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.392
+    m_Value: 0.508
 --- !u!114 &8418299512449627064
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -332,7 +400,7 @@ MonoBehaviour:
     m_Value: 38
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.90880495, g: 0.9170954, b: 1, a: 1}
+    m_Value: {r: 0.88993704, g: 0.89950776, b: 1, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
