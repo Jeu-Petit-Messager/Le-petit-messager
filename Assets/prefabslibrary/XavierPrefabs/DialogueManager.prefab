@@ -97,6 +97,10 @@ MonoBehaviour:
   listeDiag: []
   indexListeDiag: 0
   delayAvantAffichage: 0
-  vitesseEcriture: 0.05
-  estEnTrainDEcrire: 0
+  vitesseEcriture: 0
+  estEnTrainDEcrire: 1
+  couleurPNJ: {r: 0.64705884, g: 0.7019608, b: 0.9647059, a: 1}
+  couleurGarcon: {r: 1, g: 0.96448004, b: 0.827044, a: 1}
+  couleurProf: {r: 0.64453536, g: 0.70044166, b: 0.9622642, a: 1}
+  couleurPharma: {r: 0.8798435, g: 0.99371064, b: 0.65309906, a: 1}
   typePerso: 0

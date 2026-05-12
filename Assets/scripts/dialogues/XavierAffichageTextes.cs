@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-/* Script se chargeant du nouveau message de tutoriel */
+/* Script se chargeant du syteme de dialogues */
 public class XavierAffichageTextes : MonoBehaviour
 {
     public GameObject dialogueBox;
@@ -15,9 +15,8 @@ public class XavierAffichageTextes : MonoBehaviour
     public List<string> listeDiag = new List<string>();
     public int indexListeDiag;
 
-
     public float delayAvantAffichage = 0f;
-    public float vitesseEcriture = 0.05f;
+    public float vitesseEcriture;
 
     // Statut determinantlorsque le texte est en ecriture
     public bool estEnTrainDEcrire;
@@ -26,6 +25,17 @@ public class XavierAffichageTextes : MonoBehaviour
     Vector3 sourisPos;
     Vector3 maintientPos;
     float compteAccroupi;
+
+    /* Couleurs et fontes de texte */
+    public Color couleurPNJ;
+    public Font fontPNJ;
+    public Color couleurGarcon;
+    public Font fontGarcon;
+    public Color couleurProf;
+    public Font fontProf;
+    public Color couleurPharma;
+    public Font fontPharma;
+
 
     /* Stockage de listes : */
     // Liste du tutoriel
@@ -63,11 +73,12 @@ public class XavierAffichageTextes : MonoBehaviour
 
     public static int compteurInteracProf = 0;
 
-    // Statut configuration perso
+    // Statut pour un texte d'un personnage
     public bool typePerso;
 
     void Start()
     {
+
         typePerso = false;
         dialogueText.text = "";
         listeDiag.Clear();
@@ -154,6 +165,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 dialogueText.alignment = TextAnchor.MiddleLeft;
 
             if (vitesseEcriture != 0.03f) vitesseEcriture = 0.03f;
+
         }
         // Pour toute autre situation, le texte est centre
         else
@@ -163,6 +175,10 @@ public class XavierAffichageTextes : MonoBehaviour
 
             // Le texte centre se lit plus lentement
             if (vitesseEcriture != 0.05f) vitesseEcriture = 0.05f;
+
+            if (dialogueText.color != couleurPNJ) dialogueText.color = couleurPNJ;
+            if (dialogueText.font != fontPNJ) dialogueText.font = fontPNJ;
+
         }
 
             /* Determiner conditions pour skip dialogue */
@@ -397,6 +413,9 @@ public class XavierAffichageTextes : MonoBehaviour
                     retireInteractionJoueur = true;
                     StartCoroutine(LancerDialogue());
                     compteurInteracProf++;
+
+                    if(dialogueText.color != couleurProf) dialogueText.color = couleurProf;
+                    if (dialogueText.font != fontProf) dialogueText.font = fontProf;
                 }
             }
 

@@ -61682,25 +61682,45 @@ PrefabInstance:
       value: DialogueManager
       objectReference: {fileID: 0}
     - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: fontPNJ
+      value: 
+      objectReference: {fileID: 12800000, guid: dc81e82d0928cc64cbbbb68e5222de74, type: 3}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 486169507}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: fontProf
+      value: 
+      objectReference: {fileID: 12800000, guid: 986335f4d10879a408309a8a956c90f0, type: 3}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: fontGarcon
+      value: 
+      objectReference: {fileID: 12800000, guid: 9ccbcb90b8385324f90a5fff8aa6d208, type: 3}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: fontPharma
+      value: 
+      objectReference: {fileID: 12800000, guid: 67531a174835cbb43b14d9074e7eb3e0, type: 3}
     - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 486169503}
     - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: couleurPNJ.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: couleurPNJ.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
+      propertyPath: couleurPNJ.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 398342013}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: vitesseEcriture
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108978067801189713, guid: 21caac8a857c3c941aece71c34bbdc7a, type: 3}
-      propertyPath: estEnTrainDEcrire
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
