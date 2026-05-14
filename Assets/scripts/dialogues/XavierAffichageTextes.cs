@@ -76,6 +76,25 @@ public class XavierAffichageTextes : MonoBehaviour
         "Oula ! Malheureusement, si c’est rendu au point où elle n’a pas pu se rendre d’elle-même, c'est que sa situation s’est beaucoup aggravée, permet moi de m’inquiéter grandement pour vous. Vite ! Retourne la voir et donne-lui ça à tout prix !"
     };
 
+    // Interaction PNJ1
+    List<string> diagPNJ1Jeu = new List<string> {
+        "Auriez-vous vu un monsieur important qui porte du blanc ?",
+        "Je ne sais pas de qui tu parles, et je suis occupé. Et toi, n’as-tu pas un jeu auquel jouer au lieu de t’attarder à cette activité futile ?"
+    };
+
+    // Interaction PNJ2
+    List<string> diagPNJ2Mock = new List<string> {
+        "Bonjour monsieur, auriez-vous vu un grand homme blanc et sérieux qui peut recevoir des papiers ?",
+        "Ma foi, tu sembles complètement perdu, petit gamin, tes parents ne t’ont-t-il pas bien éduqué ?",
+        "Est-ce que vous connaissez le monsieur tout blanc qui vit près d’ici ? Je dois lui donner un papier.",
+        "Un monsieur tout blanc ? Parles-tu d’un fantôme ? Tu es drôle toi, non je n’en ai pas vu, raconte-moi si tu en trouve un ha ha."
+    };
+
+    // Interaction PNJ3
+    List<string> diagPNJ3Noir = new List<string> {
+        "Sans blague ! Un autre accident désastreux et une nouvelle panne ! Quand est-ce que ce cauchemar va s'arrêter !"
+    };
+
 
     /* Les differentes listes */
     // Variable indiquant la fin de cette partie
