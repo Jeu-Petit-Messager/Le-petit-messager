@@ -56,7 +56,7 @@ public class DialogueIntro : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(EcrireTexte(messageCamera));
+        StartCoroutine(EcrireTexte(message));
     }
     // Coroutine pour écrire le texte lettre par lettre
     IEnumerator EcrireTexte(string msg)
@@ -99,7 +99,7 @@ public class DialogueIntro : MonoBehaviour
             if (estEnTrainDEcrire)
             {
                 StopAllCoroutines();
-                dialogueText.text = messageCamera;
+                dialogueText.text = message;
                 estEnTrainDEcrire = false;
             }
             else if (!estEnTrainDEcrire)

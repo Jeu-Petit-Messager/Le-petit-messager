@@ -25,7 +25,11 @@ public class XavierScriptInteraction : MonoBehaviour
     /* Bool qui determine lorsque le garcon peut prendre un objet */
     public bool peutPrendre;
 
+    /* Bool reconnaissant une interaction de l'exterieur */
     public static bool interactionFonctionnelle;
+
+    /* Objet sauvegarde avec interac */
+    public static string nomObjetInteract;
 
     /* lorsque le joueur possede une canette */
     public bool possedeCanette;
@@ -39,6 +43,7 @@ public class XavierScriptInteraction : MonoBehaviour
 
         /* le garcon ne possede aucun objet au depart*/
         interactionFonctionnelle = false;
+        nomObjetInteract = "";
         peutPrendre = true;
         possedeCanette = false;
     }
@@ -73,6 +78,8 @@ public class XavierScriptInteraction : MonoBehaviour
                     objetInteractif = hitColliders[0].gameObject;
 
                     interactionFonctionnelle = true;
+
+                    nomObjetInteract = objetInteractif.name;
 
                     if (objetInteractif.CompareTag("Canette"))
                     {

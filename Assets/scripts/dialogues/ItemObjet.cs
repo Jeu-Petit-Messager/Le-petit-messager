@@ -22,20 +22,11 @@ public class ItemObject : MonoBehaviour, IInteractable
         // Aucun objet est interactif au debut
         gameObject.layer = layerDefaut;
 
-        // Seul les canettes peuvent etre touchees au debut
-        //if(objetInteractif.tag == "Canette")
-        //{
-        //    gameObject.layer = layerInteractif;
-        //}
-        //else
-        //{
-        //    gameObject.layer = layerDefaut;
-        //}
     }
 
     public void Update()
     {
-        /* Section du tutoriel */
+        /* Restriction dans la section du tutoriel */
         if(XavierAffichageTextes.affichageTextesTuto)
         {
             /* Lorsque le joueur est autorise a interagir */
@@ -56,20 +47,36 @@ public class ItemObject : MonoBehaviour, IInteractable
             }
         }
 
+        else if(XavierAffichageTextes.retireInteractionJoueur)
+        {
+            // Desactiver les interactions pour tous
+            if (gameObject.layer != layerDefaut)
+                gameObject.layer = layerDefaut;
+        }
+
         /* Fin tutoriel */
         else
         {
-            // Tout objet desactive devient interactif
-            if (gameObject.layer != layerInteractif)
-                gameObject.layer = layerInteractif;
+            if(gameObject.name == "prof" && XavierAffichageTextes.compteurInteracProf == 1)
+            {
+                if (gameObject.layer != layerDefaut)
+                    gameObject.layer = layerDefaut;
+            }
+            else
+            {
+                // Tout objet desactive devient interactif
+                if (gameObject.layer != layerInteractif)
+                    gameObject.layer = layerInteractif;
+            }
         }
     }
 
     public void Interact()
     {
-
         //Debug.Log($"Tu viens d'obtenir un {itemName}!");
     }
+
+
 
     /* Fonction incrementant le compte des canettes */
     public void CompteurCanettes()
