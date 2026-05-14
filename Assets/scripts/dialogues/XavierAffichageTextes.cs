@@ -64,6 +64,19 @@ public class XavierAffichageTextes : MonoBehaviour
         "...Allez-vous-en !"
     };
 
+    // Interaction Pharmacien
+    List<string> diagPharma = new List<string> {
+        "Bonjour monsieur...est-ce que vous voulez mon papier?",
+        "Oh, bonjour toi. Tu me sembles tout essoufflé, tout va bien ?",
+        "Oui oui ça va, mais il y avait beaucoup de gens bizarre dehors. Voulez-vous mon papier?",
+        "Mais oui, montre-moi ça...mhmm...D’accord, je vois que cela semble pressant. Pauvre toi... Tiens, voici ce que tu voulais.",
+        "Ce que je voulais ? Je ne comprends pas...ma maman ne m’a pas parlé de ça pourtant. Qu’est-ce-que c’est ?",
+        "Bon...je me présente. Je suis le pharmacien de ce quartier, et je m’occupe d’aider les autres comme je le peux lorsqu’ils sont malades. Et ce papier est ce que ta mère m’achète, ce que je lui prescris. Ne pouvait-elle pas venir le chercher elle-même?",
+        "Non, elle m’a dit qu’elle se sentait fatiguée aujourd’hui et allait dormir plus tôt.",
+        "Oula ! Malheureusement, si c’est rendu au point où elle n’a pas pu se rendre d’elle-même, c'est que sa situation s’est beaucoup aggravée, permet moi de m’inquiéter grandement pour vous. Vite ! Retourne la voir et donne-lui ça à tout prix !"
+    };
+
+
     /* Les differentes listes */
     // Variable indiquant la fin de cette partie
     public static bool affichageTextesTuto;
@@ -98,6 +111,10 @@ public class XavierAffichageTextes : MonoBehaviour
             compteAccroupi = 0f;
 
             listeDiag.AddRange(consignesTuto);
+        }
+        else
+        {
+            affichageTextesTuto= false;
         }
     }
 
@@ -142,6 +159,11 @@ public class XavierAffichageTextes : MonoBehaviour
             if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
             {
                 StylesDiagProf1();
+            }
+
+            if (listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
+            {
+                StylesDiagPharma();
             }
         }
 
@@ -292,7 +314,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 else
                 {
                      /* Condition generale, juste clicker */
-                     if (Input.GetMouseButtonDown(0))
+                     if (Input.GetMouseButtonDown(0) && dialogueBox.activeSelf)
                      {
                         ChargerTexteEntierEarly();
                         estEnTrainDEcrire = false;
@@ -423,6 +445,14 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
+            if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
+            {
+                listeDiag.AddRange(diagPharma);
+                typePerso = true;
+                retireInteractionJoueur = false;
+                StartCoroutine(LancerDialogue());
+            }
+
             // Apres verification, reinitialiser la valeur de l'interaction
             XavierScriptInteraction.nomObjetInteract = "";
         }
@@ -451,6 +481,7 @@ public class XavierAffichageTextes : MonoBehaviour
         // Lorsque l'affichage atteint sa fin, le statut de tuto prend fin
         else if (affichageTextesTuto == true)
         {
+            indexListeDiag = 0;
             animator.SetTrigger("FadeOut");
             // Vitesse effacer texte
             yield return new WaitForSeconds(1f);
@@ -464,14 +495,13 @@ public class XavierAffichageTextes : MonoBehaviour
         }
         else
         {
+            indexListeDiag = 0;
             animator.SetTrigger("FadeOut");
             // Vitesse effacer texte
             yield return new WaitForSeconds(1f);
 
             dialogueBox.SetActive(false);
             dialogueText.text = "";
-
-            indexListeDiag = 0;
             retireInteractionJoueur = false;
             listeDiag.Clear();
         }
@@ -509,6 +539,30 @@ public class XavierAffichageTextes : MonoBehaviour
         {
              if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
              if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+    }
+
+    /* Fonction d'alternance de styles des repliques DiagPharma */
+    void StylesDiagPharma()
+    {
+        // couleur prof
+        if (indexListeDiag == 0 ||
+            indexListeDiag == 2 ||
+            indexListeDiag == 4 ||
+            indexListeDiag == 6)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+        // couleur garcon
+        else
+        if (indexListeDiag == 1 ||
+            indexListeDiag == 3 ||
+            indexListeDiag == 5 ||
+            indexListeDiag == 7)
+        {
+            if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
+            if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
         }
     }
 }
