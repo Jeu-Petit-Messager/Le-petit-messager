@@ -38,6 +38,18 @@ public class controlePerso : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
             accroupi = !accroupi;
 
+        // changer CharacterController
+        if (accroupi)
+        {
+            controller.height = 1f;
+            controller.center = new Vector3(0f, 0.67f, 0f);
+        }
+        else
+        {
+            controller.height = 1.55f;
+            controller.center = new Vector3(0f, 0.9f, 0f);
+        }
+
         bool courir = Input.GetKey(KeyCode.LeftShift);
 
         // DETECTION SOL

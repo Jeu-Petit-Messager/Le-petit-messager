@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.5
   intensity:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 1
   scatter:
     m_OverrideState: 1
     m_Value: 1
@@ -62,12 +62,12 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: -0.3
+    m_Value: -0.253
   xMultiplier:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.51
   yMultiplier:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.236
   center:
     m_OverrideState: 0
@@ -110,6 +110,73 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 0.508
+--- !u!114 &-3776284757903971863
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a074ec59f6e910b4e8c49f57e56cf95a, type: 3}
+  m_Name: VolumetricFogVolumeComponent
+  m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricFogVolumeComponent
+  active: 1
+  distance:
+    m_OverrideState: 0
+    m_Value: 64
+  baseHeight:
+    m_OverrideState: 1
+    m_Value: 0
+  maximumHeight:
+    m_OverrideState: 1
+    m_Value: 158
+  enableGround:
+    m_OverrideState: 1
+    m_Value: 0
+  groundHeight:
+    m_OverrideState: 0
+    m_Value: 0
+  density:
+    m_OverrideState: 0
+    m_Value: 0.2
+  attenuationDistance:
+    m_OverrideState: 0
+    m_Value: 128
+  enableAPVContribution:
+    m_OverrideState: 1
+    m_Value: 0
+  APVContributionWeight:
+    m_OverrideState: 0
+    m_Value: 1
+  enableMainLightContribution:
+    m_OverrideState: 1
+    m_Value: 1
+  anisotropy:
+    m_OverrideState: 0
+    m_Value: 0.4
+  scattering:
+    m_OverrideState: 0
+    m_Value: 0.15
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  enableAdditionalLightsContribution:
+    m_OverrideState: 1
+    m_Value: 1
+  maxSteps:
+    m_OverrideState: 0
+    m_Value: 128
+  blurIterations:
+    m_OverrideState: 0
+    m_Value: 2
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  renderPassEvent:
+    m_OverrideState: 0
+    m_Value: 550
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +219,10 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.94573915, y: 0.9867673, z: 1, w: -0.09017127}
+    m_Value: {x: 0.8479627, y: 0.90640825, z: 1, w: -0.15029152}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.97046334, y: 1, z: 0.9959977, w: -0.24927028}
+    m_Value: {x: 0.97046334, y: 1, z: 0.9959977, w: -0.18036075}
 --- !u!114 &1101980624535138981
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -264,16 +331,16 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.55, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.36
+    m_Value: 0.497
   smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.523
   rounded:
     m_OverrideState: 0
     m_Value: 1
@@ -294,8 +361,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: -0.20040081}
   midtones:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.92588377, z: 0.6918837, w: 0}
   highlights:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -338,4 +405,4 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: -14
+    m_Value: -8
