@@ -44,10 +44,16 @@ public class EntrerPhramacie : MonoBehaviour
 
     IEnumerator EntrerPharmacie()
     {
+        // activer canvas fade
+        fadeAnimator.gameObject.SetActive(true);
+
+        // lancer animation
         fadeAnimator.SetTrigger("FadeIn");
 
-        yield return new WaitForSeconds(1f);
+        // attendre fade
+        yield return new WaitForSeconds(1.5f);
 
+        // changer scène
         SceneManager.LoadScene(nomScene);
     }
 }

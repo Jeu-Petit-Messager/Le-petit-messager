@@ -8,8 +8,8 @@ public class TransitionNuit : MonoBehaviour
     // toutes les lumières des lampadaires
     public Light[] lampadaires;
 
-    public float tempsAvantNuit = 300f; // 4 minutes
-    public float dureeTransition = 180f; // 4 minutes transition
+    public float tempsAvantNuit = 300f; // 5 minutes
+    public float dureeTransition = 180f; // 3 minutes transition
 
     private float temps = 0f;
     private bool transitionCommence = false;
@@ -51,7 +51,7 @@ public class TransitionNuit : MonoBehaviour
                 {
                     lampe.intensity = Mathf.Lerp(
                         lampe.intensity,
-                        100f, // Intensité finale
+                        30f, // Intensité finale
                         Time.deltaTime * 0.5f
                     );
                 }

@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/sceneJeuJour.unity
     guid: ecaf21cb2a1e7ff448180116ca2f0b21
   - enabled: 1
+    path: Assets/Scenes/scenePharmacie.unity
+    guid: 03631a2735f22104893021231cf7278d
+  - enabled: 1
     path: Assets/Scenes/sceneJeuNuit.unity
     guid: 54038b336204004448e80dfe17e148a3
+  - enabled: 1
+    path: Assets/Scenes/sceneBonFin.unity
+    guid: 3b93d4acf7800ee4d8c545dd442dce4b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
