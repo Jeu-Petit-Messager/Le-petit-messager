@@ -16,6 +16,8 @@ public class XavierZoneCanetteProg : MonoBehaviour
 
     public GameObject flecheBlanche;
 
+    public Renderer zoneRenderer;
+
     public void Update()
     {
         if(!canette1.activeSelf)
@@ -67,8 +69,12 @@ public class XavierZoneCanetteProg : MonoBehaviour
             if (canetteCollectees == 6)
             {
                 sonRamassage.PlayOneShot(sonRamassage.clip);
+
                 canette6.SetActive(true);
+
                 flecheBlanche.SetActive(false);
+                // désactiver emission
+                zoneRenderer.material.DisableKeyword("_EMISSION");
             }
         }
     }
