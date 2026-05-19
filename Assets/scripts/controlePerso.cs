@@ -31,6 +31,16 @@ public class controlePerso : MonoBehaviour
 
     void Update()
     {
+        if (XavierAffichageTextes.bloqueDeplacement)
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("Marcher", false);
+            animator.SetBool("Courir", false);
+            animator.SetBool("IdleAccroupi", false);
+            animator.SetBool("Accroupir", false);
+            return;
+        }
+        
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
