@@ -95,6 +95,21 @@ public class XavierAffichageTextes : MonoBehaviour
         "Sans blague ! Un autre accident désastreux et une nouvelle panne ! Quand est-ce que ce cauchemar va s'arrêter !"
     };
 
+    // Interaction PNJ4
+    List<string> diagPNJ4 = new List<string> {
+        "Je n'ai pas le temps de te parler, va jouer ailleurs."
+    };
+
+    // Interaction PNJ5
+    List<string> diagPNJ5 = new List<string> {
+        "S'il te plait ne vient pas mettre ton nez dans des choses d'adultes."
+    };
+
+    // Interaction PNJ6
+    List<string> diagPNJ6 = new List<string> {
+        "Ne me dérange pas avec tes jeux, ouste !"
+    };
+
 
     /* Les differentes listes */
     // Variable indiquant la fin de cette partie
