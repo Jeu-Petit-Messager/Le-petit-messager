@@ -21,6 +21,7 @@ public class XavierAffichageTextes : MonoBehaviour
     // Statut determinantlorsque le texte est en ecriture
     public bool estEnTrainDEcrire;
 
+    public static bool bloqueDeplacement;
     /* Variables de conditions du tutoriel*/
     Vector3 sourisPos;
     Vector3 maintientPos;
@@ -291,9 +292,9 @@ public class XavierAffichageTextes : MonoBehaviour
 
                 else
                 {
-                     /* Condition generale, juste clicker */
-                     if (Input.GetMouseButtonDown(0))
-                     {
+                    /* Condition generale, juste clicker */
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+                    {
                         ChargerTexteEntierEarly();
                         estEnTrainDEcrire = false;
                      }
@@ -395,7 +396,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     
                     
                     // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
                     {
                         // Le message se ferme, et l'index augmente s'il y a un autre texte
                         if (indexListeDiag < listeDiag.Count) indexListeDiag++;
@@ -420,6 +421,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     retireInteractionJoueur = true;
                     StartCoroutine(LancerDialogue());
                     compteurInteracProf++;
+                    bloqueDeplacement = true;
                 }
             }
 
@@ -461,6 +463,7 @@ public class XavierAffichageTextes : MonoBehaviour
             affichageTextesTuto = false;
             indexListeDiag = 0;
             listeDiag.Clear();
+            bloqueDeplacement = false;
         }
         else
         {
@@ -474,6 +477,7 @@ public class XavierAffichageTextes : MonoBehaviour
             indexListeDiag = 0;
             retireInteractionJoueur = false;
             listeDiag.Clear();
+            bloqueDeplacement = false;
         }
     }
 
