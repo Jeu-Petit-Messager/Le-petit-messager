@@ -77,13 +77,13 @@ public class XavierAffichageTextes : MonoBehaviour
     };
 
     // Interaction PNJ1
-    List<string> diagPNJ1Jeu = new List<string> {
+    List<string> diagPNJ1 = new List<string> {
         "Auriez-vous vu un monsieur important qui porte du blanc ?",
         "Je ne sais pas de qui tu parles, et je suis occupé. Et toi, n’as-tu pas un jeu auquel jouer au lieu de t’attarder à cette activité futile ?"
     };
 
     // Interaction PNJ2
-    List<string> diagPNJ2Mock = new List<string> {
+    List<string> diagPNJ2 = new List<string> {
         "Bonjour monsieur, auriez-vous vu un grand homme blanc et sérieux qui peut recevoir des papiers ?",
         "Ma foi, tu sembles complètement perdu, petit gamin, tes parents ne t’ont-t-il pas bien éduqué ?",
         "Est-ce que vous connaissez le monsieur tout blanc qui vit près d’ici ? Je dois lui donner un papier.",
@@ -91,7 +91,7 @@ public class XavierAffichageTextes : MonoBehaviour
     };
 
     // Interaction PNJ3
-    List<string> diagPNJ3Noir = new List<string> {
+    List<string> diagPNJ3 = new List<string> {
         "Sans blague ! Un autre accident désastreux et une nouvelle panne ! Quand est-ce que ce cauchemar va s'arrêter !"
     };
 
@@ -348,7 +348,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 else
                 {
                      /* Condition generale, juste clicker */
-                     if (Input.GetMouseButtonDown(0) && dialogueBox.activeSelf)
+                     if ((Input.GetMouseButtonDown(0) && dialogueBox.activeSelf) || (Input.GetKeyDown(KeyCode.Return) && dialogueBox.activeSelf))
                      {
                         ChargerTexteEntierEarly();
                         estEnTrainDEcrire = false;
@@ -435,7 +435,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     else
                     {
                         // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                        if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
+                        if ((Input.GetMouseButtonDown(0) && dialogueText.text != "") || (Input.GetKeyDown(KeyCode.Return) && dialogueText.text != ""))
                         {
                             // Le message se ferme, et l'index augmente s'il y a un autre texte
                             StartCoroutine(FermerEtLancerMessageAuto());
@@ -446,12 +446,13 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
 
                 /* Sinon, le clic est suffisant pour passer du texte de dialogue */
-                else
+                else if (indexListeDiag < listeDiag.Count)
                 {
                     
                     
                     // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0))
+
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
                     {
                         // Le message se ferme, et l'index augmente s'il y a un autre texte
                         if (indexListeDiag < listeDiag.Count) indexListeDiag++;
