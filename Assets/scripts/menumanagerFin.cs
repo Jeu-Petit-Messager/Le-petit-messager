@@ -5,6 +5,7 @@ public class menumanagerFin : MonoBehaviour
 {
     public GameObject menu;
     public GameObject quitter;
+    public GameObject rejouer;
 
     public GameObject[] hoverImages;
 
@@ -34,6 +35,11 @@ public class menumanagerFin : MonoBehaviour
 
         menu.SetActive(false);
         quitter.SetActive(true);
+    }
+    // Méthode pour quitter le jeu
+    public void Rejouer()
+    {
+        SceneManager.LoadScene("sceneJeuJour");
     }
     // Méthode pour revenir au menu principal depuis les sous-menus
     public void RetourMenu()

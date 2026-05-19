@@ -33,10 +33,10 @@ public class SaveJeu : MonoBehaviour
         fadeAnimator.gameObject.SetActive(true);
 
         // lancer animation
-        fadeAnimator.SetTrigger("FadeIn");
+        fadeAnimator.SetTrigger("FadeOut");
 
         // attendre animation
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
 
         // charger sauvegarde
         string sceneSauvegarde =
@@ -44,14 +44,6 @@ public class SaveJeu : MonoBehaviour
 
         SceneManager.LoadScene(sceneSauvegarde);
     }
-
-    // BOUTON NOUVELLE PARTIE
-    public void NouvellePartie()
-    {
-        // supprimer sauvegarde
-        PlayerPrefs.DeleteKey("SauvegardeScene");
-    }
-
     // SAUVEGARDE AUTOMATIQUE
     public static void SauvegarderScene()
     {

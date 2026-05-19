@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "sceneJeuJour" && SceneManager.GetActiveScene().name != "sceneJeuNuit")
+        if (SceneManager.GetActiveScene().name != "sceneJeuJour" && SceneManager.GetActiveScene().name != "sceneJeuNuit" && SceneManager.GetActiveScene().name != "scenePharmacie")
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape))

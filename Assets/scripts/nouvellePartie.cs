@@ -6,6 +6,7 @@ public class nouvellePartie : MonoBehaviour
     // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
     public void OnNouvellePartieClicked()
     {
+        PlayerPrefs.DeleteKey("SauvegardeScene");
         CancelInvoke(("LoadSceneJeu"));
         Invoke(("LoadSceneJeu"), 4f);
     }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class TransitionNuit : MonoBehaviour
 {
@@ -11,8 +13,12 @@ public class TransitionNuit : MonoBehaviour
     public float tempsAvantNuit = 300f; // 5 minutes
     public float dureeTransition = 180f; // 3 minutes transition
 
+    public Animator fadeAnimator;
+
     private float temps = 0f;
     private bool transitionCommence = false;
+
+    private bool mauvaiseFinLancee = false;
 
     void Start()
     {
@@ -55,7 +61,32 @@ public class TransitionNuit : MonoBehaviour
                         Time.deltaTime * 0.5f
                     );
                 }
+                
+                // éviter charger plusieurs fois
+                if (!mauvaiseFinLancee)
+                {
+                    mauvaiseFinLancee = true;
+
+                    StartCoroutine(MauvaiseFin());
+                }
             }
         }
+    }
+    IEnumerator MauvaiseFin()
+    {
+        // attendre 3 secondes
+        yield return new WaitForSeconds(4f);
+
+        // activer fade
+        fadeAnimator.gameObject.SetActive(true);
+
+        // lancer animation
+        fadeAnimator.SetTrigger("FadeIn");
+
+        // attendre animation fade
+        yield return new WaitForSeconds(1.5f);
+
+        // charger scène
+        SceneManager.LoadScene("sceneMauvaiseFin");
     }
 }
