@@ -31004,6 +31004,7 @@ GameObject:
   - component: {fileID: 712524000}
   - component: {fileID: 712524002}
   - component: {fileID: 712524001}
+  - component: {fileID: 712524003}
   m_Layer: 0
   m_Name: barn03 (1)
   m_TagString: Untagged
@@ -31082,6 +31083,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712523999}
   m_Mesh: {fileID: 2263306507863750201, guid: d7c781c59a9abcc47b9a1fb051f4a89a, type: 3}
+--- !u!65 &712524003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712523999}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.852492, y: 6.575605, z: 5.563734}
+  m_Center: {x: 0.000003695488, y: 0, z: 2.7993746}
 --- !u!1 &713111480
 GameObject:
   m_ObjectHideFlags: 0

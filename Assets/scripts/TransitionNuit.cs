@@ -6,7 +6,6 @@ using System.Collections;
 public class TransitionNuit : MonoBehaviour
 {
     public Volume globalVolume;
-
     // toutes les lumières des lampadaires
     public Light[] lampadaires;
 
