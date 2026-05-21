@@ -39,6 +39,9 @@ public class XavierScriptInteraction : MonoBehaviour
     /* lorsque le joueur possede une canette */
     public bool possedeCanette;
 
+    // Cle pour rentrer dans la pharmacie
+    public static bool possedeClePharma;
+
     public static bool enigmeLampadaire;
     public bool chargerLamp;
     public static bool enigmePharma;
@@ -58,12 +61,13 @@ public class XavierScriptInteraction : MonoBehaviour
         nomObjetInteract = "";
         peutPrendre = true;
         possedeCanette = false;
+        possedeClePharma = false;
 
         // Le joueur possede le medicament au depart
         if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneXavierEnigmesPrototype")
         {
             enigmeLampadaire = false;
-            enigmePharma = false;
+            enigmePharma = true;
         }
 
         // Le joueur possede le medicament au depart
@@ -147,7 +151,22 @@ public class XavierScriptInteraction : MonoBehaviour
                     }
                     else if (objetInteractif.CompareTag("ObjetSpecial"))
                     {
+                        // Prise de courant enigme lampadaires
+                        if(nomObjetInteract == "prise")
+                        {
+                            enigmeLampadaire = false;
+                        }
 
+                        // Prendre la cle de la pharmacie
+                        else if(nomObjetInteract == "clePharma")
+                        {
+                            possedeClePharma = true;
+                            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+                            imageUIInterne.GetComponent<Image>().sprite = sourceImageClePharma;
+
+                            // Enigme pharma prend fin
+                            enigmePharma = false;
+                        }
                     }
                 }
                 

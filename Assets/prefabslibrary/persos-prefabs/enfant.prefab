@@ -223,6 +223,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6629086699892046168}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4428892065964009016}
   m_SourcePrefab: {fileID: 100100000, guid: e92c521097f139b46837082a002b90b4, type: 3}
 --- !u!4 &2922430543091984670 stripped
 Transform:
@@ -252,6 +255,65 @@ MonoBehaviour:
   weight: 0
   sharedProfile: {fileID: 11400000, guid: 998c9685790f30f47bd94df63eb34071, type: 2}
 --- !u!114 &6629086699892046168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3a5a9a49e1ca446b01b7ca76b57c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionNuit
+  globalVolume: {fileID: 3483353470790851668}
+  lampadaires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tempsAvantNuit: 300
+  dureeTransition: 180
+  fadeAnimator: {fileID: 0}
+--- !u!114 &4428892065964009016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,7 +516,7 @@ MonoBehaviour:
   imageUIObjet: {fileID: 0}
   imageUIInterne: {fileID: 0}
   sourceImageCanette: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
-  sourceImageClePharma: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
+  sourceImageClePharma: {fileID: 21300000, guid: f0dfb73aeeefb774ba55dbbf6f7c2436, type: 3}
   sourceImageMedicament: {fileID: 21300000, guid: a544c730e6273a04a8608a249167bcf4, type: 3}
   peutPrendre: 1
   possedeCanette: 0
