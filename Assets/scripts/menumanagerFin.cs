@@ -39,7 +39,7 @@ public class menumanagerFin : MonoBehaviour
     // Méthode pour quitter le jeu
     public void Rejouer()
     {
-        SceneManager.LoadScene("sceneJeuJour");
+        SceneManager.LoadScene("sceneJeuNuit");
     }
     // Méthode pour revenir au menu principal depuis les sous-menus
     public void RetourMenu()

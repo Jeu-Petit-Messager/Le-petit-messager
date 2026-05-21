@@ -45,7 +45,7 @@ public class XavierAffichageTextes : MonoBehaviour
         "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
         "Appuyez sur E pour interagir avec des objets ou des personnes!",
         "Maintenez le bouton SHIFT pour courir",
-        "Maintenant, essayez de placez votre cannette devant votre maison",
+        "Maintenant, essayez de placez votre cannette à côté de l’église",
         "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!"
     };
 
