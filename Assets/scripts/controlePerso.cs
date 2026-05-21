@@ -31,6 +31,16 @@ public class controlePerso : MonoBehaviour
 
     void Update()
     {
+        if (XavierAffichageTextes.bloqueDeplacement)
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("Marcher", false);
+            animator.SetBool("Courir", false);
+            animator.SetBool("IdleAccroupi", false);
+            animator.SetBool("Accroupir", false);
+            return;
+        }
+        
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
@@ -90,7 +100,7 @@ public class controlePerso : MonoBehaviour
 
         // CLAMP POSITION
         futurePos.x = Mathf.Clamp(futurePos.x, 176f, 342f);
-        futurePos.z = Mathf.Clamp(futurePos.z, 64f, 267f);
+        futurePos.z = Mathf.Clamp(futurePos.z, 66f, 267f);
 
         Vector3 finalMove = futurePos - transform.position;
         controller.Move(finalMove);

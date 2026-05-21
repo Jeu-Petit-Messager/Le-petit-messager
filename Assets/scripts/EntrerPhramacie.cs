@@ -8,7 +8,7 @@ public class EntrerPhramacie : MonoBehaviour
 
     public GameObject imageBoutonE;
 
-    public float distanceActivation = 10f;
+    public float distanceActivation = 15f;
 
     public Animator fadeAnimator;
 
