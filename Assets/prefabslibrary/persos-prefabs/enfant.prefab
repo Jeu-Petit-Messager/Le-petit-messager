@@ -258,27 +258,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.261276
+      value: -64.793
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3121338
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -130.1824
+      value: -138.971
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -392,6 +392,8 @@ MonoBehaviour:
   imageUIObjet: {fileID: 0}
   imageUIInterne: {fileID: 0}
   sourceImageCanette: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
+  sourceImageClePharma: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
+  sourceImageMedicament: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
   peutPrendre: 1
   possedeCanette: 0
 --- !u!114 &532480130706192265
@@ -409,7 +411,7 @@ MonoBehaviour:
   vitesseMarche: 3
   vitesseCourse: 8
   vitesseAccroupi: 1
-  vitesseRotation: 60
+  vitesseRotation: 75
   forceSaut: 1
   gravite: -9.81
   boolSaut: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /* Script placee sur le garcon pour interagir avec des objets */
 public class XavierScriptInteraction : MonoBehaviour
@@ -20,7 +21,11 @@ public class XavierScriptInteraction : MonoBehaviour
     public GameObject imageUIObjet; // Image UI pour afficher l'objet dans l'inventaire
     public GameObject imageUIInterne; // Game object avec la source a changer
 
+
+    /* Source des images qui peuvent etre prises */
     public Sprite sourceImageCanette;
+    public Sprite sourceImageClePharma;
+    public Sprite sourceImageMedicament;
 
     /* Bool qui determine lorsque le garcon peut prendre un objet */
     public bool peutPrendre;
@@ -46,6 +51,14 @@ public class XavierScriptInteraction : MonoBehaviour
         nomObjetInteract = "";
         peutPrendre = true;
         possedeCanette = false;
+
+        // Le joueur possede le medicament au depart
+        if (SceneManager.GetActiveScene().name == "sceneJeuNuit" || SceneManager.GetActiveScene().name == "sceneXavierNuitMedic")
+        {
+            peutPrendre = false;
+            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+            imageUIInterne.GetComponent<Image>().sprite = sourceImageMedicament;
+        }
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
