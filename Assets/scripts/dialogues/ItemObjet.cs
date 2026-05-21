@@ -28,6 +28,9 @@ public class ItemObject : MonoBehaviour, IInteractable
         // Aucun objet est interactif au debut
         gameObject.layer = layerDefaut;
 
+        if(audioSource != null)
+            gameObject.GetComponent<AudioSource>().enabled = false;
+
     }
 
     public void Update()
@@ -70,30 +73,37 @@ public class ItemObject : MonoBehaviour, IInteractable
             }
             else
             {
-                // Tout objet desactive devient interactif
-                if (gameObject.layer != layerInteractif)
-                    gameObject.layer = layerInteractif;
+                if(gameObject.name != "clePharma" && gameObject.name != "prise")
+                {
+                    // Tout objet desactive devient interactif
+                    if (gameObject.layer != layerInteractif)
+                        gameObject.layer = layerInteractif;
+                }
+
             }
         }
 
 
         if(gameObject.name == "clePharma")
         {
-            if(XavierScriptInteraction.enigmePharma)
-            {
-                if (gameObject.layer != layerInteractif)
-                    gameObject.layer = layerInteractif;
-            }
-            else if(!XavierScriptInteraction.enigmePharma)
+            if(!XavierScriptInteraction.enigmePharma)
             {
                 if (gameObject.layer == layerInteractif)
                 {
-                    gameObject.layer = layerDefaut;
 
                     // On lance la routine qui va gerer la destruction de l' objet
                     StartCoroutine(JouerEtDetruire());
 
+                    gameObject.layer = layerDefaut;
+
+                    gameObject.GetComponent<AudioSource>().enabled = true;
+
                 }
+            }
+            else if (XavierScriptInteraction.enigmePharma)
+            {
+                if (gameObject.layer != layerInteractif)
+                    gameObject.layer = layerInteractif;
             }
         }
 
@@ -123,7 +133,9 @@ public class ItemObject : MonoBehaviour, IInteractable
         // 1. On lance le son
         audioSource.Play();
 
-        // 2. On attend la durée exacte du clip audio (en secondes)
+        gameObject.SetActive(false);
+
+       // 2. On attend la durée exacte du clip audio (en secondes)
         yield return new WaitForSeconds(audioSource.clip.length);
 
         // 3. Le son est fini, on détruit ce GameObject
