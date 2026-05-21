@@ -133,8 +133,6 @@ public class ItemObject : MonoBehaviour, IInteractable
         // 1. On lance le son
         audioSource.Play();
 
-        gameObject.SetActive(false);
-
        // 2. On attend la durée exacte du clip audio (en secondes)
         yield return new WaitForSeconds(audioSource.clip.length);
 
