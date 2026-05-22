@@ -126,6 +126,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
+        compteurInteracProf = 0;
 
         typePerso = false;
         dialogueText.text = "";
@@ -191,14 +192,20 @@ public class XavierAffichageTextes : MonoBehaviour
 
             /* Changements de style adaptes aux lignes de dialogue */
             // Dialogue prof 1
-            if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
+            if(indexListeDiag < diagProf1.Count)
             {
-                StylesDiagProf1();
+                if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
+                {
+                    StylesDiagProf1();
+                }
             }
 
-            if (listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
+            if(indexListeDiag < diagPharma.Count)
             {
-                StylesDiagPharma();
+                if(listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
+                {
+                    StylesDiagPharma();
+                }
             }
         }
 
@@ -349,7 +356,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 else
                 {
                     /* Condition generale, juste clicker */
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                     {
                         ChargerTexteEntierEarly();
                         estEnTrainDEcrire = false;
@@ -436,7 +443,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     else
                     {
                         // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                        if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                         {
                             // Le message se ferme, et l'index augmente s'il y a un autre texte
                             StartCoroutine(FermerEtLancerMessageAuto());
@@ -452,7 +459,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     
                     
                     // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                     {
                         // Le message se ferme, et l'index augmente s'il y a un autre texte
                         if (indexListeDiag < listeDiag.Count) indexListeDiag++;
