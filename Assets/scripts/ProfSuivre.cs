@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class ProfSuivre : MonoBehaviour
 {
@@ -11,9 +12,17 @@ public class ProfSuivre : MonoBehaviour
 
     public Animator animator;
 
+    [Header("Audio")]
+    public AudioSource sonMarche;
+    public AudioSource sonBizarre;
+
+    public AudioClip[] sonsBizarres;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        StartCoroutine(BruitAleatoire());
     }
 
     void Update()
@@ -27,6 +36,12 @@ public class ProfSuivre : MonoBehaviour
             agent.SetDestination(joueur.position);
 
             animator.SetBool("Courir", true);
+
+            // son marche
+            if (!sonMarche.isPlaying)
+            {
+                sonMarche.Play();
+            }
         }
         else
         {
@@ -34,6 +49,31 @@ public class ProfSuivre : MonoBehaviour
             agent.ResetPath();
 
             animator.SetBool("Courir", false);
+            // Arrêter son marche
+            sonMarche.Stop();
+        }
+    }
+
+     IEnumerator BruitAleatoire()
+    {
+        while (true)
+        {
+            // attendre temps aléatoire
+            float attente =
+                Random.Range(10f, 25f);
+
+            yield return new WaitForSeconds(attente);
+
+            // jouer son aléatoire
+            if (sonsBizarres.Length > 0)
+            {
+                int randomSon =
+                    Random.Range(0, sonsBizarres.Length);
+
+                sonBizarre.PlayOneShot(
+                    sonsBizarres[randomSon]
+                );
+            }
         }
     }
 }
