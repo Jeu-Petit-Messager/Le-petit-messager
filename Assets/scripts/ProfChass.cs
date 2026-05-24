@@ -136,6 +136,6 @@ public class ProfChass : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // charger mauvaise fin
-        SceneManager.LoadScene("sceneMauvaiseFin");
+        SceneManager.LoadScene("sceneRejouer");
     }
 }

@@ -18,42 +18,87 @@ public class ProfSuivre : MonoBehaviour
 
     public AudioClip[] sonsBizarres;
 
+    [Header("Interaction")]
+    public GameObject imageE;
+
+    public float distanceInteraction = 15f;
+
+    private bool interactionFaite = false;
+
+    private bool suivreJoueur = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        imageE.SetActive(false);
         StartCoroutine(BruitAleatoire());
     }
 
     void Update()
     {
+        // distance joueur
         float distance =
-            Vector3.Distance(transform.position, joueur.position);
+            Vector3.Distance(
+                transform.position,
+                joueur.position
+            );
 
-        // suivre joueur
-        if (distance > distanceMinimum)
+        // interaction prof
+        if (!interactionFaite &&
+            !XavierAffichageTextes.affichageTextesTuto &&
+            distance <= distanceInteraction)
         {
-            agent.SetDestination(joueur.position);
+            imageE.SetActive(true);
 
-            animator.SetBool("Courir", true);
-
-            // son marche
-            if (!sonMarche.isPlaying)
+            // touche E
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                sonMarche.Play();
+                interactionFaite = true;
+
+                imageE.SetActive(false);
+
+                XavierScriptInteraction.interactionFonctionnelle = true;
+
+                XavierScriptInteraction.nomObjetInteract = "prof";
             }
         }
-        else
+        else if (!interactionFaite)
         {
-            // arrêter
-            agent.ResetPath();
+            imageE.SetActive(false);
+        }
 
-            animator.SetBool("Courir", false);
-            // Arrêter son marche
-            sonMarche.Stop();
+        // suivre joueur après dialogue
+        if (suivreJoueur)
+        {
+            // suivre joueur
+            if (distance > distanceMinimum)
+            {
+                agent.SetDestination(joueur.position);
+
+                animator.SetBool("Courir", true);
+
+                // son marche
+                if (!sonMarche.isPlaying)
+                {
+                    sonMarche.Play();
+                }
+            }
+            else
+            {
+                // arrêter
+                agent.ResetPath();
+
+                animator.SetBool("Courir", false);
+
+                // arrêter son marche
+                sonMarche.Stop();
+            }
         }
     }
-
+    public void ActiverSuivi()
+    {
+        suivreJoueur = true;
+    }
      IEnumerator BruitAleatoire()
     {
         while (true)

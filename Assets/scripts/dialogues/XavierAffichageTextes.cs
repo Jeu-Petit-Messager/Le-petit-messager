@@ -18,6 +18,8 @@ public class XavierAffichageTextes : MonoBehaviour
     public float delayAvantAffichage = 0f;
     public float vitesseEcriture;
 
+    public ProfSuivre profSuivre;
+
     // Statut determinantlorsque le texte est en ecriture
     public bool estEnTrainDEcrire;
 
@@ -192,7 +194,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
             /* Changements de style adaptes aux lignes de dialogue */
             // Dialogue prof 1
-            if(indexListeDiag < diagProf1.Count)
+            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagProf1.Count)
             {
                 if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
                 {
@@ -200,7 +202,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
-            if(indexListeDiag < diagPharma.Count)
+            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
             {
                 if(listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
                 {
@@ -210,7 +212,10 @@ public class XavierAffichageTextes : MonoBehaviour
         }
 
         // Ecrire le texte
-        StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
+        if(indexListeDiag < listeDiag.Count)
+        {
+            StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
+        }
     }
 
     /* Coroutine pour ecrire le texte lettre par lettre */
@@ -539,6 +544,11 @@ public class XavierAffichageTextes : MonoBehaviour
         }
         else
         {
+            // FIN dialogue prof
+            if(typePerso && compteurInteracProf == 1)
+            {
+                profSuivre.ActiverSuivi();
+            }
             indexListeDiag = 0;
             animator.SetTrigger("FadeOut");
             // Vitesse effacer texte
@@ -556,9 +566,15 @@ public class XavierAffichageTextes : MonoBehaviour
     void ChargerTexteEntierEarly()
     {
         StopAllCoroutines();
-        dialogueText.text = listeDiag[indexListeDiag];
-    }
 
+        // sécurité
+        if(indexListeDiag >= 0 &&
+        indexListeDiag < listeDiag.Count)
+        {
+            dialogueText.text =
+                listeDiag[indexListeDiag];
+        }
+    }
     /* Fonction d'alternance de styles des repliques DiagProf1 */
     void StylesDiagProf1()
     {
