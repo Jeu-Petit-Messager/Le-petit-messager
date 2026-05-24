@@ -2420,6 +2420,10 @@ PrefabInstance:
       propertyPath: offset.z
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8919457934320060609, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79474,7 +79478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntreMaison
   joueur: {fileID: 58846087}
   distanceActivation: 15
-  sceneBonneFin: sceneBonFin
   imageBoutonE: {fileID: 1005106313}
   fadeAnimator: {fileID: 1887792509}
 --- !u!1 &1743682140

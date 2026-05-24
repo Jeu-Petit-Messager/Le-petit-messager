@@ -8,8 +8,6 @@ public class EntreMaison : MonoBehaviour
 
     public float distanceActivation = 15f;
 
-    public string sceneBonneFin = "sceneBonFin";
-
     public GameObject imageBoutonE;
 
     public Animator fadeAnimator;
@@ -38,6 +36,7 @@ public class EntreMaison : MonoBehaviour
             // appuyer E
             if (Input.GetKeyDown(KeyCode.E))
             {
+                PlayerPrefs.DeleteKey("SauvegardeScene");
                 StartCoroutine(BonneFin());
             }
         }
@@ -62,7 +61,16 @@ public class EntreMaison : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
 
-        // charger scène
-        SceneManager.LoadScene(sceneBonneFin);
+        // vérifier résultat pharmacie
+        if(PlayerPrefs.GetInt("BonFin") == 1)
+        {
+            // bonne fin
+            SceneManager.LoadScene("sceneBonFin");
+        }
+        else
+        {
+            // mauvaise fin
+            SceneManager.LoadScene("sceneMauvaiseFin");
+        }
     }
 }

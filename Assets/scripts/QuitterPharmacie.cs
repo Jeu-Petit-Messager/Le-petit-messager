@@ -52,6 +52,9 @@ public class QuitterPharmacie : MonoBehaviour
         // attendre fade
         yield return new WaitForSeconds(1.5f);
 
+        // sauvegarder sceneJeuNuit
+        SaveJeu.SauvegarderScene();
+
         // changer scène
         SceneManager.LoadScene(nomScene);
     }
