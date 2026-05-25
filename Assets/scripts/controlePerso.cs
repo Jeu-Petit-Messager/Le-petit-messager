@@ -100,7 +100,7 @@ public class controlePerso : MonoBehaviour
 
         // CLAMP POSITION
         futurePos.x = Mathf.Clamp(futurePos.x, 176f, 342f);
-        futurePos.z = Mathf.Clamp(futurePos.z, 64f, 267f);
+        futurePos.z = Mathf.Clamp(futurePos.z, 66f, 267f);
 
         Vector3 finalMove = futurePos - transform.position;
         controller.Move(finalMove);

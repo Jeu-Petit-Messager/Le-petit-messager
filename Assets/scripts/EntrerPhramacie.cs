@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class EntrerPhramacie : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class EntrerPhramacie : MonoBehaviour
 
     public GameObject imageBoutonE;
 
-    public float distanceActivation = 10f;
+    public float distanceActivation = 15f;
 
     public Animator fadeAnimator;
 
     public string nomScene = "scenePharmacie";
+    public Volume globalVolume;
 
     void Start()
     {
@@ -47,6 +49,19 @@ public class EntrerPhramacie : MonoBehaviour
 
     IEnumerator EntrerPharmacie()
     {
+        // vérifier si nuit commencée
+        if(globalVolume != null && globalVolume.weight <= 0f)
+        {
+            // bonne fin possible
+            PlayerPrefs.SetInt("BonFin", 1);
+        }
+        else
+        {
+            // mauvaise fin
+            PlayerPrefs.SetInt("BonFin", 0);
+        }
+
+        PlayerPrefs.Save();
         // activer canvas fade
         fadeAnimator.gameObject.SetActive(true);
 
