@@ -32,10 +32,13 @@ public class EntrerPhramacie : MonoBehaviour
         {
             imageBoutonE.SetActive(true);
 
+            if(XavierScriptInteraction.possedeClePharma)
+
             // touche E
             if (Input.GetKeyDown(KeyCode.E))
             {
-                StartCoroutine(EntrerPharmacie());
+                // Le joueur peut rentrer s'il possede la cle
+                if (XavierScriptInteraction.possedeClePharma) StartCoroutine(EntrerPharmacie());
             }
         }
         else

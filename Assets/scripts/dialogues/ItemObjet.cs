@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 /* Script a appliquer sur les objets qui peuvent etre interactif */
@@ -8,6 +11,9 @@ public class ItemObject : MonoBehaviour, IInteractable
     public string InteractionPrompt => $"X {itemName}";
 
     public GameObject objetInteractif;
+
+    // Pour les objets ayant un son
+    public AudioSource audioSource;
 
     int layerDefaut;
     int layerInteractif;
@@ -21,6 +27,9 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         // Aucun objet est interactif au debut
         gameObject.layer = layerDefaut;
+
+        if(audioSource != null)
+            gameObject.GetComponent<AudioSource>().enabled = false;
 
     }
 
@@ -64,11 +73,40 @@ public class ItemObject : MonoBehaviour, IInteractable
             }
             else
             {
-                // Tout objet desactive devient interactif
+                if(gameObject.name != "clePharma" && gameObject.name != "prise")
+                {
+                    // Tout objet desactive devient interactif
+                    if (gameObject.layer != layerInteractif)
+                        gameObject.layer = layerInteractif;
+                }
+
+            }
+        }
+
+
+        if(gameObject.name == "clePharma")
+        {
+            if(!XavierScriptInteraction.enigmePharma)
+            {
+                if (gameObject.layer == layerInteractif)
+                {
+
+                    // On lance la routine qui va gerer la destruction de l' objet
+                    StartCoroutine(JouerEtDetruire());
+
+                    gameObject.layer = layerDefaut;
+
+                    gameObject.GetComponent<AudioSource>().enabled = true;
+
+                }
+            }
+            else if (XavierScriptInteraction.enigmePharma)
+            {
                 if (gameObject.layer != layerInteractif)
                     gameObject.layer = layerInteractif;
             }
         }
+
     }
 
     public void Interact()
@@ -87,5 +125,18 @@ public class ItemObject : MonoBehaviour, IInteractable
         PlayerPrefs.Save();
 
         Destroy(objetInteractif);
+    }
+
+    /* Fonction pour detruire un objet apres qu'il a fini de jouer un son */
+    IEnumerator JouerEtDetruire()
+    {
+        // 1. On lance le son
+        audioSource.Play();
+
+       // 2. On attend la durée exacte du clip audio (en secondes)
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        // 3. Le son est fini, on détruit ce GameObject
+        Destroy(gameObject);
     }
 }
