@@ -7,6 +7,8 @@ public class nouvellePartie : MonoBehaviour
     public void OnNouvellePartieClicked()
     {
         PlayerPrefs.DeleteKey("SauvegardeScene");
+        // supprimer résultat fin
+        PlayerPrefs.DeleteKey("BonFin");
         CancelInvoke(("LoadSceneJeu"));
         Invoke(("LoadSceneJeu"), 3f);
     }

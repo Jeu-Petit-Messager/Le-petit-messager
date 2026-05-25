@@ -7,7 +7,7 @@ public class ProfChass : MonoBehaviour
 {
     public Transform joueur;
 
-    public float vitesseChasse = 9f;
+    public float vitesseChasse = 10f;
 
     // attendre avant commencer chasse
     public float tempsAvantChasse = 5f;
@@ -16,7 +16,7 @@ public class ProfChass : MonoBehaviour
 
     private bool chasseCommence;
 
-    // public Animator animator;
+    public Animator animator;
 
     // fade
     public GameObject canvasFade;
@@ -26,6 +26,13 @@ public class ProfChass : MonoBehaviour
     public float distanceAttrape = 2f;
 
     private bool joueurAttrape;
+
+     [Header("Audio")]
+    public AudioSource sonCourse;
+
+    public AudioSource sonBizarre;
+
+    public AudioClip[] sonsBizarres;
 
     void Start()
     {
@@ -39,6 +46,7 @@ public class ProfChass : MonoBehaviour
         agent.isStopped = true;
 
         StartCoroutine(CommencerChasse());
+        StartCoroutine(BruitAleatoire());
     }
 
     IEnumerator CommencerChasse()
@@ -73,11 +81,42 @@ public class ProfChass : MonoBehaviour
             }
         }
 
-        // animations
-        // bool marche = agent.velocity.magnitude > 0.1f;
+         // animations
+        bool courir = agent.velocity.magnitude > 0.1f;
 
-        // animator.SetBool("Marcher", marche);
-        // animator.SetBool("Idle", !marche);
+        animator.SetBool("Courir", courir);
+        // son course
+        if (courir)
+        {
+            if (!sonCourse.isPlaying)
+            {
+                sonCourse.Play();
+            }
+        }
+        else
+        {
+            sonCourse.Stop();
+        }
+    }
+    IEnumerator BruitAleatoire()
+    {
+        while (true)
+        {
+            float attente =
+                Random.Range(10f, 25f);
+
+            yield return new WaitForSeconds(attente);
+
+            if (sonsBizarres.Length > 0)
+            {
+                int randomSon =
+                    Random.Range(0, sonsBizarres.Length);
+
+                sonBizarre.PlayOneShot(
+                    sonsBizarres[randomSon]
+                );
+            }
+        }
     }
 
     IEnumerator MauvaiseFin()
@@ -96,7 +135,7 @@ public class ProfChass : MonoBehaviour
         // attendre animation
         yield return new WaitForSeconds(1.5f);
 
-        // charger mauvaise fin
-        SceneManager.LoadScene("sceneMauvaiseFin");
+        // recharger sceneJeuNuit
+        SceneManager.LoadScene("sceneJeuNuit");
     }
 }

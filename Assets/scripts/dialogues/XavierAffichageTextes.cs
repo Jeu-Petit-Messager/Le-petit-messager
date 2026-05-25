@@ -18,6 +18,8 @@ public class XavierAffichageTextes : MonoBehaviour
     public float delayAvantAffichage = 0f;
     public float vitesseEcriture;
 
+    public ProfSuivre profSuivre;
+
     // Statut determinantlorsque le texte est en ecriture
     public bool estEnTrainDEcrire;
 
@@ -126,6 +128,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
+        compteurInteracProf = 0;
 
         typePerso = false;
         dialogueText.text = "";
@@ -191,19 +194,28 @@ public class XavierAffichageTextes : MonoBehaviour
 
             /* Changements de style adaptes aux lignes de dialogue */
             // Dialogue prof 1
-            if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
+            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagProf1.Count)
             {
-                StylesDiagProf1();
+                if(listeDiag[indexListeDiag] == diagProf1[indexListeDiag])
+                {
+                    StylesDiagProf1();
+                }
             }
 
-            if (listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
+            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
             {
-                StylesDiagPharma();
+                if(listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
+                {
+                    StylesDiagPharma();
+                }
             }
         }
 
         // Ecrire le texte
-        StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
+        if(indexListeDiag < listeDiag.Count)
+        {
+            StartCoroutine(EcrireTexte(listeDiag[indexListeDiag]));
+        }
     }
 
     /* Coroutine pour ecrire le texte lettre par lettre */
@@ -349,7 +361,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 else
                 {
                     /* Condition generale, juste clicker */
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                     {
                         ChargerTexteEntierEarly();
                         estEnTrainDEcrire = false;
@@ -436,7 +448,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     else
                     {
                         // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                        if (Input.GetMouseButtonDown(0) && dialogueText.text != "")
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                         {
                             // Le message se ferme, et l'index augmente s'il y a un autre texte
                             StartCoroutine(FermerEtLancerMessageAuto());
@@ -452,7 +464,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     
                     
                     // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                     {
                         // Le message se ferme, et l'index augmente s'il y a un autre texte
                         if (indexListeDiag < listeDiag.Count) indexListeDiag++;
@@ -532,6 +544,11 @@ public class XavierAffichageTextes : MonoBehaviour
         }
         else
         {
+            // FIN dialogue prof
+            if(typePerso && compteurInteracProf == 1)
+            {
+                profSuivre.ActiverSuivi();
+            }
             indexListeDiag = 0;
             animator.SetTrigger("FadeOut");
             // Vitesse effacer texte
@@ -549,9 +566,15 @@ public class XavierAffichageTextes : MonoBehaviour
     void ChargerTexteEntierEarly()
     {
         StopAllCoroutines();
-        dialogueText.text = listeDiag[indexListeDiag];
-    }
 
+        // sécurité
+        if(indexListeDiag >= 0 &&
+        indexListeDiag < listeDiag.Count)
+        {
+            dialogueText.text =
+                listeDiag[indexListeDiag];
+        }
+    }
     /* Fonction d'alternance de styles des repliques DiagProf1 */
     void StylesDiagProf1()
     {

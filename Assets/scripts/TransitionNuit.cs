@@ -17,7 +17,6 @@ public class TransitionNuit : MonoBehaviour
     private float temps = 0f;
     private bool transitionCommence = false;
 
-    private bool mauvaiseFinLancee = false;
 
     void Start()
     {
@@ -41,7 +40,7 @@ public class TransitionNuit : MonoBehaviour
         }
 
         // transition progressive
-        if (transitionCommence)
+        if (transitionCommence && globalVolume != null)
         {
             // effets nuit
             globalVolume.weight += Time.deltaTime / dureeTransition;
@@ -60,32 +59,7 @@ public class TransitionNuit : MonoBehaviour
                         Time.deltaTime * 0.5f
                     );
                 }
-                
-                // éviter charger plusieurs fois
-                if (!mauvaiseFinLancee)
-                {
-                    mauvaiseFinLancee = true;
-
-                    StartCoroutine(MauvaiseFin());
-                }
             }
         }
-    }
-    IEnumerator MauvaiseFin()
-    {
-        // attendre 3 secondes
-        yield return new WaitForSeconds(4f);
-
-        // activer fade
-        fadeAnimator.gameObject.SetActive(true);
-
-        // lancer animation
-        fadeAnimator.SetTrigger("FadeIn");
-
-        // attendre animation fade
-        yield return new WaitForSeconds(1.5f);
-
-        // charger scène
-        SceneManager.LoadScene("sceneMauvaiseFin");
     }
 }
