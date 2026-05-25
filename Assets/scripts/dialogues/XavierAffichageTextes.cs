@@ -52,7 +52,7 @@ public class XavierAffichageTextes : MonoBehaviour
     };
 
     // Pensee lorsque le joueur n'a pas retabli le courant
-    List<string> PenseInvisibleMurLampa = new List<string> {
+    List<string> penseInvisibleMurLampa = new List<string> {
         "Ce noir, trop...sombre... Pourquoi les lampadaires sont ils éteints ici..."
     };
 

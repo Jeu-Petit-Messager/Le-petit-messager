@@ -174,7 +174,6 @@ public class XavierScriptInteraction : MonoBehaviour
                         }
                     }
                 }
-                
             }
         }
     }
