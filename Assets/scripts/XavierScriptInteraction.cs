@@ -49,6 +49,8 @@ public class XavierScriptInteraction : MonoBehaviour
     public static bool courseFinale;
     public bool chargerCourse;
 
+
+    // Bloc qui disparait pour enigme lampadaire
     public GameObject blocCorridorLampadaire;
 
     public void Start()

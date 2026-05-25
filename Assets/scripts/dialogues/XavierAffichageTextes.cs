@@ -51,6 +51,11 @@ public class XavierAffichageTextes : MonoBehaviour
         "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!" // provisoire
     };
 
+    // Pensee lorsque le joueur n'a pas retabli le courant
+    List<string> PenseInvisibleMurLampa = new List<string> {
+        "Ce noir, trop...sombre... Pourquoi les lampadaires sont ils éteints ici..."
+    };
+
     // Interaction 1 Prof
     List<string> diagProf1 = new List<string> {
         "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
@@ -629,6 +634,17 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
             if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
+        }
+    }
+
+    /* Fonction commentaire gars */
+    void StylePenseeGarcon()
+    {
+        // couleur prof
+        if (indexListeDiag == 0)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
         }
     }
 }
