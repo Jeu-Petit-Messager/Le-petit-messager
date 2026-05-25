@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class menumanagerFin : MonoBehaviour
 {
     public GameObject menu;
     public GameObject quitter;
+    public GameObject rejouer;
+    public GameObject canvasFade;
+    public Animator fadeAnimator;
 
     public GameObject[] hoverImages;
 
@@ -34,6 +38,40 @@ public class menumanagerFin : MonoBehaviour
 
         menu.SetActive(false);
         quitter.SetActive(true);
+    }
+    // Méthode pour quitter le jeu
+    public void Rejouer()
+    {
+       StartCoroutine(RejouerAvecFade());
+    }
+     IEnumerator RejouerAvecFade()
+    {
+        // activer fade
+        if (canvasFade != null)
+            canvasFade.SetActive(true);
+
+        // animation fade
+        if (fadeAnimator != null)
+            fadeAnimator.SetTrigger("FadeIn");
+
+        // attendre animation
+        yield return new WaitForSeconds(1f);
+
+        // scene actuelle
+        string sceneActuelle =
+            SceneManager.GetActiveScene().name;
+
+        // si mauvaise fin
+        if (sceneActuelle == "sceneMauvaiseFin")
+        {
+            SceneManager.LoadScene("sceneJeuJour");
+        }
+
+        // si scene rejouer
+        else if (sceneActuelle == "sceneRejouer")
+        {
+            SceneManager.LoadScene("sceneJeuNuit");
+        }
     }
     // Méthode pour revenir au menu principal depuis les sous-menus
     public void RetourMenu()
