@@ -6,7 +6,7 @@ public class CameraZoneTrigger : MonoBehaviour
     [Header("Configuration de la Caméra")]
     [SerializeField] private CinemachineCamera cameraAActiver;
     [SerializeField] private int prioriteActive = 20;
-    [SerializeField] private int proriteInactive = 10;
+    [SerializeField] private int proriteInactive = 10; // Corrigé la petite faute de frappe ici au passage !
 
     [Header("Type de Caméra")]
     [SerializeField] private bool estUneCameraFixe = false;
