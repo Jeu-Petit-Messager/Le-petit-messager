@@ -2213,7 +2213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253968856893493947, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.889
+      value: -59.2
       objectReference: {fileID: 0}
     - target: {fileID: 3253968856893493947, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2221,7 +2221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253968856893493947, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -134.042
+      value: -141.1
       objectReference: {fileID: 0}
     - target: {fileID: 3253968856893493947, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9751,11 +9751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4bd232ba1ce0fd4bb429f33d16d6ed2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.716
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4bd232ba1ce0fd4bb429f33d16d6ed2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.501
+      value: -61.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4bd232ba1ce0fd4bb429f33d16d6ed2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33562,6 +33562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &802668786
 GameObject:
   m_ObjectHideFlags: 0
@@ -33868,6 +33869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &804540708
 GameObject:
   m_ObjectHideFlags: 0
@@ -41358,6 +41360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &928395390
 GameObject:
   m_ObjectHideFlags: 0
@@ -48676,6 +48679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1081066483
 GameObject:
   m_ObjectHideFlags: 0
@@ -77905,6 +77909,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804859604}
   m_Mesh: {fileID: 8211372540250625004, guid: 5bd07afa2334f87468f4dd0232c18a1c, type: 3}
+--- !u!1 &1805653972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805653974}
+  - component: {fileID: 1805653973}
+  m_Layer: 0
+  m_Name: w
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1805653973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805653972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.613998, y: 8.767479, z: 29.701248}
+  m_Center: {x: -4.569893, y: 3.474598, z: -0.37387848}
+--- !u!4 &1805653974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805653972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 253.86, y: 100.99, z: 173.90126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1806141517
 GameObject:
   m_ObjectHideFlags: 0
@@ -85872,6 +85929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2004519858
 GameObject:
   m_ObjectHideFlags: 0
@@ -90851,6 +90909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2128956129
 GameObject:
   m_ObjectHideFlags: 0
@@ -91287,6 +91346,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147288499}
   m_Mesh: {fileID: 5256924276574915431, guid: 5bd07afa2334f87468f4dd0232c18a1c, type: 3}
+--- !u!1001 &7194527904259377167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 186.05823
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 100.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 92.50548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338544388124542366, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862422802707111716, guid: fdde6fd821510b347a562c0397809106, type: 3}
+      propertyPath: m_Name
+      value: clePharma
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdde6fd821510b347a562c0397809106, type: 3}
 --- !u!1001 &8990569413336630007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91394,3 +91510,5 @@ SceneRoots:
   - {fileID: 543511581}
   - {fileID: 1700816226}
   - {fileID: 715410475}
+  - {fileID: 7194527904259377167}
+  - {fileID: 1805653974}
