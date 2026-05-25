@@ -2275,6 +2275,14 @@ PrefabInstance:
       propertyPath: imageUIInterne
       value: 
       objectReference: {fileID: 1638160506}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: sourceImageMedicament
+      value: 
+      objectReference: {fileID: 21300000, guid: a1dbe8ce91d41a14780427fcf841ca49, type: 3}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: blocCorridorLampadaire
+      value: 
+      objectReference: {fileID: 1805653972}
     - target: {fileID: 7891244165495943594, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_Height
       value: 1.55
@@ -45864,7 +45872,7 @@ Transform:
   m_GameObject: {fileID: 1018471136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 254.31, y: 100.78, z: 194.04}
+  m_LocalPosition: {x: 258.3, y: 100.78, z: 197.306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

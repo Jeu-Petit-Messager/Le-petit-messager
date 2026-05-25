@@ -49,6 +49,8 @@ public class XavierScriptInteraction : MonoBehaviour
     public static bool courseFinale;
     public bool chargerCourse;
 
+    public GameObject blocCorridorLampadaire;
+
     public void Start()
     {
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
@@ -90,13 +92,11 @@ public class XavierScriptInteraction : MonoBehaviour
 
     void Update()
     {
-        /* Gestion enigmes */
-        if(enigmeLampadaire)
+        if(XavierAffichageTextes.compteurInteracProf == 1)
         {
-            if(!chargerLamp)
-            {
-                chargerLamp = true;
-            }
+            XavierAffichageTextes.compteurInteracProf++;
+            if (!enigmeLampadaire) enigmeLampadaire = true;
+            print(enigmeLampadaire);
         }
 
 
@@ -156,7 +156,8 @@ public class XavierScriptInteraction : MonoBehaviour
                         // Prise de courant enigme lampadaires
                         if(nomObjetInteract == "prise")
                         {
-                            enigmeLampadaire = false;
+                            blocCorridorLampadaire.gameObject.SetActive(false);
+                            print("fin");
                         }
 
                         // Prendre la cle de la pharmacie

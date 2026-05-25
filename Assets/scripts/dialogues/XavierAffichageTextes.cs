@@ -124,7 +124,7 @@ public class XavierAffichageTextes : MonoBehaviour
     // Valeur determinant si le prof est parle ou non
     public static int compteurInteracProf = 0;
 
-    // Valeur determinant si le prof est parle ou non
+    // Valeur determinant si le pharmacien est parle ou non
     public static int compteurInteracPharma = 0;
 
     // Statut pour un texte d'un personnage
@@ -132,7 +132,8 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
-        compteurInteracProf = 0;
+        compteurInteracProf = 1;
+        compteurInteracPharma = 0;
 
         typePerso = false;
         dialogueText.text = "";

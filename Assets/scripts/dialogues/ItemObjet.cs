@@ -35,6 +35,8 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Update()
     {
+        //print(XavierScriptInteraction.enigmeLampadaire);
+
         /* Restriction dans la section du tutoriel */
         if(XavierAffichageTextes.affichageTextesTuto)
         {
@@ -83,15 +85,16 @@ public class ItemObject : MonoBehaviour, IInteractable
             }
         }
 
-
-        if(gameObject.name == "clePharma")
+        if (gameObject.name == "prise")
         {
-            if(!XavierScriptInteraction.enigmeLampadaire)
+
+            if (!XavierScriptInteraction.enigmeLampadaire)
+
             {
                 if (gameObject.layer == layerInteractif)
                 {
 
-                    // On lance la routine qui va gerer la destruction de l' objet
+                    // On lance la routine qui va gerer la destruction de l'objet
                     StartCoroutine(JouerEtDetruire());
 
                     gameObject.layer = layerDefaut;
@@ -107,9 +110,9 @@ public class ItemObject : MonoBehaviour, IInteractable
             }
         }
 
-        if(gameObject.name == "prise")
+        if (gameObject.name == "clePharma")
         {
-            if (!XavierScriptInteraction.enigmePharma)
+            if(!XavierScriptInteraction.enigmePharma)
             {
                 if (gameObject.layer == layerInteractif)
                 {
