@@ -47,8 +47,8 @@ public class XavierAffichageTextes : MonoBehaviour
         "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
         "Appuyez sur E pour interagir avec des objets ou des personnes!",
         "Maintenez le bouton SHIFT pour courir",
-        "Maintenant, essayez de placez votre cannette à côté de l’église",
-        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!"
+        "Maintenant, essayez de tassez la planche qui bloque votre chemin.",
+        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!" // provisoire
     };
 
     // Interaction 1 Prof
@@ -121,7 +121,11 @@ public class XavierAffichageTextes : MonoBehaviour
     // Retire temporairement la possibilite d'interagir
     public static bool retireInteractionJoueur;
 
+    // Valeur determinant si le prof est parle ou non
     public static int compteurInteracProf = 0;
+
+    // Valeur determinant si le prof est parle ou non
+    public static int compteurInteracPharma = 0;
 
     // Statut pour un texte d'un personnage
     public bool typePerso;

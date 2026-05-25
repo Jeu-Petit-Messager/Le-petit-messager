@@ -86,7 +86,30 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         if(gameObject.name == "clePharma")
         {
-            if(!XavierScriptInteraction.enigmePharma)
+            if(!XavierScriptInteraction.enigmeLampadaire)
+            {
+                if (gameObject.layer == layerInteractif)
+                {
+
+                    // On lance la routine qui va gerer la destruction de l' objet
+                    StartCoroutine(JouerEtDetruire());
+
+                    gameObject.layer = layerDefaut;
+
+                    gameObject.GetComponent<AudioSource>().enabled = true;
+
+                }
+            }
+            else if (XavierScriptInteraction.enigmeLampadaire)
+            {
+                if (gameObject.layer != layerInteractif)
+                    gameObject.layer = layerInteractif;
+            }
+        }
+
+        if(gameObject.name == "prise")
+        {
+            if (!XavierScriptInteraction.enigmePharma)
             {
                 if (gameObject.layer == layerInteractif)
                 {
