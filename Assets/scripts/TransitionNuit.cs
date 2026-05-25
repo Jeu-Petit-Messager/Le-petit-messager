@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class TransitionNuit : MonoBehaviour
 {
     public Volume globalVolume;
-
     // toutes les lumières des lampadaires
     public Light[] lampadaires;
 
     public float tempsAvantNuit = 300f; // 5 minutes
     public float dureeTransition = 180f; // 3 minutes transition
 
+    public Animator fadeAnimator;
+
     private float temps = 0f;
     private bool transitionCommence = false;
+
 
     void Start()
     {
@@ -36,7 +40,7 @@ public class TransitionNuit : MonoBehaviour
         }
 
         // transition progressive
-        if (transitionCommence)
+        if (transitionCommence && globalVolume != null)
         {
             // effets nuit
             globalVolume.weight += Time.deltaTime / dureeTransition;
