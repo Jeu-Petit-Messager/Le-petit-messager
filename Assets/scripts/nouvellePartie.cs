@@ -11,8 +11,13 @@ public class nouvellePartie : MonoBehaviour
 
     [Header("Video")]
     public GameObject videoObject;
-
     public VideoPlayer videoPlayer;
+
+    [Header("Skip")]
+    public GameObject boutonSkip;
+
+    private bool videoSkip = false;
+
     // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
     public void OnNouvellePartieClicked()
     {
@@ -23,8 +28,22 @@ public class nouvellePartie : MonoBehaviour
 
         StartCoroutine(SequenceIntro());
     }
+    void Update()
+    {
+        // touche ESC pour skip
+        if (videoObject.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SkipVideo();
+        }
+    }
 
-    IEnumerator SequenceIntro()
+    // bouton skip
+    public void SkipVideo()
+    {
+        videoSkip = true;
+    }
+
+   IEnumerator SequenceIntro()
     {
         // activer fade
         fadeCanvas.SetActive(true);
@@ -33,26 +52,59 @@ public class nouvellePartie : MonoBehaviour
         fadeAnimator.SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(3f);
-        // montrer vidéo
+
+        // préparer vidéo
+        videoPlayer.Prepare();
+
+        // attendre préparation
+        while (!videoPlayer.isPrepared)
+        {
+            yield return null;
+        }
+
+        // activer vidéo
         videoObject.SetActive(true);
+
+        // afficher bouton skip
+        if (boutonSkip != null)
+        {
+            boutonSkip.SetActive(true);
+        }
+
         // jouer vidéo
         videoPlayer.Play();
 
-        // cacher image noire
-        fadeCanvas.SetActive(false);        
+        // cacher fade
+        fadeCanvas.SetActive(false);
 
-        // attendre vidéo
-        yield return new WaitForSeconds(10f);
+        // attendre fin vidéo OU skip
+        while (videoPlayer.isPlaying)
+        {
+            // skip avec bouton ou ESC
+            if (videoSkip)
+            {
+                break;
+            }
 
-        // remettre fade
+            yield return null;
+        }
+
+        // cacher bouton skip
+        if (boutonSkip != null)
+        {
+            boutonSkip.SetActive(false);
+        }
+
+        // activer fade PAR DESSUS la vidéo
         fadeCanvas.SetActive(true);
 
-        // fade vers jeu
+        // lancer fade noir UNE SEULE FOIS
         fadeAnimator.SetTrigger("FadeOut");
 
+        // attendre animation
         yield return new WaitForSeconds(1.5f);
 
-        // charger jeu
+        // charger scène
         LoadSceneJeu();
     }
 
