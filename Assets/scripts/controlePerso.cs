@@ -23,10 +23,14 @@ public class controlePerso : MonoBehaviour
     private bool accroupi;
     public bool auSol;
 
+    public static bool entrerLampadaire = false;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         boolSaut = false;
+
+        entrerLampadaire = false;
     }
 
     void Update()
@@ -142,5 +146,19 @@ public class controlePerso : MonoBehaviour
         // Jouer le son du saut
         sonSaut.Play();
         boolSaut = false;
+    }
+
+    /* pour le bloc lampadaire */
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        if (hit.gameObject.name == "bloc")
+        {
+            if (entrerLampadaire == false)
+            {
+                if(!XavierAffichageTextes.lampeTexteAffiche) entrerLampadaire = true;
+            }
+            
+        }
     }
 }

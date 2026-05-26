@@ -115,6 +115,9 @@ public class XavierScriptInteraction : MonoBehaviour
 
             if (interactable != null)
             {
+                objetInteractif = hitColliders[0].gameObject;
+
+
                 // Le joueur peut interagir avec l'objet
                 if (Input.GetKeyDown(interactKey))
                 {
@@ -174,6 +177,7 @@ public class XavierScriptInteraction : MonoBehaviour
                         }
                     }
                 }
+
             }
         }
     }

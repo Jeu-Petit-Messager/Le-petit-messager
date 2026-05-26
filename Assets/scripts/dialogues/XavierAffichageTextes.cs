@@ -59,6 +59,7 @@ public class XavierAffichageTextes : MonoBehaviour
     // Interaction 1 Prof
     List<string> diagProf1 = new List<string> {
         "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
+
         "Je suis à la recherche d'un monsieur...\nmais ma maman m’a dit de ne pas parler aux monsieurs bizarres...",
         "Attends...je suis qu’un gentil homme je t’assure..! Tu sais je suis...ou du moins j’étais...un grand professeur avant, et je passais mes journées à aider des petits garçons tout comme toi, alors...n’hésite pas à tout me dire.",
         "... Bon d’accord. Ma mère vit toute seule et elle m’a demandé d’aller donner ce bout de papier vite vite à un grand monsieur tout blanc avant la nuit...mais le problème est que je ne me rappelle plus de lui... ",
@@ -132,11 +133,14 @@ public class XavierAffichageTextes : MonoBehaviour
     // Valeur determinant si le pharmacien est parle ou non
     public static int compteurInteracPharma = 0;
 
+    public static bool lampeTexteAffiche = false;
+
     // Statut pour un texte d'un personnage
     public bool typePerso;
 
     void Start()
     {
+        lampeTexteAffiche = false ;
         compteurInteracProf = 1;
         compteurInteracPharma = 0;
 
@@ -219,6 +223,19 @@ public class XavierAffichageTextes : MonoBehaviour
                     StylesDiagPharma();
                 }
             }
+
+            if(listeDiag[indexListeDiag] == penseInvisibleMurLampa[indexListeDiag])
+            {
+                StylePenseeGarcon();
+            }
+
+            if(controlePerso.entrerLampadaire)
+            {
+                controlePerso.entrerLampadaire = false;
+                lampeTexteAffiche = true;
+                StylePenseeGarcon();
+            }
+                
         }
 
         // Ecrire le texte
@@ -243,8 +260,9 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Update()
     {
+
         /* Lorsque le dialogue represente des persos */
-        if(typePerso)
+        if (typePerso)
         {
             // Aligner le texte gauche
             if(dialogueText.alignment != TextAnchor.MiddleLeft)
@@ -370,12 +388,17 @@ public class XavierAffichageTextes : MonoBehaviour
 
                 else
                 {
-                    /* Condition generale, juste clicker */
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                    if(!lampeTexteAffiche)
                     {
-                        ChargerTexteEntierEarly();
-                        estEnTrainDEcrire = false;
-                     }
+                        /* Condition generale, juste clicker */
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                        {
+                            ChargerTexteEntierEarly();
+                            estEnTrainDEcrire = false;
+                        }
+                    }
+
+    
                 }
 
             }
@@ -384,105 +407,127 @@ public class XavierAffichageTextes : MonoBehaviour
             else
             {
 
+                if (controlePerso.entrerLampadaire)
+                {
+                    if (!lampeTexteAffiche && !dialogueBox.activeSelf)
+                    {
+                        listeDiag.AddRange(penseInvisibleMurLampa);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                    }
+                }
+                // Faire que le texte affiche defile par lui meme
+                if(lampeTexteAffiche)
+                {
+                    if (dialogueText.text == penseInvisibleMurLampa[indexListeDiag])
+                    {
+                        StartCoroutine(FermerEtLancerMessageAuto());
+                        lampeTexteAffiche = false;
+                    }
+                }
                 // Pour le texte du tutoriel
                 if (affichageTextesTuto)
                 {
 
-                    // 1. verif de l'accroupissement
-                    if (indexListeDiag == 0)
-                    {
-                        // On veut que le joueur s'accroupit et se redresse
-                        if (Input.GetKeyDown(KeyCode.LeftControl))
+                        // 1. verif de l'accroupissement
+                        if (indexListeDiag == 0)
                         {
-                            if (compteAccroupi < 2f) compteAccroupi++;
+                            // On veut que le joueur s'accroupit et se redresse
+                            if (Input.GetKeyDown(KeyCode.LeftControl))
+                            {
+                                if (compteAccroupi < 2f) compteAccroupi++;
+                            }
+
+                            // Avec 2 clics, le joueur passe au suivant
+                            if (compteAccroupi == 2f)
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+                            }
                         }
 
-                        // Avec 2 clics, le joueur passe au suivant
-                        if (compteAccroupi == 2f)
+                        // 2. verif du saut
+                        else if (indexListeDiag == 1)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
+                            // Le joueur doit appuyez ESPACE
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+                                // Le joueur peut interagir pour le prochain test
+                                retireInteractionJoueur = false;
+                            }
                         }
-                    }
 
-                    // 2. verif du saut
-                    else if (indexListeDiag == 1)
-                    {
-                        // Le joueur doit appuyez ESPACE
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        // 3. Test interact
+                        else if (indexListeDiag == 2)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-                            // Le joueur peut interagir pour le prochain test
-                            retireInteractionJoueur = false;
+                            if (XavierScriptInteraction.interactionFonctionnelle)
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+
+                                // Le joueur peut plus interagir pour le prochain test
+                                retireInteractionJoueur = true;
+                            }
                         }
-                    }
 
-                    // 3. Test interact
-                    else if (indexListeDiag == 2)
-                    {
-                        if (XavierScriptInteraction.interactionFonctionnelle)
+                        // 4. verif du sprint
+                        else if (indexListeDiag == 3)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
+                            // Le joueur doit appuyez sur SHIFT
+                            if (Input.GetKeyUp(KeyCode.LeftShift))
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
 
-                            // Le joueur peut plus interagir pour le prochain test
-                            retireInteractionJoueur = true;
+                                // Le joueur peut interagir
+                                retireInteractionJoueur = false;
+                            }
                         }
-                    }
 
-                    // 4. verif du sprint
-                    else if (indexListeDiag == 3)
-                    {
-                        // Le joueur doit appuyez sur SHIFT
-                        if (Input.GetKeyUp(KeyCode.LeftShift))
+                        else if(indexListeDiag == 4 || indexListeDiag == 5)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-
-                            // Le joueur peut interagir
-                            retireInteractionJoueur = false;
-                    }
-                    }
-
-                    else if(indexListeDiag == 4 || indexListeDiag == 5)
-                    {
-                        if (dialogueText.text == listeDiag[indexListeDiag])
-                        {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            if (dialogueText.text == listeDiag[indexListeDiag])
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            }
                         }
-                    }
 
-                    /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
-                    else
-                    {
-                        // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                        /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
+                        else
                         {
-                            // Le message se ferme, et l'index augmente s'il y a un autre texte
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            // Lorsque le le joueur clic apres que le dialogue n'est pas nul
+                            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                            {
+                                // Le message se ferme, et l'index augmente s'il y a un autre texte
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            }
                         }
-                    }
 
                 }
 
                 /* Sinon, le clic est suffisant pour passer du texte de dialogue */
                 else
                 {
-                    
-                    
-                    // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+
+                    if(!lampeTexteAffiche)
                     {
-                        // Le message se ferme, et l'index augmente s'il y a un autre texte
-                        if (indexListeDiag < listeDiag.Count) indexListeDiag++;
-                        StartCoroutine(FermerEtLancerMessageAuto());
+                        // Lorsque le le joueur clic apres que le dialogue n'est pas nul
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                        {
+                            // Le message se ferme, et l'index augmente s'il y a un autre texte
+                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            StartCoroutine(FermerEtLancerMessageAuto());
+                        }
                     }
+
                 }
 
-            }
+    }
 
         /* Valider toute interaction du joueur */
         if (XavierScriptInteraction.interactionFonctionnelle)
