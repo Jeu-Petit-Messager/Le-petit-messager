@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: d7d12b70a4fa50b49b1bfbe0636103b3
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bois1
+    second: {fileID: 2100000, guid: 87935245e8b492742bd8c82e8663b26d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bois2
+    second: {fileID: 2100000, guid: 3063084fa05a9134a8b11ca49727137f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carrelage1
+    second: {fileID: 2100000, guid: 956d3e71efbc47e478c46eda1cda4033, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carrelage2
+    second: {fileID: 2100000, guid: b961250b92ba7e3478a6faa7a9b3b1ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med1
+    second: {fileID: 2100000, guid: 52256a5ef24eb6d46b94a45617408481, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med2
+    second: {fileID: 2100000, guid: b3637b63df87c114dbccf5172eebfdb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med3
+    second: {fileID: 2100000, guid: c2d0ad3ecb061d442a71a3cd2babc685, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med4
+    second: {fileID: 2100000, guid: f7c2a52700572944e8e27efb89c3c538, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med5
+    second: {fileID: 2100000, guid: 4c73b8792cb4a2a43a8aa0d010fb6a65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mur
+    second: {fileID: 2100000, guid: f0598914ac9ba1e4da9c799289c2cc94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plafond
+    second: {fileID: 2100000, guid: eb516cef34accbc4f9afa3ab45a93f5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: verre
+    second: {fileID: 2100000, guid: 8d6b0352cad28194280f08be40d4fa44, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bois1_Height
+    second: {fileID: 2800000, guid: c6724c0ec25410b49b001f71460ccd84, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bois1_Roughness
+    second: {fileID: 2800000, guid: f7e800076669abf4aa42ef687efd8714, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bois2_Height
+    second: {fileID: 2800000, guid: 02609255daca2f24c90856d30c88883b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bois2_Roughness
+    second: {fileID: 2800000, guid: d1da3ffcef1d8b34cb284241aa3d817c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: carrelage1_Roughness
+    second: {fileID: 2800000, guid: b55613cef3e0e9d4e9b10d828c93b2c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: carrelage2_Roughness
+    second: {fileID: 2800000, guid: 55c4ad3b2df09a24facc39a8b93e20fc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament1_Metallic
+    second: {fileID: 2800000, guid: b6ca3b0701a72074280313fdf2ec126d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament1_Roughness
+    second: {fileID: 2800000, guid: 3430fd85604fe9943a4e430c7411bbe4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament2_Metallic
+    second: {fileID: 2800000, guid: 4dc209206b9ee224fa670c96352764b5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament2_Roughness
+    second: {fileID: 2800000, guid: 40c372c96fea64c479d7c86649e187c6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament3_Metallic
+    second: {fileID: 2800000, guid: 5c631d594ab0b3d40b22936b6674ae8b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament3_Roughness
+    second: {fileID: 2800000, guid: 3acb28c5c0a51a84fb8831169f7826a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament4_Metallic
+    second: {fileID: 2800000, guid: 24c81045e5cee064f9a82fe9a9ea9ded, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament4_Roughness
+    second: {fileID: 2800000, guid: a5d9f2c2b59e3ef42971f21594f8d9a1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament5_Metallic
+    second: {fileID: 2800000, guid: 0d809d6a6f6d7ee40a77255c734c32a8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medicament5_Roughness
+    second: {fileID: 2800000, guid: 92cd791c14b28d2498794421dffe671d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mur_Roughness
+    second: {fileID: 2800000, guid: c627137dff7d79146b213243b9ea0d1d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: plafond_Height
+    second: {fileID: 2800000, guid: d6808f2bf3933004a85093a53cad7516, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: verre_Metallic
+    second: {fileID: 2800000, guid: 7d9688b2d3f4cc34cadee726cde65c42, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: verre_Roughness
+    second: {fileID: 2800000, guid: 8441c009a6b84b24f879656f911ce5e6, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
