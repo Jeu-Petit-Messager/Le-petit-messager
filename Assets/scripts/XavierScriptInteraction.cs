@@ -71,7 +71,7 @@ public class XavierScriptInteraction : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneXavierEnigmesPrototype")
         {
             enigmeLampadaire = false;
-            enigmePharma = false;
+            enigmePharma = true;
         }
 
         // Le joueur possede le medicament au depart
