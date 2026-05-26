@@ -33612,6 +33612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &802668786
 GameObject:
   m_ObjectHideFlags: 0
@@ -33918,6 +33919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &804540708
 GameObject:
   m_ObjectHideFlags: 0
@@ -41408,6 +41410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &928395390
 GameObject:
   m_ObjectHideFlags: 0
@@ -48726,6 +48729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1081066483
 GameObject:
   m_ObjectHideFlags: 0
@@ -64395,6 +64399,22 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 58846087}
+    - target: {fileID: 1713962090378076622, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0834638
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713962090378076622, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0030757491
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713962090378076622, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9958301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713962090378076622, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.036697626
+      objectReference: {fileID: 0}
     - target: {fileID: 1761064299437055673, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_Name
       value: CameraJour
@@ -64412,7 +64432,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 58846087}
     - target: {fileID: 2992468723775982109, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: Target.LookAtTarget
+      value: 
+      objectReference: {fileID: 58846087}
+    - target: {fileID: 2992468723775982109, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 58846087}
+    - target: {fileID: 3143077058149501619, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: Target.LookAtTarget
       value: 
       objectReference: {fileID: 58846087}
     - target: {fileID: 3143077058149501619, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
@@ -64536,9 +64564,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 58846087}
     - target: {fileID: 5152863110215783216, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: Target.LookAtTarget
+      value: 
+      objectReference: {fileID: 58846087}
+    - target: {fileID: 5152863110215783216, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 58846087}
+    - target: {fileID: 5244932534136997805, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.10706704
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244932534136997805, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0101570785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244932534136997805, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.98975617
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244932534136997805, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.09389473
+      objectReference: {fileID: 0}
     - target: {fileID: 5381525797229641665, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.215828
@@ -64550,6 +64598,22 @@ PrefabInstance:
     - target: {fileID: 5381525797229641665, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.3653123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625652192736380837, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.21006452
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625652192736380837, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0068015507
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625652192736380837, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9771518
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625652192736380837, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0316386
       objectReference: {fileID: 0}
     - target: {fileID: 6209239935387201435, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64565,6 +64629,10 @@ PrefabInstance:
       objectReference: {fileID: 58846087}
     - target: {fileID: 6534210353415027562, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 58846087}
+    - target: {fileID: 7110907833123341169, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: Target.LookAtTarget
       value: 
       objectReference: {fileID: 58846087}
     - target: {fileID: 7110907833123341169, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
@@ -64627,6 +64695,22 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 58846087}
+    - target: {fileID: 8227012501257085257, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.118581496
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227012501257085257, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.021130057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227012501257085257, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.97732484
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227012501257085257, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.17414968
+      objectReference: {fileID: 0}
     - target: {fileID: 8346670877489308446, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.03517
@@ -64687,6 +64771,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 58846087}
+    - target: {fileID: 8528704559298486494, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: cameraAActiver
+      value: 
+      objectReference: {fileID: 1453901178}
+    - target: {fileID: 8528704559298486494, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+      propertyPath: estUneCameraFixe
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8792595017804398638, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -64703,6 +64795,17 @@ PrefabInstance:
       addedObject: {fileID: 1330528760}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+--- !u!114 &1453901178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5152863110215783216, guid: 0526b2f3a4ee58b41a29f90981655a63, type: 3}
+  m_PrefabInstance: {fileID: 1453901177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &1458486479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3868114515364864685, guid: 5bd07afa2334f87468f4dd0232c18a1c, type: 3}
@@ -86476,6 +86579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2004519858
 GameObject:
   m_ObjectHideFlags: 0
@@ -91455,6 +91559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: canette de nourriture
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2128956129
 GameObject:
   m_ObjectHideFlags: 0
