@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6071411532468620931}
   - component: {fileID: 831019765751981622}
   - component: {fileID: 2956351451528029902}
+  - component: {fileID: 6317226914932555859}
   m_Layer: 6
   m_Name: pharmacien
   m_TagString: Untagged
@@ -69,6 +70,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   itemName: Pharmacien
   objetInteractif: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!95 &6317226914932555859
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340374451080437530}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
+  m_Controller: {fileID: 9100000, guid: dfc4f8e3038b3c24cbbd25f07d6af309, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2532353606036104460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,15 +103,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5510063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12200272
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.050003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124,6 +148,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811700055845424789, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107378884854199735, guid: ed441f65c0cce1a4c8b11868d6ea907c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

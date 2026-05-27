@@ -151,7 +151,7 @@ public class XavierAffichageTextes : MonoBehaviour
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
-        if (SceneManager.GetActiveScene().name == "sceneXavierTuto" || SceneManager.GetActiveScene().name == "sceneJeuJour")
+        if (SceneManager.GetActiveScene().name == "sceneXavierTuto")
         {
 
             // Le joueur inititie le tutoriel des le debut
@@ -224,10 +224,14 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
-            if(listeDiag[indexListeDiag] == penseInvisibleMurLampa[indexListeDiag])
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < penseInvisibleMurLampa.Count)
             {
-                StylePenseeGarcon();
+                if (listeDiag[indexListeDiag] == penseInvisibleMurLampa[indexListeDiag])
+                {
+                    StylePenseeGarcon();
+                }
             }
+
 
             if(controlePerso.entrerLampadaire)
             {
@@ -393,8 +397,11 @@ public class XavierAffichageTextes : MonoBehaviour
                         /* Condition generale, juste clicker */
                         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                         {
-                            ChargerTexteEntierEarly();
-                            estEnTrainDEcrire = false;
+                            if(dialogueText.text != listeDiag[indexListeDiag])
+                            {
+                                ChargerTexteEntierEarly();
+                                estEnTrainDEcrire = false;
+                        }
                         }
                     }
 
@@ -519,6 +526,7 @@ public class XavierAffichageTextes : MonoBehaviour
                         // Lorsque le le joueur clic apres que le dialogue n'est pas nul
                         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                         {
+                            
                             // Le message se ferme, et l'index augmente s'il y a un autre texte
                             if (indexListeDiag < listeDiag.Count) indexListeDiag++;
                             StartCoroutine(FermerEtLancerMessageAuto());
@@ -581,6 +589,16 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             StartCoroutine(LancerDialogue());
         }
+        else if (indexListeDiag == listeDiag.Count)
+        {
+            indexListeDiag = 0;
+            dialogueBox.SetActive(false);
+            dialogueText.text = "";
+            retireInteractionJoueur = false;
+            listeDiag.Clear();
+            bloqueDeplacement = false;
+        }
+
         // Lorsque l'affichage atteint sa fin, le statut de tuto prend fin
         else if (affichageTextesTuto == true)
         {
@@ -600,7 +618,7 @@ public class XavierAffichageTextes : MonoBehaviour
         else
         {
             // FIN dialogue prof
-            if(typePerso && compteurInteracProf == 1)
+            if (typePerso && compteurInteracProf == 1)
             {
                 profSuivre.ActiverSuivi();
             }
