@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 /* Script se chargeant du syteme de dialogues */
 public class XavierAffichageTextes : MonoBehaviour
 {
+    public GameObject medic;
+
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
@@ -155,6 +157,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
+        if(medic!=null)medic.SetActive(false);
         bloqueDeplacement = false;
         lampeTexteAffiche = false ;
         compteurInteracProf = 1;
@@ -289,6 +292,14 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Update()
     {
+        if (medic != null)
+        {
+            if(indexListeDiag == 4)
+            {
+                if(medic.activeSelf == false) medic.SetActive(true);
+                QuitterPharmacie.testEteint = true;
+            }
+        }
 
         /* Lorsque le dialogue represente des persos */
         if (typePerso)
@@ -600,7 +611,7 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
                 else if(SceneManager.GetActiveScene().name == "scenePharmacie")
                 {
-                    if(listeDiag == null)
+                    if(listeDiag != diagPharma)
                     {
                         listeDiag.AddRange(diagPharma);
                         typePerso = true;
@@ -608,6 +619,7 @@ public class XavierAffichageTextes : MonoBehaviour
                         StartCoroutine(LancerDialogue());
                         bloqueDeplacement = true;
                     }
+
                 }
 
             }

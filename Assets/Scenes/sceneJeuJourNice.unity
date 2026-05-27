@@ -79429,21 +79429,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1849575058135047372, guid: fcb038622fd71e04385ed5963482cf94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5627264686267975345, guid: fcb038622fd71e04385ed5963482cf94, type: 3}
       propertyPath: m_Name
       value: Canvaitemui
-      objectReference: {fileID: 0}
-    - target: {fileID: 5627264686267975345, guid: fcb038622fd71e04385ed5963482cf94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455306173385745738, guid: fcb038622fd71e04385ed5963482cf94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
