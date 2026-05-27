@@ -74,6 +74,17 @@ public class XavierAffichageTextes : MonoBehaviour
     };
 
     // Interaction Pharmacien
+    List<string> diagPharmaCle = new List<string> {
+        "Bonjour monsieur...est-ce que vous voulez mon papier?",
+        "Oh, bonjour toi. Tu me sembles tout essoufflé, tout va bien ?",
+        "Oui oui ça va...il y avait beaucoup de gens bizarre dehors. Vous..monsieur?",
+        "J'aimerais vraiment t'aider et venir avec toi à l'intérieur de ma boutique mais j'ai égaré ma clé et...à mon vieil âge je n'ai plus mon énergie d'antan pour essayer de trouver où est ce qu'on est allé la cacher.",
+        "Crois moi, si tu m'aide à trouver ma clé, je te promet que je vais t'aider, et je suis certain que tes parents seront fier de toi quand ils apprendront que tu as aidé un pauvre homme comme moi.",
+        "...D'accord. Donc, elle est comment votre clé?",
+        "Et bien, elle est dure à manquer, grosse et dorée. Je crois l'avoir perdu aux alentours de . Allez, cours et trouve moi cette clé!"
+        // [mettre endroit vague ou tu l'as mis ex, près du parc, près de l'église, sur la rue de la tour de l'horloge etc]
+    };
+
     List<string> diagPharma = new List<string> {
         "Bonjour monsieur...est-ce que vous voulez mon papier?",
         "Oh, bonjour toi. Tu me sembles tout essoufflé, tout va bien ?",
@@ -84,6 +95,10 @@ public class XavierAffichageTextes : MonoBehaviour
         "Non, elle m’a dit qu’elle se sentait fatiguée aujourd’hui et allait dormir plus tôt.",
         "Oula ! Malheureusement, si c’est rendu au point où elle n’a pas pu se rendre d’elle-même, c'est que sa situation s’est beaucoup aggravée, permet moi de m’inquiéter grandement pour vous. Vite ! Retourne la voir et donne-lui ça à tout prix !"
     };
+
+    //List<string> diagPharmaPost = new List<string> {
+    //    "Petit...retournes vite délivrer cette prescription pour elle. Il...ne fonctionnera plus si ses symptômes se sont trop aggravés...",
+    //};
 
     // Interaction PNJ1
     List<string> diagPNJ1Jeu = new List<string> {
@@ -195,6 +210,8 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if(indexListeDiag == 0)
             {
+                print("ew");
+
                 // Animation apparition textbox
                 yield return new WaitForSeconds(delayAvantAffichage);
 
@@ -216,7 +233,15 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
-            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < diagPharmaCle.Count)
+            {
+                if (listeDiag[indexListeDiag] == diagPharmaCle[indexListeDiag])
+                {
+                    StylesDiagPharmaCle();
+                }
+            }
+
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
             {
                 if(listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
                 {
@@ -397,11 +422,15 @@ public class XavierAffichageTextes : MonoBehaviour
                         /* Condition generale, juste clicker */
                         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
                         {
-                            if(dialogueText.text != listeDiag[indexListeDiag])
+
+                            if(listeDiag != null)
                             {
-                                ChargerTexteEntierEarly();
-                                estEnTrainDEcrire = false;
-                        }
+                                //if (dialogueText.text != listeDiag[indexListeDiag])
+                                //{
+                                    ChargerTexteEntierEarly();
+                                    estEnTrainDEcrire = false;
+                                //}
+                            }
                         }
                     }
 
@@ -558,10 +587,21 @@ public class XavierAffichageTextes : MonoBehaviour
 
             if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
             {
-                listeDiag.AddRange(diagPharma);
-                typePerso = true;
-                retireInteractionJoueur = false;
-                StartCoroutine(LancerDialogue());
+                if (SceneManager.GetActiveScene().name == "sceneJeuJour")
+                {
+                    listeDiag.AddRange(diagPharmaCle);
+                    typePerso = true;
+                    retireInteractionJoueur = false;
+                    StartCoroutine(LancerDialogue());
+                }
+                else if(SceneManager.GetActiveScene().name == "scenePharmacieTess")
+                {
+                    listeDiag.AddRange(diagPharma);
+                    typePerso = true;
+                    retireInteractionJoueur = false;
+                    StartCoroutine(LancerDialogue());
+                }
+
             }
 
             // Apres verification, reinitialiser la valeur de l'interaction
@@ -673,6 +713,29 @@ public class XavierAffichageTextes : MonoBehaviour
         {
              if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
              if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+    }
+
+    /* Fonction d'alternance de styles des repliques DiagPharmaCle */
+    void StylesDiagPharmaCle()
+    {
+        // couleur garcon
+        if (indexListeDiag == 0 ||
+            indexListeDiag == 2 ||
+            indexListeDiag == 5)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+        // couleur pharma
+        else
+        if (indexListeDiag == 1 ||
+            indexListeDiag == 3 ||
+            indexListeDiag == 4 ||
+            indexListeDiag == 6)
+        {
+            if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
+            if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
         }
     }
 

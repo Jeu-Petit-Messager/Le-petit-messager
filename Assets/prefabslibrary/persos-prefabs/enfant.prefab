@@ -226,6 +226,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4428892065964009016}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2607383624239993686}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6690926970471269156}
   m_SourcePrefab: {fileID: 100100000, guid: e92c521097f139b46837082a002b90b4, type: 3}
 --- !u!4 &2922430543091984670 stripped
 Transform:
@@ -372,6 +378,82 @@ MonoBehaviour:
   tempsAvantNuit: 300
   dureeTransition: 180
   fadeAnimator: {fileID: 0}
+--- !u!114 &2607383624239993686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3a5a9a49e1ca446b01b7ca76b57c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionNuit
+  globalVolume: {fileID: 3483353470790851668}
+  lampadaires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tempsAvantNuit: 300
+  dureeTransition: 180
+  fadeAnimator: {fileID: 0}
+--- !u!114 &6690926970471269156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fef21e42adca0a445894e72a64419e84, type: 2}
 --- !u!1001 &3072248871107130704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,15 +476,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.8
+      value: -60.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.2
+      value: -142.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -444,6 +526,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c633596e028a36042b4364e852feb046, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -517,12 +603,13 @@ MonoBehaviour:
   imageUIInterne: {fileID: 0}
   sourceImageCanette: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
   sourceImageClePharma: {fileID: 21300000, guid: f0dfb73aeeefb774ba55dbbf6f7c2436, type: 3}
-  sourceImageMedicament: {fileID: 21300000, guid: a544c730e6273a04a8608a249167bcf4, type: 3}
+  sourceImageMedicament: {fileID: 21300000, guid: a1dbe8ce91d41a14780427fcf841ca49, type: 3}
   peutPrendre: 1
   possedeCanette: 0
   chargerLamp: 0
   chargerPharma: 0
   chargerCourse: 0
+  blocCorridorLampadaire: {fileID: 0}
 --- !u!114 &532480130706192265
 MonoBehaviour:
   m_ObjectHideFlags: 0
