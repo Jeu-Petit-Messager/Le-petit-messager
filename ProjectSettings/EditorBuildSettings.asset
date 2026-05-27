@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/sceneIntro.unity
     guid: be70ac56f04dcc9438c79af6c108af43
   - enabled: 1
-    path: Assets/Scenes/sceneJeuJour.unity
+    path: Assets/Scenes/sceneJeuJourNice.unity
     guid: af15e5d6b867a7044be11c1113b0ea85
   - enabled: 1
     path: Assets/Scenes/scenePharmacie.unity

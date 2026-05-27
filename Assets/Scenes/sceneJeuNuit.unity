@@ -1978,6 +1978,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 923513402}
     m_Modifications:
     - target: {fileID: 532480130706192265, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: boite
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 532480130706192265, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: vitesseCourse
       value: 7.5
       objectReference: {fileID: 0}
@@ -1996,6 +2000,10 @@ PrefabInstance:
     - target: {fileID: 753606256737103023, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: far clip plane
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607383624239993686, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: lampadaires.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2766261046554544129, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: m_Name
@@ -2094,6 +2102,22 @@ PrefabInstance:
       value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: lumLamp1
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: lumLamp2
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: lumLamp3
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: lumLamp4
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: imageUIObjet
       value: 
       objectReference: {fileID: 0}
@@ -2109,6 +2133,10 @@ PrefabInstance:
       propertyPath: sourceImageMedicament
       value: 
       objectReference: {fileID: 21300000, guid: a1dbe8ce91d41a14780427fcf841ca49, type: 3}
+    - target: {fileID: 6060288922913635460, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: blocCorridorLampadaire
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8673519147420664184, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: target
       value: 
@@ -53498,6 +53526,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298567911}
   m_Mesh: {fileID: 8211372540250625004, guid: 5bd07afa2334f87468f4dd0232c18a1c, type: 3}
+--- !u!1 &1299559145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299559146}
+  m_Layer: 0
+  m_Name: boite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1299559146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299559145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 185.89832, y: 100.16, z: 101.33166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300341235
 GameObject:
   m_ObjectHideFlags: 0
@@ -85348,6 +85407,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4566595847035219278, guid: d9152f4514ca4c54abe30deba7cd294b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191981951411788278, guid: d9152f4514ca4c54abe30deba7cd294b, type: 3}
+      propertyPath: imageE
+      value: 
+      objectReference: {fileID: 1299559145}
+    - target: {fileID: 5191981951411788278, guid: d9152f4514ca4c54abe30deba7cd294b, type: 3}
+      propertyPath: joueur
+      value: 
+      objectReference: {fileID: 58846087}
     - target: {fileID: 5264580116639044804, guid: d9152f4514ca4c54abe30deba7cd294b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -85413,3 +85484,4 @@ SceneRoots:
   - {fileID: 1895638809}
   - {fileID: 6723007}
   - {fileID: 1455673887}
+  - {fileID: 1299559146}

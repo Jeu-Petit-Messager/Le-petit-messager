@@ -155,6 +155,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
+        bloqueDeplacement = false;
         lampeTexteAffiche = false ;
         compteurInteracProf = 1;
         compteurInteracPharma = 0;
@@ -595,13 +596,18 @@ public class XavierAffichageTextes : MonoBehaviour
                     typePerso = true;
                     retireInteractionJoueur = false;
                     StartCoroutine(LancerDialogue());
+                    bloqueDeplacement = true;
                 }
                 else if(SceneManager.GetActiveScene().name == "scenePharmacie")
                 {
-                    listeDiag.AddRange(diagPharma);
-                    typePerso = true;
-                    retireInteractionJoueur = false;
-                    StartCoroutine(LancerDialogue());
+                    if(listeDiag == null)
+                    {
+                        listeDiag.AddRange(diagPharma);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                        bloqueDeplacement = true;
+                    }
                 }
 
             }
