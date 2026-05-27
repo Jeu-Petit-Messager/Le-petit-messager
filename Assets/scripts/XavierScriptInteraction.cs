@@ -55,12 +55,14 @@ public class XavierScriptInteraction : MonoBehaviour
     public GameObject lumLamp1;
     public GameObject lumLamp2;
     public GameObject lumLamp3;
+    public GameObject lumLamp4;
 
     public void Start()
     {
         lumLamp1.gameObject.SetActive(false);
         lumLamp2.gameObject.SetActive(false);
         lumLamp3.gameObject.SetActive(false);
+        lumLamp4.gameObject.SetActive(false);
 
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
         XavierZoneCanetteProg.canetteCollectees = 0;
@@ -172,7 +174,8 @@ public class XavierScriptInteraction : MonoBehaviour
                             lumLamp1.gameObject.SetActive(true);
                             lumLamp2.gameObject.SetActive(true);
                             lumLamp3.gameObject.SetActive(true);
-                            
+                            lumLamp4.gameObject.SetActive(true);
+
                         }
 
                         // Prendre la cle de la pharmacie
