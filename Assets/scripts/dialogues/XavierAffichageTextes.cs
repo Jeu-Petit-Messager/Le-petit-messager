@@ -443,18 +443,19 @@ public class XavierAffichageTextes : MonoBehaviour
             else
             {
 
-                if (controlePerso.entrerLampadaire)
-                {
-                    if (!lampeTexteAffiche && !dialogueBox.activeSelf)
-                    {
-                        listeDiag.AddRange(penseInvisibleMurLampa);
-                        typePerso = true;
-                        retireInteractionJoueur = false;
-                        StartCoroutine(LancerDialogue());
-                    }
-                }
-                // Faire que le texte affiche defile par lui meme
-                if(lampeTexteAffiche)
+            if (controlePerso.entrerLampadaire)
+            {
+                //if (!lampeTexteAffiche && !estEnTrainDEcrire)
+                //{
+                    controlePerso.entrerLampadaire = false;
+                    listeDiag.AddRange(penseInvisibleMurLampa);
+                    typePerso = true;
+                    retireInteractionJoueur = false;
+                    StartCoroutine(LancerDialogue());
+                //}
+            }
+            // Faire que le texte affiche defile par lui meme
+            if (lampeTexteAffiche)
                 {
                     if (dialogueText.text == penseInvisibleMurLampa[indexListeDiag])
                     {
@@ -594,7 +595,7 @@ public class XavierAffichageTextes : MonoBehaviour
                     retireInteractionJoueur = false;
                     StartCoroutine(LancerDialogue());
                 }
-                else if(SceneManager.GetActiveScene().name == "scenePharmacieTess")
+                else if(SceneManager.GetActiveScene().name == "scenePharmacie")
                 {
                     listeDiag.AddRange(diagPharma);
                     typePerso = true;
