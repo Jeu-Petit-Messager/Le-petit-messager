@@ -60,9 +60,12 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         else if(XavierAffichageTextes.retireInteractionJoueur)
         {
-            // Desactiver les interactions pour tous
-            if (gameObject.layer != layerDefaut)
-                gameObject.layer = layerDefaut;
+            if(gameObject.name == "clePharma")
+            {
+                // Desactiver les interactions pour tous
+                if (gameObject.layer != layerDefaut)
+                    gameObject.layer = layerDefaut;
+            }
         }
 
         /* Fin tutoriel */
@@ -110,9 +113,9 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         if (gameObject.name == "clePharma")
         {
-            if(!XavierScriptInteraction.enigmePharma)
-            {
-                if (gameObject.layer == layerInteractif)
+            //if(!XavierScriptInteraction.enigmePharma)
+            //{
+                if (XavierScriptInteraction.nomObjetInteract == "clePharma")
                 {
 
                     // On lance la routine qui va gerer la destruction de l' objet
@@ -123,12 +126,12 @@ public class ItemObject : MonoBehaviour, IInteractable
                     gameObject.GetComponent<AudioSource>().enabled = true;
 
                 }
-            }
-            else if (XavierScriptInteraction.enigmePharma)
-            {
-                if (gameObject.layer != layerInteractif)
-                    gameObject.layer = layerInteractif;
-            }
+            //}
+            //else if (XavierScriptInteraction.enigmePharma)
+            //{
+            //    if (gameObject.layer != layerInteractif)
+            //        gameObject.layer = layerInteractif;
+            //}
         }
 
     }
