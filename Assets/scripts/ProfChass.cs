@@ -6,8 +6,8 @@ using System.Collections;
 public class ProfChass : MonoBehaviour
 {
     public Transform joueur;
-    // public GameObject imageJumpscare;
-    // public AudioSource sonJumpscare;
+    public GameObject imageJumpscare;
+    public AudioSource sonJumpscare;
 
     public float vitesseChasse = 10f;
 
@@ -39,7 +39,7 @@ public class ProfChass : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        // imageJumpscare.SetActive(false);
+        imageJumpscare.SetActive(false);
 
         // désactiver fade au début
         if (canvasFade != null)
@@ -79,7 +79,11 @@ public class ProfChass : MonoBehaviour
             if (distance <= distanceAttrape)
             {
                 joueurAttrape = true;
+                // afficher jumpscare
+                imageJumpscare.SetActive(true);
 
+                // jouer son jumpscare
+                sonJumpscare.Play();
                 StartCoroutine(MauvaiseFin());
             }
         }
@@ -126,12 +130,6 @@ public class ProfChass : MonoBehaviour
     {
         // arrêter prof
         agent.isStopped = true;
-
-        // afficher jumpscare
-        // imageJumpscare.SetActive(true);
-
-        // jouer son jumpscare
-        // sonJumpscare.Play();
 
         // attendre jumpscare
         yield return new WaitForSeconds(2f);
