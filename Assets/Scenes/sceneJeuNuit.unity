@@ -1978,6 +1978,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 923513402}
     m_Modifications:
     - target: {fileID: 532480130706192265, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
+      propertyPath: boite
+      value: 
+      objectReference: {fileID: 1135375721}
+    - target: {fileID: 532480130706192265, guid: 694ea77dcf307a64b8500cdfa3bd6e48, type: 3}
       propertyPath: vitesseCourse
       value: 7.5
       objectReference: {fileID: 0}
@@ -47390,6 +47394,11 @@ PrefabInstance:
       addedObject: {fileID: 2019973645}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0120eab6c01679f4ea81721b6f903ddb, type: 3}
+--- !u!1 &1135375721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862425131965933841, guid: 0120eab6c01679f4ea81721b6f903ddb, type: 3}
+  m_PrefabInstance: {fileID: 1135375720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1135837344
 GameObject:
   m_ObjectHideFlags: 0
