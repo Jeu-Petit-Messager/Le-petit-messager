@@ -37,11 +37,7 @@ public class ProfSuivre : MonoBehaviour
     void Update()
     {
         // distance joueur
-        float distance =
-            Vector3.Distance(
-                transform.position,
-                joueur.position
-            );
+        float distance = Vector3.Distance(transform.position,joueur.position);
 
         // interaction prof
         if (!interactionFaite &&
