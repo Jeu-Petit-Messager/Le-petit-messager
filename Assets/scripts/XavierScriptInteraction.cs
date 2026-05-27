@@ -49,8 +49,21 @@ public class XavierScriptInteraction : MonoBehaviour
     public static bool courseFinale;
     public bool chargerCourse;
 
+
+    // Bloc qui disparait pour enigme lampadaire
+    public GameObject blocCorridorLampadaire;
+    public GameObject lumLamp1;
+    public GameObject lumLamp2;
+    public GameObject lumLamp3;
+    public GameObject lumLamp4;
+
     public void Start()
     {
+        lumLamp1.gameObject.SetActive(false);
+        lumLamp2.gameObject.SetActive(false);
+        lumLamp3.gameObject.SetActive(false);
+        lumLamp4.gameObject.SetActive(false);
+
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
         XavierZoneCanetteProg.canetteCollectees = 0;
 
@@ -73,6 +86,8 @@ public class XavierScriptInteraction : MonoBehaviour
         // Le joueur possede le medicament au depart
         if (SceneManager.GetActiveScene().name == "sceneJeuNuit" || SceneManager.GetActiveScene().name == "sceneXavierNuitMedic")
         {
+            enigmeLampadaire = false;
+            enigmePharma = false;
             courseFinale = false;
             peutPrendre = false;
             imageUIObjet.SetActive(!imageUIObjet.activeSelf);
@@ -88,13 +103,11 @@ public class XavierScriptInteraction : MonoBehaviour
 
     void Update()
     {
-        /* Gestion enigmes */
-        if(enigmeLampadaire)
+        if(XavierAffichageTextes.compteurInteracProf == 1)
         {
-            if(!chargerLamp)
-            {
-                chargerLamp = true;
-            }
+            XavierAffichageTextes.compteurInteracProf++;
+            if (!enigmeLampadaire) enigmeLampadaire = true;
+            print(enigmeLampadaire);
         }
 
 
@@ -111,6 +124,9 @@ public class XavierScriptInteraction : MonoBehaviour
 
             if (interactable != null)
             {
+                objetInteractif = hitColliders[0].gameObject;
+
+
                 // Le joueur peut interagir avec l'objet
                 if (Input.GetKeyDown(interactKey))
                 {
@@ -154,7 +170,12 @@ public class XavierScriptInteraction : MonoBehaviour
                         // Prise de courant enigme lampadaires
                         if(nomObjetInteract == "prise")
                         {
-                            enigmeLampadaire = false;
+                            blocCorridorLampadaire.gameObject.SetActive(false);
+                            lumLamp1.gameObject.SetActive(true);
+                            lumLamp2.gameObject.SetActive(true);
+                            lumLamp3.gameObject.SetActive(true);
+                            lumLamp4.gameObject.SetActive(true);
+
                         }
 
                         // Prendre la cle de la pharmacie
@@ -169,7 +190,7 @@ public class XavierScriptInteraction : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
         }
     }

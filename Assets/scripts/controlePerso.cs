@@ -23,10 +23,15 @@ public class controlePerso : MonoBehaviour
     private bool accroupi;
     public bool auSol;
 
+    public static bool entrerLampadaire = false;
+    public GameObject boite;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         boolSaut = false;
+
+        entrerLampadaire = false;
     }
 
     void Update()
@@ -43,6 +48,11 @@ public class controlePerso : MonoBehaviour
         
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
+
+        if(XavierAffichageTextes.lampeTexteAffiche == false)
+        {
+            if(boite.name != "bloc") boite.name = "bloc";
+        }
 
         // ACCROUPI
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -142,5 +152,21 @@ public class controlePerso : MonoBehaviour
         // Jouer le son du saut
         sonSaut.Play();
         boolSaut = false;
+    }
+
+    /* pour le bloc lampadaire */
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        if (hit.gameObject.name == "bloc")
+        {
+
+            if (entrerLampadaire == false)
+            {
+                if(!XavierAffichageTextes.lampeTexteAffiche) entrerLampadaire = true;
+                hit.gameObject.name = "bloc2";
+            }
+            
+        }
     }
 }
