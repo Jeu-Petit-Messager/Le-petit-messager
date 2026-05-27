@@ -95,11 +95,9 @@ public class ItemObject : MonoBehaviour, IInteractable
                 {
 
                     // On lance la routine qui va gerer la destruction de l'objet
-                    StartCoroutine(JouerEtDetruire());
+                    audioSource.Play();
 
                     gameObject.layer = layerDefaut;
-
-                    gameObject.GetComponent<AudioSource>().enabled = true;
 
                 }
             }

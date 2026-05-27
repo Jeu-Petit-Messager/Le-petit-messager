@@ -52,9 +52,16 @@ public class XavierScriptInteraction : MonoBehaviour
 
     // Bloc qui disparait pour enigme lampadaire
     public GameObject blocCorridorLampadaire;
+    public GameObject lumLamp1;
+    public GameObject lumLamp2;
+    public GameObject lumLamp3;
 
     public void Start()
     {
+        lumLamp1.gameObject.SetActive(false);
+        lumLamp2.gameObject.SetActive(false);
+        lumLamp3.gameObject.SetActive(false);
+
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
         XavierZoneCanetteProg.canetteCollectees = 0;
 
@@ -162,7 +169,10 @@ public class XavierScriptInteraction : MonoBehaviour
                         if(nomObjetInteract == "prise")
                         {
                             blocCorridorLampadaire.gameObject.SetActive(false);
-                            print("fin");
+                            lumLamp1.gameObject.SetActive(true);
+                            lumLamp2.gameObject.SetActive(true);
+                            lumLamp3.gameObject.SetActive(true);
+                            
                         }
 
                         // Prendre la cle de la pharmacie
