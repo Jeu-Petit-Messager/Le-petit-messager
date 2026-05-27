@@ -1,15 +1,15 @@
 using UnityEngine;
 using Unity.Cinemachine; // API Cinemachine v3
 
-public class CameraZone : MonoBehaviour
+public class CameraRecentrer : MonoBehaviour
 {
-    [Header("Configuration des Caméras")]
-    [SerializeField] private CinemachineCamera pivotCamera; // Glissez la caméra Pivot ici
-    [SerializeField] private CinemachineCamera fixedCamera; // Glissez la caméra Fixe ici
+    [Header("Configuration des Camï¿½ras")]
+    [SerializeField] private CinemachineCamera pivotCamera; // Glissez la camï¿½ra Pivot ici
+    [SerializeField] private CinemachineCamera fixedCamera; // Glissez la camï¿½ra Fixe ici
 
     private void OnTriggerEnter(Collider other)
     {
-        // On vérifie si c'est le joueur qui entre dans la zone pivot
+        // On vï¿½rifie si c'est le joueur qui entre dans la zone pivot
         if (other.CompareTag("Player"))
         {
             pivotCamera.Priority = 20; // Devient prioritaire
@@ -22,7 +22,7 @@ public class CameraZone : MonoBehaviour
         // Quand le joueur sort de la zone et revient dans le reste de la rue
         if (other.CompareTag("Player"))
         {
-            fixedCamera.Priority = 20; // La caméra fixe reprend le contrôle
+            fixedCamera.Priority = 20; // La camï¿½ra fixe reprend le contrï¿½le
             pivotCamera.Priority = 10;
         }
     }
