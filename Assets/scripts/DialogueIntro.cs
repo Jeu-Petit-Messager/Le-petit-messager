@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,7 +13,7 @@ public class DialogueIntro : MonoBehaviour
     public Animator animator;
 
     [TextArea]
-    public string messageCamera = "Vous pouvez cliquer la souris pour voir autour !";
+    public string message = "Vous pouvez cliquer droit la souris pour voir autour !";
 
     [TextArea]
     public string messageCanInit = "Veuillez placer les 6 canettes de nourriture dans la zone indiquée";
@@ -43,7 +44,10 @@ public class DialogueIntro : MonoBehaviour
         dialogueBox.SetActive(false);
         dialogueText.text = "";
 
-        StartCoroutine(LancerDialogue());
+         if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneJeuNuit")
+        {
+            StartCoroutine(LancerDialogue());
+        }
     }
     // Coroutine pour lancer le dialogue après un delay, puis ecrire le texte lettre par lettre
     IEnumerator LancerDialogue()
@@ -56,7 +60,7 @@ public class DialogueIntro : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(EcrireTexte(messageCamera));
+        StartCoroutine(EcrireTexte(message));
     }
     // Coroutine pour écrire le texte lettre par lettre
     IEnumerator EcrireTexte(string msg)
@@ -94,16 +98,15 @@ public class DialogueIntro : MonoBehaviour
     {
         if (troisiemeMessage) return;
         if (deuxiemeMessage) return;
-
-        if (dialogueBox.activeSelf && Input.GetMouseButtonDown(0))
+        if (dialogueBox.activeSelf && Input.GetMouseButtonDown(1))
         {
             if (estEnTrainDEcrire)
             {
                 StopAllCoroutines();
-                dialogueText.text = messageCamera;
+                dialogueText.text = message;
                 estEnTrainDEcrire = false;
             }
-            else
+            else if (!estEnTrainDEcrire)
             {
                 StartCoroutine(FermerEtLancerMessageAuto());
             }

@@ -6,9 +6,7 @@ public class FadeinJeu : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject fadeCanvas;
-    public GameObject videoCanvas;
     public Animator fadeAnimator;
-    public VideoPlayer videoPlayer;
 
     // Méthode pour commencer la séquence de fade
     public void CommenceFade()
@@ -29,20 +27,10 @@ public class FadeinJeu : MonoBehaviour
         // Cacher le menu
         menuCanvas.SetActive(false);
 
-        // // Lancer la vidéo
-        // videoCanvas.SetActive(true);
-        // videoPlayer.Play();
-
-        // // Attendre la fin de la vidéo
-        // while (videoPlayer.isPlaying)
-        // {
-        //     yield return null;
-        // }
-
         // FadeIn (montrer le jeu)
-        fadeAnimator.SetTrigger("FadeIn");
+        //fadeAnimator.SetTrigger("FadeIn");
 
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(1.5f);
 
         // Désactiver le fade
         fadeCanvas.SetActive(false);

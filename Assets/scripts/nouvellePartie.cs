@@ -6,20 +6,23 @@ public class nouvellePartie : MonoBehaviour
     // Méthode appelée lors du clic sur le bouton "Nouvelle Partie"
     public void OnNouvellePartieClicked()
     {
+        PlayerPrefs.DeleteKey("SauvegardeScene");
+        // supprimer résultat fin
+        PlayerPrefs.DeleteKey("BonFin");
         CancelInvoke(("LoadSceneJeu"));
-        Invoke(("LoadSceneJeu"), 4f);
+        Invoke(("LoadSceneJeu"), 3f);
     }
 
     private void LoadSceneJeu()
     {
         SceneManager.sceneLoaded += LoadedScene;
-        SceneManager.LoadScene("sceneJeu");
+        SceneManager.LoadScene("sceneJeuJour");
     }
 
     // Méthode appelée lorsque la scène est chargée
     private void LoadedScene(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "sceneJeu") return;
+        if (scene.name != "sceneJeuJour") return;
 
         // Trouver et désactiver la caméra d'intro, puis activer la caméra de jeu
         DesactiveCameraIntro camManager = FindObjectOfType<DesactiveCameraIntro>();
