@@ -43,7 +43,7 @@ public class ItemObject : MonoBehaviour, IInteractable
             /* Lorsque le joueur est autorise a interagir */
             if (!XavierAffichageTextes.retireInteractionJoueur)
             {
-                if (gameObject.name == "cloture")
+                if (gameObject.tag == "cloture")
                 {
                     if(gameObject.layer != layerInteractif)
                         gameObject.layer = layerInteractif;
