@@ -166,7 +166,7 @@ public class XavierAffichageTextes : MonoBehaviour
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
-        if (SceneManager.GetActiveScene().name == "sceneXavierTuto")
+        if (SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
 
             // Le joueur inititie le tutoriel des le debut
@@ -210,7 +210,6 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if(indexListeDiag == 0)
             {
-                print("ew");
 
                 // Animation apparition textbox
                 yield return new WaitForSeconds(delayAvantAffichage);
