@@ -1,14 +1,14 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-public class CameraZoneTrigger : MonoBehaviour
+public class GestionCamera : MonoBehaviour
 {
-    [Header("Configuration de la Caméra")]
+    [Header("Configuration de la Camï¿½ra")]
     [SerializeField] private CinemachineCamera cameraAActiver;
     [SerializeField] private int prioriteActive = 20;
-    [SerializeField] private int proriteInactive = 10; // Corrigé la petite faute de frappe ici au passage !
+    [SerializeField] private int proriteInactive = 10; // Corrigï¿½ la petite faute de frappe ici au passage !
 
-    [Header("Type de Caméra")]
+    [Header("Type de Camï¿½ra")]
     [SerializeField] private bool estUneCameraFixe = false;
 
     [Header("Configuration du Joueur")]
@@ -16,18 +16,18 @@ public class CameraZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // On vérifie si c'est bien le joueur qui entre dans la zone
+        // On vï¿½rifie si c'est bien le joueur qui entre dans la zone
         if (other.CompareTag(playerTag))
         {
             if (cameraAActiver != null)
             {
-                // SÉCURITÉ : On ne force la position QUE si ce n'est PAS une caméra fixe
+                // Sï¿½CURITï¿½ : On ne force la position QUE si ce n'est PAS une camï¿½ra fixe
                 if (!estUneCameraFixe)
                 {
                     cameraAActiver.ForceCameraPosition(other.transform.position, cameraAActiver.transform.rotation);
                 }
 
-                // On monte la priorité de cette caméra pour que le Cinemachine Brain effectue la transition
+                // On monte la prioritï¿½ de cette camï¿½ra pour que le Cinemachine Brain effectue la transition
                 cameraAActiver.Priority.Value = prioriteActive;
             }
         }
@@ -35,7 +35,7 @@ public class CameraZoneTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Quand le joueur sort de la zone, on remet la priorité par défaut (inactive)
+        // Quand le joueur sort de la zone, on remet la prioritï¿½ par dï¿½faut (inactive)
         if (other.CompareTag(playerTag))
         {
             if (cameraAActiver != null)
