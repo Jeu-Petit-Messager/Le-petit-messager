@@ -130,7 +130,7 @@ public class XavierAffichageTextes : MonoBehaviour
         if(medic!=null)medic.SetActive(false);
         bloqueDeplacement = false;
         lampeTexteAffiche = false ;
-        compteurInteracProf = 1;
+        compteurInteracProf = 0;
         compteurInteracPharma = 0;
 
         typePerso = false;
@@ -152,10 +152,16 @@ public class XavierAffichageTextes : MonoBehaviour
             compteAccroupi = 0f;
 
             listeDiag.AddRange(consignesTuto);
+            bloqueDeplacement = false;
+        }
+        else if (SceneManager.GetActiveScene().name == "sceneIntro")
+        {
+            // Le joueur n'initie pas le tutoriel
+            bloqueDeplacement = true;
         }
         else
         {
-            affichageTextesTuto= false;
+            affichageTextesTuto = false;
         }
     }
 

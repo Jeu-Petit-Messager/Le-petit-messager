@@ -35,10 +35,20 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Update()
     {
+        if(gameObject.name == "clePharma")
+        {
+            if(gameObject.layer != layerInteractif) gameObject.layer = layerInteractif;
+        }
+
+        if (gameObject.name == "prise")
+        {
+            if (gameObject.layer != layerInteractif) gameObject.layer = layerInteractif;
+        }
+
         //print(XavierScriptInteraction.enigmeLampadaire);
 
         /* Restriction dans la section du tutoriel */
-        if(XavierAffichageTextes.affichageTextesTuto)
+        if (XavierAffichageTextes.affichageTextesTuto)
         {
             /* Lorsque le joueur est autorise a interagir */
             if (!XavierAffichageTextes.retireInteractionJoueur)
@@ -81,57 +91,11 @@ public class ItemObject : MonoBehaviour, IInteractable
                 if(gameObject.name != "clePharma" && gameObject.name != "prise")
                 {
                     // Tout objet desactive devient interactif
-                    if (gameObject.layer != layerInteractif)
+                    if (gameObject.layer == layerDefaut)
                         gameObject.layer = layerInteractif;
                 }
 
             }
-        }
-
-        if (gameObject.name == "prise")
-        {
-
-            if (!XavierScriptInteraction.enigmeLampadaire)
-
-            {
-                if (gameObject.layer == layerInteractif)
-                {
-
-                    // On lance la routine qui va gerer la destruction de l'objet
-                    audioSource.Play();
-
-                    gameObject.layer = layerDefaut;
-
-                }
-            }
-            else if (XavierScriptInteraction.enigmeLampadaire)
-            {
-                if (gameObject.layer != layerInteractif)
-                    gameObject.layer = layerInteractif;
-            }
-        }
-
-        if (gameObject.name == "clePharma")
-        {
-            //if(!XavierScriptInteraction.enigmePharma)
-            //{
-                if (XavierScriptInteraction.nomObjetInteract == "clePharma")
-                {
-
-                    // On lance la routine qui va gerer la destruction de l' objet
-                    StartCoroutine(JouerEtDetruire());
-
-                    gameObject.layer = layerDefaut;
-
-                    gameObject.GetComponent<AudioSource>().enabled = true;
-
-                }
-            //}
-            //else if (XavierScriptInteraction.enigmePharma)
-            //{
-            //    if (gameObject.layer != layerInteractif)
-            //        gameObject.layer = layerInteractif;
-            //}
         }
 
     }
@@ -152,18 +116,5 @@ public class ItemObject : MonoBehaviour, IInteractable
         PlayerPrefs.Save();
 
         Destroy(objetInteractif);
-    }
-
-    /* Fonction pour detruire un objet apres qu'il a fini de jouer un son */
-    IEnumerator JouerEtDetruire()
-    {
-        // 1. On lance le son
-        audioSource.Play();
-
-       // 2. On attend la durée exacte du clip audio (en secondes)
-        yield return new WaitForSeconds(audioSource.clip.length);
-
-        // 3. Le son est fini, on détruit ce GameObject
-        Destroy(gameObject);
     }
 }
