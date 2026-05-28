@@ -413,7 +413,7 @@ public class XavierAffichageTextes : MonoBehaviour
                                 }
                         }
 
-                        if (indexListeDiag != 4 && indexListeDiag != 5)
+                        if (indexListeDiag != 4)
                         {
                             /* Condition generale, juste clicker */
                             if (Input.GetMouseButtonDown(0))
