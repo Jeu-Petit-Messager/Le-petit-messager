@@ -67,7 +67,7 @@ public class XavierScriptInteraction : MonoBehaviour
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
         XavierZoneCanetteProg.canetteCollectees = 0;
 
-        imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
+        if(imageUIObjet!=null)imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
 
         /* le garcon ne possede aucun objet au depart*/
         interactionFonctionnelle = false;
@@ -77,21 +77,21 @@ public class XavierScriptInteraction : MonoBehaviour
         possedeClePharma = false;
 
         // Le joueur possede le medicament au depart
-        if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneXavierEnigmesPrototype")
+        if (SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
             enigmeLampadaire = false;
             enigmePharma = true;
         }
 
         // Le joueur possede le medicament au depart
-        if (SceneManager.GetActiveScene().name == "sceneJeuNuit" || SceneManager.GetActiveScene().name == "sceneXavierNuitMedic")
+        if (SceneManager.GetActiveScene().name == "sceneJeuNuit")
         {
             enigmeLampadaire = false;
             enigmePharma = false;
             courseFinale = false;
             peutPrendre = false;
-            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
-            imageUIInterne.GetComponent<Image>().sprite = sourceImageMedicament;
+            if(imageUIObjet!=null)imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+            if(imageUIInterne!=null)imageUIInterne.GetComponent<Image>().sprite = sourceImageMedicament;
         }
     }
 

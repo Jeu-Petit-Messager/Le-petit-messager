@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 /* Script se chargeant du syteme de dialogues */
 public class XavierAffichageTextes : MonoBehaviour
 {
+    public GameObject medic;
+
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
@@ -155,6 +157,8 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
+        if(medic!=null)medic.SetActive(false);
+        bloqueDeplacement = false;
         lampeTexteAffiche = false ;
         compteurInteracProf = 1;
         compteurInteracPharma = 0;
@@ -166,7 +170,7 @@ public class XavierAffichageTextes : MonoBehaviour
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
-        if (SceneManager.GetActiveScene().name == "sceneXavierTuto")
+        if (SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
 
             // Le joueur inititie le tutoriel des le debut
@@ -210,7 +214,6 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if(indexListeDiag == 0)
             {
-                print("ew");
 
                 // Animation apparition textbox
                 yield return new WaitForSeconds(delayAvantAffichage);
@@ -289,6 +292,14 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Update()
     {
+        if (medic != null)
+        {
+            if(indexListeDiag == 4)
+            {
+                if(medic.activeSelf == false) medic.SetActive(true);
+                QuitterPharmacie.testEteint = true;
+            }
+        }
 
         /* Lorsque le dialogue represente des persos */
         if (typePerso)
@@ -443,19 +454,20 @@ public class XavierAffichageTextes : MonoBehaviour
             else
             {
 
-            if (controlePerso.entrerLampadaire)
-            {
-                //if (!lampeTexteAffiche && !estEnTrainDEcrire)
-                //{
-                    controlePerso.entrerLampadaire = false;
-                    listeDiag.AddRange(penseInvisibleMurLampa);
-                    typePerso = true;
-                    retireInteractionJoueur = false;
-                    StartCoroutine(LancerDialogue());
-                //}
-            }
-            // Faire que le texte affiche defile par lui meme
-            if (lampeTexteAffiche)
+                if (controlePerso.entrerLampadaire)
+                {
+                    //if (!lampeTexteAffiche && !estEnTrainDEcrire)
+                    //{
+                        controlePerso.entrerLampadaire = false;
+                        listeDiag.AddRange(penseInvisibleMurLampa);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                    //}
+                }
+
+                // Faire que le texte affiche defile par lui meme
+                if (lampeTexteAffiche)
                 {
                     if (dialogueText.text == penseInvisibleMurLampa[indexListeDiag])
                     {
@@ -463,6 +475,7 @@ public class XavierAffichageTextes : MonoBehaviour
                         lampeTexteAffiche = false;
                     }
                 }
+
                 // Pour le texte du tutoriel
                 if (affichageTextesTuto)
                 {
@@ -588,19 +601,25 @@ public class XavierAffichageTextes : MonoBehaviour
 
             if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
             {
-                if (SceneManager.GetActiveScene().name == "sceneJeuJour")
+                if (SceneManager.GetActiveScene().name == "sceneJeuJourNice")
                 {
                     listeDiag.AddRange(diagPharmaCle);
                     typePerso = true;
                     retireInteractionJoueur = false;
                     StartCoroutine(LancerDialogue());
+                    bloqueDeplacement = true;
                 }
                 else if(SceneManager.GetActiveScene().name == "scenePharmacie")
                 {
-                    listeDiag.AddRange(diagPharma);
-                    typePerso = true;
-                    retireInteractionJoueur = false;
-                    StartCoroutine(LancerDialogue());
+                    if(listeDiag != diagPharma)
+                    {
+                        listeDiag.AddRange(diagPharma);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                        bloqueDeplacement = true;
+                    }
+
                 }
 
             }

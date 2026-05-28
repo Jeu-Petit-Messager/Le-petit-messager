@@ -22,10 +22,13 @@ public class TransitionNuit : MonoBehaviour
     {
         globalVolume.weight = 0f;
 
-        // début lampadaires éteints
-        foreach (Light lampe in lampadaires)
+        if(lampadaires!=null)
         {
-            lampe.intensity = 0f;
+            // début lampadaires éteints
+            foreach (Light lampe in lampadaires)
+            {
+                lampe.intensity = 0f;
+            }
         }
     }
 
@@ -50,15 +53,19 @@ public class TransitionNuit : MonoBehaviour
             // quand la transition est FINIE
             if (globalVolume.weight >= 1f)
             {
-                // allumer lampadaires
-                foreach (Light lampe in lampadaires)
+                if(lampadaires != null)
                 {
-                    lampe.intensity = Mathf.Lerp(
-                        lampe.intensity,
-                        30f, // Intensité finale
-                        Time.deltaTime * 0.5f
-                    );
+                    // allumer lampadaires
+                    foreach (Light lampe in lampadaires)
+                    {
+                        lampe.intensity = Mathf.Lerp(
+                            lampe.intensity,
+                            30f, // Intensité finale
+                            Time.deltaTime * 0.5f
+                        );
+                    }
                 }
+
             }
         }
     }
