@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 /* Script se chargeant du syteme de dialogues */
 public class XavierAffichageTextes : MonoBehaviour
 {
+    public GameObject medic;
+
     public GameObject dialogueBox;
     public Text dialogueText;
     public Animator animator;
@@ -21,7 +23,7 @@ public class XavierAffichageTextes : MonoBehaviour
     public ProfSuivre profSuivre;
 
     // Statut determinantlorsque le texte est en ecriture
-    public bool estEnTrainDEcrire;
+    public static bool estEnTrainDEcrire;
 
     public static bool bloqueDeplacement;
     /* Variables de conditions du tutoriel*/
@@ -39,6 +41,8 @@ public class XavierAffichageTextes : MonoBehaviour
     public Color couleurPharma;
     public Font fontPharma;
 
+    public static bool canTexteAffiche = false;
+
 
     /* Stockage de listes : */
     // Liste du tutoriel
@@ -47,13 +51,23 @@ public class XavierAffichageTextes : MonoBehaviour
         "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
         "Appuyez sur E pour interagir avec des objets ou des personnes!",
         "Maintenez le bouton SHIFT pour courir",
-        "Maintenant, essayez de placez votre cannette à côté de l’église",
-        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!"
+        "Allez maintenant voir le grand homme au bout de la rue" // provisoire
+    };
+
+    // Pensee lorsque le joueur n'a pas retabli le courant
+    List<string> penseInvisibleMurLampa = new List<string> {
+        "J'aime pas... Il fait trop noir..."
+    };
+
+    // Pensee lorsque le joueur n'a pas retabli le courant
+    List<string> penseCanette = new List<string> {
+        "Zut, c'est trop haut! Je pourrais surement passer en empilant des trucs ici."
     };
 
     // Interaction 1 Prof
     List<string> diagProf1 = new List<string> {
         "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
+
         "Je suis à la recherche d'un monsieur...\nmais ma maman m’a dit de ne pas parler aux monsieurs bizarres...",
         "Attends...je suis qu’un gentil homme je t’assure..! Tu sais je suis...ou du moins j’étais...un grand professeur avant, et je passais mes journées à aider des petits garçons tout comme toi, alors...n’hésite pas à tout me dire.",
         "... Bon d’accord. Ma mère vit toute seule et elle m’a demandé d’aller donner ce bout de papier vite vite à un grand monsieur tout blanc avant la nuit...mais le problème est que je ne me rappelle plus de lui... ",
@@ -68,50 +82,29 @@ public class XavierAffichageTextes : MonoBehaviour
     };
 
     // Interaction Pharmacien
-    List<string> diagPharma = new List<string> {
+    List<string> diagPharmaCle = new List<string> {
         "Bonjour monsieur...est-ce que vous voulez mon papier?",
         "Oh, bonjour toi. Tu me sembles tout essoufflé, tout va bien ?",
-        "Oui oui ça va, mais il y avait beaucoup de gens bizarre dehors. Voulez-vous mon papier?",
-        "Mais oui, montre-moi ça...mhmm...D’accord, je vois que cela semble pressant. Pauvre toi... Tiens, voici ce que tu voulais.",
+        "Oui oui ça va...il y avait beaucoup de gens bizarre dehors. Vous..monsieur?",
+        "J'aimerais vraiment t'aider et venir avec toi à l'intérieur de ma boutique mais j'ai égaré ma clé et...à mon vieil âge je n'ai plus mon énergie d'antan pour essayer de trouver où est ce qu'on est allé la cacher.",
+        "Crois moi, si tu m'aide à trouver ma clé, je te promet que je vais t'aider, et je suis certain que tes parents seront fier de toi quand ils apprendront que tu as aidé un pauvre homme comme moi.",
+        "...D'accord. Donc, elle est comment votre clé?",
+        "Et bien, elle est dure à manquer, grosse et dorée. Je crois l'avoir perdu aux alentours de . Allez, cours et trouve moi cette clé!"
+        // [mettre endroit vague ou tu l'as mis ex, près du parc, près de l'église, sur la rue de la tour de l'horloge etc]
+    };
+
+    List<string> diagPharma = new List<string> {
+        "Donc, qu'est-il écrit dessus? Je n'ai jamais pu allé à l'école...",
+        "Mhmm...D’accord, je vois que cela semble urgent. Pauvre toi... Tiens, voici ce que tu voulais.",
         "Ce que je voulais ? Je ne comprends pas...ma maman ne m’a pas parlé de ça pourtant. Qu’est-ce-que c’est ?",
         "Bon...je me présente. Je suis le pharmacien de ce quartier, et je m’occupe d’aider les autres comme je le peux lorsqu’ils sont malades. Et ce papier est ce que ta mère m’achète, ce que je lui prescris. Ne pouvait-elle pas venir le chercher elle-même?",
         "Non, elle m’a dit qu’elle se sentait fatiguée aujourd’hui et allait dormir plus tôt.",
         "Oula ! Malheureusement, si c’est rendu au point où elle n’a pas pu se rendre d’elle-même, c'est que sa situation s’est beaucoup aggravée, permet moi de m’inquiéter grandement pour vous. Vite ! Retourne la voir et donne-lui ça à tout prix !"
     };
 
-    // Interaction PNJ1
-    List<string> diagPNJ1Jeu = new List<string> {
-        "Auriez-vous vu un monsieur important qui porte du blanc ?",
-        "Je ne sais pas de qui tu parles, et je suis occupé. Et toi, n’as-tu pas un jeu auquel jouer au lieu de t’attarder à cette activité futile ?"
-    };
-
-    // Interaction PNJ2
-    List<string> diagPNJ2Mock = new List<string> {
-        "Bonjour monsieur, auriez-vous vu un grand homme blanc et sérieux qui peut recevoir des papiers ?",
-        "Ma foi, tu sembles complètement perdu, petit gamin, tes parents ne t’ont-t-il pas bien éduqué ?",
-        "Est-ce que vous connaissez le monsieur tout blanc qui vit près d’ici ? Je dois lui donner un papier.",
-        "Un monsieur tout blanc ? Parles-tu d’un fantôme ? Tu es drôle toi, non je n’en ai pas vu, raconte-moi si tu en trouve un ha ha."
-    };
-
-    // Interaction PNJ3
-    List<string> diagPNJ3Noir = new List<string> {
-        "Sans blague ! Un autre accident désastreux et une nouvelle panne ! Quand est-ce que ce cauchemar va s'arrêter !"
-    };
-
-    // Interaction PNJ4
-    List<string> diagPNJ4 = new List<string> {
-        "Je n'ai pas le temps de te parler, va jouer ailleurs."
-    };
-
-    // Interaction PNJ5
-    List<string> diagPNJ5 = new List<string> {
-        "S'il te plait ne vient pas mettre ton nez dans des choses d'adultes."
-    };
-
-    // Interaction PNJ6
-    List<string> diagPNJ6 = new List<string> {
-        "Ne me dérange pas avec tes jeux, ouste !"
-    };
+    //List<string> diagPharmaPost = new List<string> {
+    //    "Petit...retournes vite délivrer cette prescription pour elle. Il...ne fonctionnera plus si ses symptômes se sont trop aggravés...",
+    //};
 
 
     /* Les differentes listes */
@@ -121,14 +114,24 @@ public class XavierAffichageTextes : MonoBehaviour
     // Retire temporairement la possibilite d'interagir
     public static bool retireInteractionJoueur;
 
+    // Valeur determinant si le prof est parle ou non
     public static int compteurInteracProf = 0;
+
+    // Valeur determinant si le pharmacien est parle ou non
+    public static int compteurInteracPharma = 0;
+
+    public static bool lampeTexteAffiche = false;
 
     // Statut pour un texte d'un personnage
     public bool typePerso;
 
     void Start()
     {
+        if(medic!=null)medic.SetActive(false);
+        bloqueDeplacement = false;
+        lampeTexteAffiche = false ;
         compteurInteracProf = 0;
+        compteurInteracPharma = 0;
 
         typePerso = false;
         dialogueText.text = "";
@@ -137,7 +140,7 @@ public class XavierAffichageTextes : MonoBehaviour
         // Le compteur de dialogue commence a zero
         indexListeDiag = 0;
 
-        if (SceneManager.GetActiveScene().name == "sceneXavierTuto" || SceneManager.GetActiveScene().name == "sceneJeuJour")
+        if (SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
 
             // Le joueur inititie le tutoriel des le debut
@@ -149,10 +152,16 @@ public class XavierAffichageTextes : MonoBehaviour
             compteAccroupi = 0f;
 
             listeDiag.AddRange(consignesTuto);
+            bloqueDeplacement = false;
+        }
+        else if (SceneManager.GetActiveScene().name == "sceneIntro")
+        {
+            // Le joueur n'initie pas le tutoriel
+            bloqueDeplacement = true;
         }
         else
         {
-            affichageTextesTuto= false;
+            affichageTextesTuto = false;
         }
     }
 
@@ -181,6 +190,7 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if(indexListeDiag == 0)
             {
+
                 // Animation apparition textbox
                 yield return new WaitForSeconds(delayAvantAffichage);
 
@@ -202,13 +212,45 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
-            if(indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < diagPharmaCle.Count)
+            {
+                if (listeDiag[indexListeDiag] == diagPharmaCle[indexListeDiag])
+                {
+                    StylesDiagPharmaCle();
+                }
+            }
+
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < diagPharma.Count)
             {
                 if(listeDiag[indexListeDiag] == diagPharma[indexListeDiag])
                 {
                     StylesDiagPharma();
                 }
             }
+
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < penseInvisibleMurLampa.Count)
+            {
+                if (listeDiag[indexListeDiag] == penseInvisibleMurLampa[indexListeDiag])
+                {
+                    StylePenseeGarcon();
+                }
+            }
+
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < penseCanette.Count)
+            {
+                if (listeDiag[indexListeDiag] == penseCanette[indexListeDiag])
+                {
+                    StylePenseeCanette();
+                }
+            }
+
+            if (controlePerso.entrerLampadaire)
+            {
+                controlePerso.entrerLampadaire = false;
+                lampeTexteAffiche = true;
+                StylePenseeGarcon();
+            }
+                
         }
 
         // Ecrire le texte
@@ -233,8 +275,28 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Update()
     {
+        if (medic != null)
+        {
+            if(indexListeDiag == 4)
+            {
+                if(medic.activeSelf == false) medic.SetActive(true);
+                QuitterPharmacie.testEteint = true;
+            }
+        }
+
+        if (canTexteAffiche)
+        {
+                listeDiag.AddRange(penseCanette);
+                typePerso = true;
+                retireInteractionJoueur = false;
+                StartCoroutine(LancerDialogue());
+                bloqueDeplacement = true;
+                canTexteAffiche = false;
+        }
+
+
         /* Lorsque le dialogue represente des persos */
-        if(typePerso)
+        if (typePerso)
         {
             // Aligner le texte gauche
             if(dialogueText.alignment != TextAnchor.MiddleLeft)
@@ -346,7 +408,7 @@ public class XavierAffichageTextes : MonoBehaviour
                                 }
                         }
 
-                        if (indexListeDiag != 4 && indexListeDiag != 5)
+                        if (indexListeDiag != 4)
                         {
                             /* Condition generale, juste clicker */
                             if (Input.GetMouseButtonDown(0))
@@ -360,12 +422,24 @@ public class XavierAffichageTextes : MonoBehaviour
 
                 else
                 {
-                    /* Condition generale, juste clicker */
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                    if(!lampeTexteAffiche)
                     {
-                        ChargerTexteEntierEarly();
-                        estEnTrainDEcrire = false;
-                     }
+                        /* Condition generale, juste clicker */
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                        {
+
+                            if(listeDiag != null)
+                            {
+                                //if (dialogueText.text != listeDiag[indexListeDiag])
+                                //{
+                                    ChargerTexteEntierEarly();
+                                    estEnTrainDEcrire = false;
+                                //}
+                            }
+                        }
+                    }
+
+    
                 }
 
             }
@@ -374,105 +448,123 @@ public class XavierAffichageTextes : MonoBehaviour
             else
             {
 
+                if (controlePerso.entrerLampadaire)
+                {
+                    //if (!lampeTexteAffiche && !estEnTrainDEcrire)
+                    //{
+                        controlePerso.entrerLampadaire = false;
+                        listeDiag.AddRange(penseInvisibleMurLampa);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                    //}
+                }
+
+                // Faire que le texte affiche defile par lui meme
+                if (lampeTexteAffiche)
+                {
+                    if (dialogueText.text == penseInvisibleMurLampa[indexListeDiag])
+                    {
+                        StartCoroutine(FermerEtLancerMessageAuto());
+                        lampeTexteAffiche = false;
+                    }
+                }
+
                 // Pour le texte du tutoriel
                 if (affichageTextesTuto)
                 {
 
-                    // 1. verif de l'accroupissement
-                    if (indexListeDiag == 0)
-                    {
-                        // On veut que le joueur s'accroupit et se redresse
-                        if (Input.GetKeyDown(KeyCode.LeftControl))
+                        // 1. verif de l'accroupissement
+                        if (indexListeDiag == 0)
                         {
-                            if (compteAccroupi < 2f) compteAccroupi++;
+                            // On veut que le joueur s'accroupit et se redresse
+                            if (Input.GetKeyDown(KeyCode.LeftControl))
+                            {
+                                if (compteAccroupi < 2f) compteAccroupi++;
+                            }
+
+                            // Avec 2 clics, le joueur passe au suivant
+                            if (compteAccroupi == 2f)
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+                            }
                         }
 
-                        // Avec 2 clics, le joueur passe au suivant
-                        if (compteAccroupi == 2f)
+                        // 2. verif du saut
+                        else if (indexListeDiag == 1)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
+                            // Le joueur doit appuyez ESPACE
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+                                // Le joueur peut interagir pour le prochain test
+                                retireInteractionJoueur = false;
+                            }
                         }
-                    }
 
-                    // 2. verif du saut
-                    else if (indexListeDiag == 1)
-                    {
-                        // Le joueur doit appuyez ESPACE
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        // 3. Test interact
+                        else if (indexListeDiag == 2)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-                            // Le joueur peut interagir pour le prochain test
-                            retireInteractionJoueur = false;
+                            if (XavierScriptInteraction.interactionFonctionnelle)
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
+
+                                // Le joueur peut plus interagir pour le prochain test
+                                retireInteractionJoueur = true;
+                            }
                         }
-                    }
 
-                    // 3. Test interact
-                    else if (indexListeDiag == 2)
-                    {
-                        if (XavierScriptInteraction.interactionFonctionnelle)
+                        // 4. verif du sprint
+                        else if (indexListeDiag == 3)
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
+                            // Le joueur doit appuyez sur SHIFT
+                            if (Input.GetKeyUp(KeyCode.LeftShift))
+                            {
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                indexListeDiag++;
 
-                            // Le joueur peut plus interagir pour le prochain test
-                            retireInteractionJoueur = true;
+                                // Le joueur peut interagir
+                                retireInteractionJoueur = false;
+                            }
                         }
-                    }
 
-                    // 4. verif du sprint
-                    else if (indexListeDiag == 3)
-                    {
-                        // Le joueur doit appuyez sur SHIFT
-                        if (Input.GetKeyUp(KeyCode.LeftShift))
+
+                        /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
+                        else
                         {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            indexListeDiag++;
-
-                            // Le joueur peut interagir
-                            retireInteractionJoueur = false;
-                    }
-                    }
-
-                    else if(indexListeDiag == 4 || indexListeDiag == 5)
-                    {
-                        if (dialogueText.text == listeDiag[indexListeDiag])
-                        {
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            // Lorsque le le joueur clic apres que le dialogue n'est pas nul
+                            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                            {
+                                // Le message se ferme, et l'index augmente s'il y a un autre texte
+                                StartCoroutine(FermerEtLancerMessageAuto());
+                                if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            }
                         }
-                    }
-
-                    /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
-                    else
-                    {
-                        // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
-                        {
-                            // Le message se ferme, et l'index augmente s'il y a un autre texte
-                            StartCoroutine(FermerEtLancerMessageAuto());
-                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
-                        }
-                    }
 
                 }
 
                 /* Sinon, le clic est suffisant pour passer du texte de dialogue */
                 else
                 {
-                    
-                    
-                    // Lorsque le le joueur clic apres que le dialogue n'est pas nul
-                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+
+                    if(!lampeTexteAffiche)
                     {
-                        // Le message se ferme, et l'index augmente s'il y a un autre texte
-                        if (indexListeDiag < listeDiag.Count) indexListeDiag++;
-                        StartCoroutine(FermerEtLancerMessageAuto());
+                        // Lorsque le le joueur clic apres que le dialogue n'est pas nul
+                        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && dialogueText.text != "")
+                        {
+                            
+                            // Le message se ferme, et l'index augmente s'il y a un autre texte
+                            if (indexListeDiag < listeDiag.Count) indexListeDiag++;
+                            StartCoroutine(FermerEtLancerMessageAuto());
+                        }
                     }
+
                 }
 
-            }
+    }
 
         /* Valider toute interaction du joueur */
         if (XavierScriptInteraction.interactionFonctionnelle)
@@ -495,10 +587,27 @@ public class XavierAffichageTextes : MonoBehaviour
 
             if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
             {
-                listeDiag.AddRange(diagPharma);
-                typePerso = true;
-                retireInteractionJoueur = false;
-                StartCoroutine(LancerDialogue());
+                if (SceneManager.GetActiveScene().name == "sceneJeuJour")
+                {
+                    listeDiag.AddRange(diagPharmaCle);
+                    typePerso = true;
+                    retireInteractionJoueur = false;
+                    StartCoroutine(LancerDialogue());
+                    bloqueDeplacement = true;
+                }
+                else if(SceneManager.GetActiveScene().name == "scenePharmacie")
+                {
+                    if(listeDiag != diagPharma)
+                    {
+                        listeDiag.AddRange(diagPharma);
+                        typePerso = true;
+                        retireInteractionJoueur = false;
+                        StartCoroutine(LancerDialogue());
+                        bloqueDeplacement = true;
+                    }
+
+                }
+
             }
 
             // Apres verification, reinitialiser la valeur de l'interaction
@@ -526,6 +635,16 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             StartCoroutine(LancerDialogue());
         }
+        else if (indexListeDiag == listeDiag.Count)
+        {
+            indexListeDiag = 0;
+            dialogueBox.SetActive(false);
+            dialogueText.text = "";
+            retireInteractionJoueur = false;
+            listeDiag.Clear();
+            bloqueDeplacement = false;
+        }
+
         // Lorsque l'affichage atteint sa fin, le statut de tuto prend fin
         else if (affichageTextesTuto == true)
         {
@@ -545,7 +664,7 @@ public class XavierAffichageTextes : MonoBehaviour
         else
         {
             // FIN dialogue prof
-            if(typePerso && compteurInteracProf == 1)
+            if (typePerso && compteurInteracProf == 1)
             {
                 profSuivre.ActiverSuivi();
             }
@@ -603,27 +722,70 @@ public class XavierAffichageTextes : MonoBehaviour
         }
     }
 
-    /* Fonction d'alternance de styles des repliques DiagPharma */
-    void StylesDiagPharma()
+    /* Fonction d'alternance de styles des repliques DiagPharmaCle */
+    void StylesDiagPharmaCle()
     {
-        // couleur prof
+        // couleur garcon
         if (indexListeDiag == 0 ||
             indexListeDiag == 2 ||
-            indexListeDiag == 4 ||
-            indexListeDiag == 6)
+            indexListeDiag == 5)
         {
             if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
             if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
         }
-        // couleur garcon
+        // couleur pharma
         else
         if (indexListeDiag == 1 ||
             indexListeDiag == 3 ||
-            indexListeDiag == 5 ||
-            indexListeDiag == 7)
+            indexListeDiag == 4 ||
+            indexListeDiag == 6)
         {
             if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
             if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
         }
     }
+
+    /* Fonction d'alternance de styles des repliques DiagPharma */
+    void StylesDiagPharma()
+    {
+        // couleur garcon
+        if (indexListeDiag == 0 ||
+            indexListeDiag == 2 ||
+            indexListeDiag == 4)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+        // couleur pharmacien
+        else
+        if (indexListeDiag == 1 ||
+            indexListeDiag == 3 ||
+            indexListeDiag == 5)
+        {
+            if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
+            if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
+        }
+    }
+
+    /* Fonction commentaire gars */
+    void StylePenseeGarcon()
+    {
+        // couleur prof
+        if (indexListeDiag == 0)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+    }
+    /* Fonction commentaire gars */
+    void StylePenseeCanette()
+    {
+        // couleur prof
+        if (indexListeDiag == 0)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+    }
+
 }

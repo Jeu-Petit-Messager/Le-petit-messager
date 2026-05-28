@@ -27,25 +27,28 @@ public class EntrerPhramacie : MonoBehaviour
         float distance =
             Vector3.Distance(transform.position, joueur.position);
 
-        // afficher image
-        if (distance <= distanceActivation)
+        if(XavierScriptInteraction.possedeClePharma)
         {
-            imageBoutonE.SetActive(true);
-
-            // if(XavierScriptInteraction.possedeClePharma)
-
-            // touche E
-            if (Input.GetKeyDown(KeyCode.E))
+            // afficher image
+            if (distance <= distanceActivation)
             {
-                // Le joueur peut rentrer s'il possede la cle
-                //  if (XavierScriptInteraction.possedeClePharma) 
-               StartCoroutine(EntrerPharmacie());
+                imageBoutonE.SetActive(true);
+
+                // touche E
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    // Le joueur peut rentrer s'il possede la cle
+                    //  if (XavierScriptInteraction.possedeClePharma) 
+                    StartCoroutine(EntrerPharmacie());
+                }
+
+            }
+            else
+            {
+                imageBoutonE.SetActive(false);
             }
         }
-        else
-        {
-            imageBoutonE.SetActive(false);
-        }
+
     }
 
     IEnumerator EntrerPharmacie()
