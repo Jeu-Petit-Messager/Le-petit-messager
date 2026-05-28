@@ -23,7 +23,7 @@ public class XavierAffichageTextes : MonoBehaviour
     public ProfSuivre profSuivre;
 
     // Statut determinantlorsque le texte est en ecriture
-    public bool estEnTrainDEcrire;
+    public static bool estEnTrainDEcrire;
 
     public static bool bloqueDeplacement;
     /* Variables de conditions du tutoriel*/
@@ -55,6 +55,11 @@ public class XavierAffichageTextes : MonoBehaviour
     // Pensee lorsque le joueur n'a pas retabli le courant
     List<string> penseInvisibleMurLampa = new List<string> {
         "J'aime pas... Il fait trop noir..."
+    };
+
+    // Pensee lorsque le joueur n'a pas retabli le courant
+    List<string> penseClotureCanette = new List<string> {
+        "Zut, c'est trop haut! Je pourrais sûrement passer en empilant des trucs ici..."
     };
 
     // Interaction 1 Prof
@@ -101,41 +106,6 @@ public class XavierAffichageTextes : MonoBehaviour
     //    "Petit...retournes vite délivrer cette prescription pour elle. Il...ne fonctionnera plus si ses symptômes se sont trop aggravés...",
     //};
 
-    // Interaction PNJ1
-    List<string> diagPNJ1Jeu = new List<string> {
-        "Auriez-vous vu un monsieur important qui porte du blanc ?",
-        "Je ne sais pas de qui tu parles, et je suis occupé. Et toi, n’as-tu pas un jeu auquel jouer au lieu de t’attarder à cette activité futile ?"
-    };
-
-    // Interaction PNJ2
-    List<string> diagPNJ2Mock = new List<string> {
-        "Bonjour monsieur, auriez-vous vu un grand homme blanc et sérieux qui peut recevoir des papiers ?",
-        "Ma foi, tu sembles complètement perdu, petit gamin, tes parents ne t’ont-t-il pas bien éduqué ?",
-        "Est-ce que vous connaissez le monsieur tout blanc qui vit près d’ici ? Je dois lui donner un papier.",
-        "Un monsieur tout blanc ? Parles-tu d’un fantôme ? Tu es drôle toi, non je n’en ai pas vu, raconte-moi si tu en trouve un ha ha."
-    };
-
-    // Interaction PNJ3
-    List<string> diagPNJ3Noir = new List<string> {
-        "Sans blague ! Un autre accident désastreux et une nouvelle panne ! Quand est-ce que ce cauchemar va s'arrêter !"
-    };
-
-    // Interaction PNJ4
-    List<string> diagPNJ4 = new List<string> {
-        "Je n'ai pas le temps de te parler, va jouer ailleurs."
-    };
-
-    // Interaction PNJ5
-    List<string> diagPNJ5 = new List<string> {
-        "S'il te plait ne vient pas mettre ton nez dans des choses d'adultes."
-    };
-
-    // Interaction PNJ6
-    List<string> diagPNJ6 = new List<string> {
-        "Ne me dérange pas avec tes jeux, ouste !"
-    };
-
-
     /* Les differentes listes */
     // Variable indiquant la fin de cette partie
     public static bool affichageTextesTuto;
@@ -151,12 +121,16 @@ public class XavierAffichageTextes : MonoBehaviour
 
     public static bool lampeTexteAffiche = false;
 
+    public static bool canTexteAffiche = false;
+
     // Statut pour un texte d'un personnage
     public bool typePerso;
 
     void Start()
     {
-        if(medic!=null)medic.SetActive(false);
+        //XavierZoneCanetteProg.zoneCanetteActive = false;
+
+        if (medic!=null)medic.SetActive(false);
         bloqueDeplacement = false;
         lampeTexteAffiche = false ;
         compteurInteracProf = 1;
@@ -259,8 +233,15 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < penseClotureCanette.Count)
+            {
+                if (listeDiag[indexListeDiag] == penseClotureCanette[indexListeDiag])
+                {
+                    StylePenseeClotureCanette();
+                }
+            }
 
-            if(controlePerso.entrerLampadaire)
+            if (controlePerso.entrerLampadaire)
             {
                 controlePerso.entrerLampadaire = false;
                 lampeTexteAffiche = true;
@@ -297,6 +278,19 @@ public class XavierAffichageTextes : MonoBehaviour
             {
                 if(medic.activeSelf == false) medic.SetActive(true);
                 QuitterPharmacie.testEteint = true;
+            }
+        }
+
+        if (canTexteAffiche)
+        {
+            if (listeDiag != penseClotureCanette)
+            {
+                listeDiag.AddRange(penseClotureCanette);
+                typePerso = true;
+                retireInteractionJoueur = false;
+                StartCoroutine(LancerDialogue());
+                bloqueDeplacement = true;
+                canTexteAffiche = false;
             }
         }
 
@@ -574,6 +568,7 @@ public class XavierAffichageTextes : MonoBehaviour
         /* Valider toute interaction du joueur */
         if (XavierScriptInteraction.interactionFonctionnelle)
         {
+
             XavierScriptInteraction.interactionFonctionnelle = false;
 
             /* Activer dialogues specifiques selon l'interaction */
@@ -612,6 +607,10 @@ public class XavierAffichageTextes : MonoBehaviour
                     }
 
                 }
+
+                //if (XavierScriptInteraction.nomObjetInteract == "zoneCanette")
+                //{
+                //}
 
             }
 
@@ -784,4 +783,16 @@ public class XavierAffichageTextes : MonoBehaviour
             if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
         }
     }
+
+    /* Fonction commentaire gars */
+    void StylePenseeClotureCanette()
+    {
+        // couleur prof
+        if (indexListeDiag == 0)
+        {
+            if (dialogueText.color != couleurGarcon) dialogueText.color = couleurGarcon;
+            if (dialogueText.font != fontGarcon) dialogueText.font = fontGarcon;
+        }
+    }
+
 }
