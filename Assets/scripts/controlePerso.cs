@@ -169,20 +169,4 @@ public class controlePerso : MonoBehaviour
             
         }
     }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "testCloture")
-        {
-            if (!XavierAffichageTextes.canTexteAffiche && XavierZoneCanetteProg.canetteCollectees < 1)
-            {
-                
-                if (!XavierAffichageTextes.estEnTrainDEcrire)
-                {
-                    print("tide");
-                    XavierAffichageTextes.canTexteAffiche = true;
-                }
-            }
-        }
-    }
 }

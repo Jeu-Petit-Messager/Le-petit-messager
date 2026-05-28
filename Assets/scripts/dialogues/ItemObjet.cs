@@ -35,7 +35,6 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Update()
     {
-
         //print(XavierScriptInteraction.enigmeLampadaire);
 
         /* Restriction dans la section du tutoriel */
