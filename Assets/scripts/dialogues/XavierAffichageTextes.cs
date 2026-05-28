@@ -536,14 +536,6 @@ public class XavierAffichageTextes : MonoBehaviour
                             }
                         }
 
-                        else if(indexListeDiag == 4 || indexListeDiag == 5)
-                        {
-                            if (dialogueText.text == listeDiag[indexListeDiag])
-                            {
-                                StartCoroutine(FermerEtLancerMessageAuto());
-                                if (indexListeDiag < listeDiag.Count) indexListeDiag++;
-                            }
-                        }
 
                         /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
                         else
