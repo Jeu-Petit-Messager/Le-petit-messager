@@ -49,13 +49,12 @@ public class XavierAffichageTextes : MonoBehaviour
         "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
         "Appuyez sur E pour interagir avec des objets ou des personnes!",
         "Maintenez le bouton SHIFT pour courir",
-        "Maintenant, essayez de tassez la planche qui bloque votre chemin.",
-        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!" // provisoire
+        "Allez maintenant voir le grand homme au bout de la rue" // provisoire
     };
 
     // Pensee lorsque le joueur n'a pas retabli le courant
     List<string> penseInvisibleMurLampa = new List<string> {
-        "J'aime pas... Il fait trop noir... Il faut allumer les lumières! "
+        "J'aime pas... Il fait trop noir..."
     };
 
     // Interaction 1 Prof
@@ -414,7 +413,7 @@ public class XavierAffichageTextes : MonoBehaviour
                                 }
                         }
 
-                        if (indexListeDiag != 4 && indexListeDiag != 5)
+                        if (indexListeDiag != 4)
                         {
                             /* Condition generale, juste clicker */
                             if (Input.GetMouseButtonDown(0))
@@ -537,14 +536,6 @@ public class XavierAffichageTextes : MonoBehaviour
                             }
                         }
 
-                        else if(indexListeDiag == 4 || indexListeDiag == 5)
-                        {
-                            if (dialogueText.text == listeDiag[indexListeDiag])
-                            {
-                                StartCoroutine(FermerEtLancerMessageAuto());
-                                if (indexListeDiag < listeDiag.Count) indexListeDiag++;
-                            }
-                        }
 
                         /* Dans tout autre cas, le clic est suffisant pour passer du texte de dialogue */
                         else
@@ -601,7 +592,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
             if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
             {
-                if (SceneManager.GetActiveScene().name == "sceneJeuJourNice")
+                if (SceneManager.GetActiveScene().name == "sceneJeuJour")
                 {
                     listeDiag.AddRange(diagPharmaCle);
                     typePerso = true;
