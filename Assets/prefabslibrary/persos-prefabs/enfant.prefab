@@ -138,8 +138,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 3253968856893493947}
     m_Modifications:
     - target: {fileID: 2241612450011560554, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      propertyPath: field of view
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241612450011560554, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: far clip plane
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_Name
@@ -147,35 +151,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.08
+      value: -0.39843398
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.53
+      value: 1.8385308
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.28
+      value: -2.555199
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9965907
+      value: 0.999904
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.077689596
+      value: 0.003734375
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.027689232
+      value: -0.013348556
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0021585245
+      value: 0.000049853465
       objectReference: {fileID: 0}
     - target: {fileID: 4458591497916547035, guid: e92c521097f139b46837082a002b90b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -220,6 +224,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3483353470790851668}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2607383624239993686}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6690926970471269156}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3819371522587917187}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5424998415374093896}
+    - targetCorrespondingSourceObject: {fileID: 2400473489411781720, guid: e92c521097f139b46837082a002b90b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7188430990299153534}
   m_SourcePrefab: {fileID: 100100000, guid: e92c521097f139b46837082a002b90b4, type: 3}
 --- !u!4 &2922430543091984670 stripped
 Transform:
@@ -246,8 +265,192 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: 998c9685790f30f47bd94df63eb34071, type: 2}
+--- !u!114 &2607383624239993686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3a5a9a49e1ca446b01b7ca76b57c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionNuit
+  globalVolume: {fileID: 3483353470790851668}
+  lampadaires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tempsAvantNuit: 300
+  dureeTransition: 180
+  fadeAnimator: {fileID: 0}
+--- !u!114 &6690926970471269156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fef21e42adca0a445894e72a64419e84, type: 2}
+--- !u!114 &3819371522587917187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3a5a9a49e1ca446b01b7ca76b57c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionNuit
+  globalVolume: {fileID: 3483353470790851668}
+  lampadaires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tempsAvantNuit: 300
+  dureeTransition: 180
+  fadeAnimator: {fileID: 0}
+--- !u!114 &5424998415374093896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fef21e42adca0a445894e72a64419e84, type: 2}
+--- !u!114 &7188430990299153534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764630694689120925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2.5
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1001 &3072248871107130704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,27 +461,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.261276
+      value: 28.889
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3121338
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -130.1824
+      value: -134.042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -316,10 +519,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: enfant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c633596e028a36042b4364e852feb046, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ab2b9c5a5ff08a84e875968094114aca, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -390,9 +601,20 @@ MonoBehaviour:
   interactKey: 101
   objetInteractif: {fileID: 0}
   imageUIObjet: {fileID: 0}
+  imageUIInterne: {fileID: 0}
   sourceImageCanette: {fileID: 21300000, guid: ec00defbe7f22454c96af43a1a53c3af, type: 3}
+  sourceImageClePharma: {fileID: 21300000, guid: f0dfb73aeeefb774ba55dbbf6f7c2436, type: 3}
+  sourceImageMedicament: {fileID: 21300000, guid: a1dbe8ce91d41a14780427fcf841ca49, type: 3}
   peutPrendre: 1
   possedeCanette: 0
+  chargerLamp: 0
+  chargerPharma: 0
+  chargerCourse: 0
+  blocCorridorLampadaire: {fileID: 0}
+  lumLamp1: {fileID: 0}
+  lumLamp2: {fileID: 0}
+  lumLamp3: {fileID: 0}
+  lumLamp4: {fileID: 0}
 --- !u!114 &532480130706192265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,16 +627,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba24cefef5b2b7b4c9e89c1174a45eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::controlePerso
-  vitesseMarche: 3
-  vitesseCourse: 8
-  vitesseAccroupi: 1
-  vitesseRotation: 37
+  vitesseMarche: 3.5
+  vitesseCourse: 5.25
+  vitesseAccroupi: 2
+  vitesseRotation: 115
   forceSaut: 1
   gravite: -9.81
   boolSaut: 0
   sonSaut: {fileID: 1885724807996156766}
   animator: {fileID: 8919457934320060609}
   auSol: 0
+  boite: {fileID: 0}
 --- !u!143 &7891244165495943594
 CharacterController:
   m_ObjectHideFlags: 0
@@ -433,13 +656,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.65
+  m_Height: 1.55
   m_Radius: 0.41
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.93, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!82 &1885724807996156766
 AudioSource:
   m_ObjectHideFlags: 0

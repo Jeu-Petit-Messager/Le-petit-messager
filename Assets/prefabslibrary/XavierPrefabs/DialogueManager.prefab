@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6159033159958053087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4804149034838030124}
+  - component: {fileID: 7108978067801189713}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4804149034838030124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159033159958053087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 339.9854, y: 106.35966, z: 134.03262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7108978067801189713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159033159958053087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c970eca1100515944b40add4de4a8f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueIntro
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  animator: {fileID: 0}
+  listeDiag: []
+  indexListeDiag: 0
+  delayAvantAffichage: 0
+  vitesseEcriture: 0
+  profSuivre: {fileID: 0}
+  estEnTrainDEcrire: 1
+  couleurPNJ: {r: 1, g: 1, b: 1, a: 1}
+  fontPNJ: {fileID: 12800000, guid: dc81e82d0928cc64cbbbb68e5222de74, type: 3}
+  couleurGarcon: {r: 1, g: 0.96448004, b: 0.827044, a: 1}
+  fontGarcon: {fileID: 12800000, guid: 9ccbcb90b8385324f90a5fff8aa6d208, type: 3}
+  couleurProf: {r: 0.64453536, g: 0.70044166, b: 0.9622642, a: 1}
+  fontProf: {fileID: 12800000, guid: 986335f4d10879a408309a8a956c90f0, type: 3}
+  couleurPharma: {r: 0.8798435, g: 0.99371064, b: 0.65309906, a: 1}
+  fontPharma: {fileID: 12800000, guid: 67531a174835cbb43b14d9074e7eb3e0, type: 3}
+  typePerso: 0
