@@ -49,8 +49,7 @@ public class XavierAffichageTextes : MonoBehaviour
         "Enfoncez la barre d'espace pour sauter par dessus des obstacles",
         "Appuyez sur E pour interagir avec des objets ou des personnes!",
         "Maintenez le bouton SHIFT pour courir",
-        "Maintenant, essayez de tassez la planche qui bloque votre chemin.",
-        "Il y a 6 cannettes qui ne font que vous attendre. Bonne chance!" // provisoire
+        "Allez maintenant voir le grand homme au bout de la rue" // provisoire
     };
 
     // Pensee lorsque le joueur n'a pas retabli le courant
