@@ -169,4 +169,18 @@ public class controlePerso : MonoBehaviour
             
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "canetteTour")
+        {
+            if(XavierZoneCanetteProg.canetteCollectees < 1)
+            {
+                if (!XavierAffichageTextes.estEnTrainDEcrire)
+                {
+                    XavierAffichageTextes.canTexteAffiche = true;
+                }
+            }
+        }
+    }
 }

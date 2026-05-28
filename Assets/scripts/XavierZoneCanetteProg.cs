@@ -14,8 +14,6 @@ public class XavierZoneCanetteProg : MonoBehaviour
 
     public AudioSource sonRamassage;
 
-    public GameObject flecheBlanche;
-
     public Renderer zoneRenderer;
 
     public void Update()
@@ -71,8 +69,6 @@ public class XavierZoneCanetteProg : MonoBehaviour
                 sonRamassage.PlayOneShot(sonRamassage.clip);
 
                 canette6.SetActive(true);
-
-                flecheBlanche.SetActive(false);
                 // désactiver emission
                 zoneRenderer.material.DisableKeyword("_EMISSION");
             }
