@@ -9,8 +9,8 @@ public class TransitionNuit : MonoBehaviour
     // toutes les lumières des lampadaires
     public Light[] lampadaires;
 
-    public float tempsAvantNuit = 300f; // 5 minutes
-    public float dureeTransition = 180f; // 3 minutes transition
+    public float tempsAvantNuit = 480f; // 8 minutes
+    public float dureeTransition = 200f; // 3.2 minutes transition
 
     public Animator fadeAnimator;
 
