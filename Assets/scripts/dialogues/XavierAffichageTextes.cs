@@ -601,7 +601,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
             if(XavierScriptInteraction.nomObjetInteract == "pharmacien")
             {
-                if (SceneManager.GetActiveScene().name == "sceneJeuJourNice")
+                if (SceneManager.GetActiveScene().name == "sceneJeuJour")
                 {
                     listeDiag.AddRange(diagPharmaCle);
                     typePerso = true;
