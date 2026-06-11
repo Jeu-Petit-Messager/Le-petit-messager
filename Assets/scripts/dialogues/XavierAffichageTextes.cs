@@ -67,7 +67,6 @@ public class XavierAffichageTextes : MonoBehaviour
     // Interaction 1 Prof
     List<string> diagProf1 = new List<string> {
         "Qu’est ce qui ne va pas? Petit...as-tu besoin de mon aide?",
-
         "Je suis à la recherche d'un monsieur...\nmais ma maman m’a dit de ne pas parler aux monsieurs bizarres...",
         "Attends...je suis qu’un gentil homme je t’assure..! Tu sais je suis...ou du moins j’étais...un grand professeur avant, et je passais mes journées à aider des petits garçons tout comme toi, alors...n’hésite pas à tout me dire.",
         "... Bon d’accord. Ma mère vit toute seule et elle m’a demandé d’aller donner ce bout de papier vite vite à un grand monsieur tout blanc avant la nuit...mais le problème est que je ne me rappelle plus de lui... ",
@@ -89,8 +88,7 @@ public class XavierAffichageTextes : MonoBehaviour
         "J'aimerais vraiment t'aider et venir avec toi à l'intérieur de ma boutique mais j'ai égaré ma clé et...à mon vieil âge je n'ai plus mon énergie d'antan pour essayer de trouver où est ce qu'on est allé la cacher.",
         "Crois moi, si tu m'aide à trouver ma clé, je te promet que je vais t'aider, et je suis certain que tes parents seront fier de toi quand ils apprendront que tu as aidé un pauvre homme comme moi.",
         "...D'accord. Donc, elle est comment votre clé?",
-        "Et bien, elle est dure à manquer, grosse et dorée. Je crois l'avoir perdu aux alentours de . Allez, cours et trouve moi cette clé!"
-        // [mettre endroit vague ou tu l'as mis ex, près du parc, près de l'église, sur la rue de la tour de l'horloge etc]
+        "Et bien, elle est dure à manquer, grosse et dorée. Je crois l'avoir perdu proche de la clotûre, devant la chapelle. Je compte sur toi, petit..."
     };
 
     List<string> diagPharma = new List<string> {
@@ -102,9 +100,9 @@ public class XavierAffichageTextes : MonoBehaviour
         "Oula ! Malheureusement, si c’est rendu au point où elle n’a pas pu se rendre d’elle-même, c'est que sa situation s’est beaucoup aggravée, permet moi de m’inquiéter grandement pour vous. Vite ! Retourne la voir et donne-lui ça à tout prix !"
     };
 
-    //List<string> diagPharmaPost = new List<string> {
-    //    "Petit...retournes vite délivrer cette prescription pour elle. Il...ne fonctionnera plus si ses symptômes se sont trop aggravés...",
-    //};
+    List<string> diagPharmaPost = new List<string> {
+        "Petit...retournes vite délivrer cette prescription pour elle. Il...ne fonctionnera plus si ses symptômes se sont trop aggravés...",
+    };
 
 
     /* Les differentes listes */
@@ -127,7 +125,7 @@ public class XavierAffichageTextes : MonoBehaviour
 
     void Start()
     {
-        if(medic!=null)medic.SetActive(false);
+        if (medic!=null)medic.SetActive(false);
         bloqueDeplacement = false;
         lampeTexteAffiche = false ;
         compteurInteracProf = 0;
@@ -228,6 +226,14 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
             }
 
+            if (indexListeDiag < listeDiag.Count && indexListeDiag < diagPharmaPost.Count)
+            {
+                if (listeDiag[indexListeDiag] == diagPharmaPost[indexListeDiag])
+                {
+                    StylesDiagPharmaPost();
+                }
+            }
+
             if (indexListeDiag < listeDiag.Count && indexListeDiag < penseInvisibleMurLampa.Count)
             {
                 if (listeDiag[indexListeDiag] == penseInvisibleMurLampa[indexListeDiag])
@@ -277,7 +283,7 @@ public class XavierAffichageTextes : MonoBehaviour
     {
         if (medic != null)
         {
-            if(indexListeDiag == 4)
+            if(indexListeDiag == 2)
             {
                 if(medic.activeSelf == false) medic.SetActive(true);
                 QuitterPharmacie.testEteint = true;
@@ -597,15 +603,24 @@ public class XavierAffichageTextes : MonoBehaviour
                 }
                 else if(SceneManager.GetActiveScene().name == "scenePharmacie")
                 {
-                    if(listeDiag != diagPharma)
+                    if (compteurInteracPharma == 0)
                     {
                         listeDiag.AddRange(diagPharma);
                         typePerso = true;
-                        retireInteractionJoueur = false;
+                        retireInteractionJoueur = true;
+                        StartCoroutine(LancerDialogue());
+                        compteurInteracPharma++;
+                        bloqueDeplacement = true;
+                    }
+                    else if(compteurInteracPharma == 1)
+                    {
+                        listeDiag.AddRange(diagPharmaPost);
+                        typePerso = true;
+                        retireInteractionJoueur = true;
+                        compteurInteracPharma++;
                         StartCoroutine(LancerDialogue());
                         bloqueDeplacement = true;
                     }
-
                 }
 
             }
@@ -764,6 +779,17 @@ public class XavierAffichageTextes : MonoBehaviour
         {
             if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
             if (dialogueText.font != fontPharma) dialogueText.font = fontPharma;
+        }
+    }
+
+    /* Fonction d'alternance de styles des repliques DiagPharmaPost */
+    void StylesDiagPharmaPost()
+    {
+        // couleur garcon
+        if (indexListeDiag == 0)
+        {
+            if (dialogueText.color != couleurPharma) dialogueText.color = couleurPharma;
+            if (dialogueText.font != fontPharma) dialogueText.font = fontPharma ;
         }
     }
 
