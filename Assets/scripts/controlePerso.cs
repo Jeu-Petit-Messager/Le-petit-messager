@@ -22,13 +22,14 @@ public class controlePerso : MonoBehaviour
 
     private float vitesseY;
     private bool accroupi;
-    public bool auSol;
+    public static bool auSol;
 
     public static bool entrerLampadaire = false;
     public GameObject boite;
 
     void Start()
     {
+        auSol = true;
         controller = GetComponent<CharacterController>();
         boolSaut = false;
 

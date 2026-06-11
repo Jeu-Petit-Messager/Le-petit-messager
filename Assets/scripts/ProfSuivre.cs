@@ -55,7 +55,7 @@ public class ProfSuivre : MonoBehaviour
                 imageE.SetActive(true);
 
                 // touche E
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && controlePerso.auSol)
                 {
                     interactionFaite = true;
 

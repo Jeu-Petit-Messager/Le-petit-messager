@@ -123,7 +123,7 @@ public class XavierScriptInteraction : MonoBehaviour
 
 
                 // Le joueur peut interagir avec l'objet
-                if (Input.GetKeyDown(interactKey))
+                if (Input.GetKeyDown(interactKey) && controlePerso.auSol)
                 {
                     interactable.Interact();
 
