@@ -39,22 +39,33 @@ public class XavierScriptInteraction : MonoBehaviour
     /* lorsque le joueur possede une canette */
     public bool possedeCanette;
 
-    // Cle pour rentrer dans la pharmacie
     public static bool possedeClePharma;
 
-    public static bool enigmeLampadaire;
     public bool chargerLamp;
     public static bool enigmePharma;
     public bool chargerPharma;
     public static bool courseFinale;
     public bool chargerCourse;
 
+
+    // Bloc qui disparait pour enigme lampadaire
+    public GameObject blocCorridorLampadaire;
+    public GameObject lumLamp1;
+    public GameObject lumLamp2;
+    public GameObject lumLamp3;
+    public GameObject lumLamp4;
+
     public void Start()
     {
+        lumLamp1.gameObject.SetActive(false);
+        lumLamp2.gameObject.SetActive(false);
+        lumLamp3.gameObject.SetActive(false);
+        lumLamp4.gameObject.SetActive(false);
+
         // Le nombre de canettes collectees est remis a 0 au debut de la scene
         XavierZoneCanetteProg.canetteCollectees = 0;
 
-        imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
+        if(imageUIObjet!=null)imageUIObjet.gameObject.SetActive(!imageUIObjet.activeSelf);
 
         /* le garcon ne possede aucun objet au depart*/
         interactionFonctionnelle = false;
@@ -64,19 +75,20 @@ public class XavierScriptInteraction : MonoBehaviour
         possedeClePharma = false;
 
         // Le joueur possede le medicament au depart
-        if (SceneManager.GetActiveScene().name == "sceneJeuJour" || SceneManager.GetActiveScene().name == "sceneXavierEnigmesPrototype")
+        if (SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
-            enigmeLampadaire = false;
+
             enigmePharma = true;
         }
 
         // Le joueur possede le medicament au depart
-        if (SceneManager.GetActiveScene().name == "sceneJeuNuit" || SceneManager.GetActiveScene().name == "sceneXavierNuitMedic")
+        if (SceneManager.GetActiveScene().name == "sceneJeuNuit")
         {
+            enigmePharma = false;
             courseFinale = false;
             peutPrendre = false;
-            imageUIObjet.SetActive(!imageUIObjet.activeSelf);
-            imageUIInterne.GetComponent<Image>().sprite = sourceImageMedicament;
+            if(imageUIObjet!=null)imageUIObjet.SetActive(!imageUIObjet.activeSelf);
+            if(imageUIInterne!=null)imageUIInterne.GetComponent<Image>().sprite = sourceImageMedicament;
         }
     }
 
@@ -88,13 +100,9 @@ public class XavierScriptInteraction : MonoBehaviour
 
     void Update()
     {
-        /* Gestion enigmes */
-        if(enigmeLampadaire)
+        if(XavierAffichageTextes.compteurInteracProf == 1)
         {
-            if(!chargerLamp)
-            {
-                chargerLamp = true;
-            }
+            XavierAffichageTextes.compteurInteracProf++;
         }
 
 
@@ -111,6 +119,9 @@ public class XavierScriptInteraction : MonoBehaviour
 
             if (interactable != null)
             {
+                objetInteractif = hitColliders[0].gameObject;
+
+
                 // Le joueur peut interagir avec l'objet
                 if (Input.GetKeyDown(interactKey))
                 {
@@ -154,7 +165,12 @@ public class XavierScriptInteraction : MonoBehaviour
                         // Prise de courant enigme lampadaires
                         if(nomObjetInteract == "prise")
                         {
-                            enigmeLampadaire = false;
+                            blocCorridorLampadaire.gameObject.SetActive(false);
+                            lumLamp1.gameObject.SetActive(true);
+                            lumLamp2.gameObject.SetActive(true);
+                            lumLamp3.gameObject.SetActive(true);
+                            lumLamp4.gameObject.SetActive(true);
+
                         }
 
                         // Prendre la cle de la pharmacie
@@ -164,12 +180,15 @@ public class XavierScriptInteraction : MonoBehaviour
                             imageUIObjet.SetActive(!imageUIObjet.activeSelf);
                             imageUIInterne.GetComponent<Image>().sprite = sourceImageClePharma;
 
+                            objetInteractif.GetComponent<AudioSource>().Play();
+                            Destroy(objetInteractif, 0.1f);
+
                             // Enigme pharma prend fin
                             enigmePharma = false;
                         }
                     }
                 }
-                
+
             }
         }
     }

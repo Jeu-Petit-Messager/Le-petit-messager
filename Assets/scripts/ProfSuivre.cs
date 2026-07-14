@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ProfSuivre : MonoBehaviour
 {
@@ -25,46 +26,50 @@ public class ProfSuivre : MonoBehaviour
 
     private bool interactionFaite = false;
 
+    public float distance;
+
     private bool suivreJoueur = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        imageE.SetActive(false);
+        if(imageE!=null) imageE.SetActive(false);
         StartCoroutine(BruitAleatoire());
     }
 
     void Update()
     {
-        // distance joueur
-        float distance =
-            Vector3.Distance(
-                transform.position,
-                joueur.position
-            );
-
-        // interaction prof
-        if (!interactionFaite &&
-            !XavierAffichageTextes.affichageTextesTuto &&
-            distance <= distanceInteraction)
+        if(SceneManager.GetActiveScene().name == "sceneJeuJour")
         {
-            imageE.SetActive(true);
-
-            // touche E
-            if (Input.GetKeyDown(KeyCode.E))
+            // distance joueur
+            if (SceneManager.GetActiveScene().name == "sceneJeuJour")
             {
-                interactionFaite = true;
-
-                imageE.SetActive(false);
-
-                XavierScriptInteraction.interactionFonctionnelle = true;
-
-                XavierScriptInteraction.nomObjetInteract = "prof";
+                distance = Vector3.Distance(transform.position, joueur.position);
             }
-        }
-        else if (!interactionFaite)
-        {
-            imageE.SetActive(false);
+
+            // interaction prof
+            if (!interactionFaite &&
+                !XavierAffichageTextes.affichageTextesTuto &&
+                distance <= distanceInteraction)
+            {
+                imageE.SetActive(true);
+
+                // touche E
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactionFaite = true;
+
+                    imageE.SetActive(false);
+
+                    XavierScriptInteraction.interactionFonctionnelle = true;
+
+                    XavierScriptInteraction.nomObjetInteract = "prof";
+                }
+            }
+            else if (!interactionFaite)
+            {
+                imageE.SetActive(false);
+            }
         }
 
         // suivre joueur après dialogue

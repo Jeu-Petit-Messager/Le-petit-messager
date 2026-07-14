@@ -14,32 +14,40 @@ public class QuitterPharmacie : MonoBehaviour
 
     public string nomScene = "sceneJeuNuit";
 
+    public static bool testEteint;
+
     void Start()
     {
+        testEteint = false;
         imageBoutonE.SetActive(false);
     }
 
     void Update()
     {
+
         // distance
         float distance =
             Vector3.Distance(transform.position, joueur.position);
 
-        // afficher image
-        if (distance <= distanceActivation)
+        if(testEteint)
         {
-            imageBoutonE.SetActive(true);
-
-            // touche E
-            if (Input.GetKeyDown(KeyCode.E))
+            // afficher image
+            if (distance <= distanceActivation)
             {
-                StartCoroutine(QuitterLePharmacie());
+                imageBoutonE.SetActive(true);
+
+                // touche E
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    StartCoroutine(QuitterLePharmacie());
+                }
+            }
+            else
+            {
+                imageBoutonE.SetActive(false);
             }
         }
-        else
-        {
-            imageBoutonE.SetActive(false);
-        }
+
     }
     IEnumerator QuitterLePharmacie()
     {

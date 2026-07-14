@@ -8,6 +8,7 @@ TagManager:
   - ZoneCanette
   - Sol
   - ObjetSpecial
+  - cloture
   layers:
   - Default
   - TransparentFX
